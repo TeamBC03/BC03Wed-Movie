@@ -7,10 +7,16 @@ import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "@fortawesome/fontawesome-free/js/all";
+import { Provider } from "react-redux";
+import { compose, createStore, applyMiddleware } from "redux";
+import rootReducer from "./Redux/Reducer";
+import thunk from "redux-thunk";
+const composeEhanser = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEhanser(applyMiddleware(thunk)));
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
 

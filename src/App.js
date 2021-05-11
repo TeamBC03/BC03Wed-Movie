@@ -1,26 +1,33 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Page404 from "./Container/Page404";
+import HomeTemplate from "./Container/HomeTemplate";
+import { routesHome } from "./Routes/index";
 
 function App() {
+  const renderHomeTemplate = (routes) => {
+    if (routes && routes.length > 0) {
+      console.log("da chay");
+      return routes.map((item, index) => {
+        return (
+          <HomeTemplate
+            key={index}
+            exact={item.exact}
+            path={item.path}
+            Component={item.component}
+          />
+        );
+      });
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="btn btn-danger">Luan</button>
-        <i class="fas fa-home"></i>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        {renderHomeTemplate(routesHome)}
+        {console.log("luan22")}
+        <Route path="" component={Page404} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,62 @@
+.Carousel {
+  position: relative;
+}
+
+.fastBooking-content {
+  display: flex;
+  flex-direction: column;
+}
+.fastBooking-content select {
+  margin-bottom: 10px;
+  height: 30%;
+  padding: 6px;
+}
+.Carousel-FastBooking {
+  width: 25%;
+  position: absolute;
+  top: 17%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+.fastBookingHeader h5 {
+  background-color: #f26b38;
+  color: white;
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+}
+.fastBooking-container {
+  display: flex;
+  justify-content: space-between;
+}
+.Carousel-FastBooking-fluid {
+  padding: 10px 20px;
+}
+.fastBooking-button {
+  display: flex;
+  flex-direction: row-reverse;
+  border: none;
+}
+.fastBooking-button button {
+  background-color: #f26b38;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+}
+.fastBooking-button button:hover {
+  background-color: #f26b38;
+  opacity: 0.7;
+}
+.Carousel-FastBooking-fluid ul li button {
+  color: white;
+}
+.Carousel-FastBooking-fluid ul li .active {
+  background-color: transparent !important;
+  color: #f26b38 !important;
+  border-bottom: 1px solid red;
+}
+
+.Carousel-FastBooking-fluid ul li button:hover {
+  color: #f26b38;
+}
