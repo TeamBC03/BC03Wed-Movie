@@ -1,6 +1,39 @@
-import React, { memo } from "react";
+import { render } from "@testing-library/react";
+import React, { memo, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./css.css";
-function NavHome() {
+const renderLogin = () => {
+  if (localStorage.getItem("User")) {
+    console.log();
+    return (
+      <ul>
+        <li>
+          <i className="fas fa-user-circle" />
+          <span>{JSON.parse(localStorage.getItem("User")).hoTen}</span>
+        </li>
+        <li>
+          <a onClick={signOut}>Đăng xuất</a>
+        </li>
+      </ul>
+    );
+  }
+
+  return (
+    <ul>
+      <li>
+        <NavLink to="/login">Đăng Nhập</NavLink>
+      </li>
+      <li>
+        <NavLink to="/signUp">Đăng Kí</NavLink>
+      </li>
+    </ul>
+  );
+};
+const signOut = () => {
+  localStorage.removeItem("User");
+  window.location.reload();
+};
+function NavHome(props) {
   return (
     <div className="navContainer">
       <div className="nav-left">
@@ -22,18 +55,7 @@ function NavHome() {
           </li>
         </ul>
       </div>
-      <div className="nav-right">
-        <ul>
-          <li>
-            <i className="fas fa-user-circle" />
-            <a>Đăng Nhập </a>
-          </li>
-          <li>
-            <i className="fas fa-user-circle" />
-            <a>ĐĂNG KÍ </a>
-          </li>
-        </ul>
-      </div>
+      <div className="nav-right">{renderLogin()}</div>
     </div>
   );
 }

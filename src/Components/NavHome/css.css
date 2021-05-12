@@ -49,5 +49,7 @@
 }
 .nav-right ul li {
   margin-right: 20px;
-  color: #9b9b9b;
+}
+.nav-right ul li a {
+  cursor: pointer;
 }
