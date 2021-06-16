@@ -1,5 +1,7 @@
 import React from "react";
 import "./css.css";
+import playButton from "./images/play-video.png";
+
 export default function Film() {
   return (
     <section class="film container">
@@ -51,7 +53,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.jpg" alt="play" />
+                    <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -75,7 +77,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -99,7 +101,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -123,7 +125,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -149,7 +151,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -173,7 +175,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -197,7 +199,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -221,7 +223,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -254,7 +256,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -278,7 +280,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -302,7 +304,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -326,7 +328,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -352,7 +354,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -376,7 +378,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -400,7 +402,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>
@@ -424,7 +426,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src="./images/play-video.png" />
+                  <img src={playButton}alt="play" />
                   </button>
                 </div>
               </div>

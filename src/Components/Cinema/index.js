@@ -1,5 +1,7 @@
 import React from "react";
 import "./css.css";
+import logoCinema from "./images/BHD-cinema.png";
+import cinemaStarBitexco from "./images/bhd-star-bitexco.png";
 
 export default function Cinema() {
   return (
@@ -22,7 +24,7 @@ export default function Cinema() {
                 aria-controls="v-pills-bhd"
                 aria-selected="true"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -33,7 +35,7 @@ export default function Cinema() {
                 aria-controls="v-pills-profile"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -44,7 +46,7 @@ export default function Cinema() {
                 aria-controls="v-pills-messages"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -55,7 +57,7 @@ export default function Cinema() {
                 aria-controls="v-pills-settings"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -66,7 +68,7 @@ export default function Cinema() {
                 aria-controls="v-pills-settings"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -77,7 +79,7 @@ export default function Cinema() {
                 aria-controls="v-pills-settings"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
               <a
                 class="nav-link"
@@ -88,7 +90,7 @@ export default function Cinema() {
                 aria-controls="v-pills-settings"
                 aria-selected="false"
               >
-                <img src="./images/BHD-cinema.png" />
+                <img src={logoCinema} />
               </a>
             </div>
           </div>
@@ -106,7 +108,7 @@ export default function Cinema() {
                       <div class="cinema-item row">
                         <div class="col-md-3 cinema-item__image">
                           <img
-                            src="./images/bhd-star-bitexco-16105952137769.png"
+                            src={cinemaStarBitexco}
                             style={{width: `50px`}}
                           />
                         </div>
