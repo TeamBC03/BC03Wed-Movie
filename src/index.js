@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "../node_modules/popper.js/dist/umd/popper.js";
 import "@fortawesome/fontawesome-free/js/all";
 import { Provider } from "react-redux";
 import { compose, createStore, applyMiddleware } from "redux";
