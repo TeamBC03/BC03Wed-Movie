@@ -31,6 +31,7 @@ body {
 .DetailMovieContainer-bot-content {
   width: 53%;
   margin: auto;
+  background-color: rgb(10, 32, 41);
 }
 .DetailMovieContainer-bot-link {
   width: 80%;
@@ -45,12 +46,7 @@ body {
   color: white;
   margin-right: 50px;
 }
-.DetailMovieContainer-bot-link a:hover {
-  transform: translateY(-5px);
-}
-.DetailMovieContainer-bot-link :active {
-  color: red;
-}
+
 .rowleft {
   display: flex;
 }
@@ -99,4 +95,19 @@ body {
 }
 .contentNd {
   width: 100%;
+}
+.ulTabContainerBot {
+  width: 70%;
+  margin: auto;
+
+  justify-content: center;
+}
+.tabItem {
+  width: 100%;
+  height: 600px;
+
+  padding-top: 50px;
+}
+.tabContentContainer {
+  background-color: rgb(10, 32, 41);
 }

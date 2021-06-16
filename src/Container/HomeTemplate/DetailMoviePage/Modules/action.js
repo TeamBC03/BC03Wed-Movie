@@ -22,6 +22,7 @@ export const detailMovieFectch = (maphim) => {
     })
       .then((result) => {
         dispatch(detailMovieSuccess(result.data));
+        console.log(result);
       })
       .catch((err) => {
         dispatch(detailMovieErr(err));

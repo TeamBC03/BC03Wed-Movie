@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.dateMovieContainer {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+.dateMovieContainer-left {
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid #ccc;
+}
+.dateMovieContainer-left ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+}
+.dateMovieContainer-left ul li {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #ccc;
+}
+.dateMovieContainer-left ul li img {
+  width: 25%;
+}
+.dateMovieContainer-right {
+  width: 70%;
+  height: 100%;
+}
+.dateMovieContainer-right-top {
+  width: 100%;
+  height: 15%;
+}
+.dateMovieContainer-right-top ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  list-style: none;
+  padding-top: 10px;
+}
+.dateMovieContainer-right-top ul li {
+  width: 15%;
+  height: 100%;
+}

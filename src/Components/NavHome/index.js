@@ -8,8 +8,10 @@ const renderLogin = () => {
     return (
       <ul>
         <li>
-          <i className="fas fa-user-circle" />
-          <span>{JSON.parse(localStorage.getItem("User")).hoTen}</span>
+          <NavLink to="/user">
+            <i className="fas fa-user-circle" />
+            <span>{JSON.parse(localStorage.getItem("User")).hoTen}</span>
+          </NavLink>
         </li>
         <li>
           <a onClick={signOut}>Đăng xuất</a>
