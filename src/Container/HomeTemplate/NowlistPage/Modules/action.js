@@ -2,7 +2,6 @@ import * as TypeAction from "./constant";
 import axios from "axios";
 
 const nowMovieRequest = () => {
-  console.log("reChay");
   return { type: TypeAction.NOW_LIST_MOVIE_REQUEST };
 };
 const nowMovieSuccess = (data) => {

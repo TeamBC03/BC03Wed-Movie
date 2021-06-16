@@ -1,8 +1,11 @@
 import React from "react";
 import "./css.css";
 import playButton from "./images/play-video.png";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { Film_Fetch } from "./modules/action";
 
-export default function Film() {
+function Film() {
   return (
     <section class="film container">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -33,6 +36,7 @@ export default function Film() {
           </button>
         </li>
       </ul>
+
       <div class="tab-content" id="myTabContent">
         <div
           class="tab-pane fade show active"
@@ -40,6 +44,7 @@ export default function Film() {
           role="tabpanel"
           aria-labelledby="dangChieu-tab"
         >
+          <NavLink to="/NowList">Xem Them</NavLink>
           <div class="row">
             <div class="col-md-3 film-item">
               <div class="film-image">
@@ -53,7 +58,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                    <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -77,7 +82,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -101,7 +106,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -125,7 +130,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -151,7 +156,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -175,7 +180,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -199,7 +204,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -223,7 +228,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -256,7 +261,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -280,7 +285,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -304,7 +309,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -328,7 +333,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -354,7 +359,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -378,7 +383,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -402,7 +407,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -426,7 +431,7 @@ export default function Film() {
                 </div>
                 <div class="film-overlay">
                   <button>
-                  <img src={playButton}alt="play" />
+                    <img src={playButton} alt="play" />
                   </button>
                 </div>
               </div>
@@ -444,3 +449,14 @@ export default function Film() {
     </section>
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchFilmHome: () => {
+      dispatch(Film_Fetch());
+    },
+  };
+};
+const mapStateToProps = (state) => {
+  return { loading: state.Film_Reducer.loading, data: state.Film_Reducer.data };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Film);

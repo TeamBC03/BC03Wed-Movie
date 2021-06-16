@@ -27,6 +27,7 @@ export default function LogInPage(props) {
         console.log(err);
       });
   };
+
   const loadLogin = () => {
     if (localStorage.getItem("User")) {
       props.history.replace("/");
