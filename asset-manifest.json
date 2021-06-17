@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.39ef9284.chunk.css",
-    "main.js": "/static/js/main.71d07dc2.chunk.js",
-    "main.js.map": "/static/js/main.71d07dc2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8172d39a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8172d39a.js.map",
-    "static/css/2.ad45ea6f.chunk.css": "/static/css/2.ad45ea6f.chunk.css",
-    "static/js/2.deb2b520.chunk.js": "/static/js/2.deb2b520.chunk.js",
-    "static/js/2.deb2b520.chunk.js.map": "/static/js/2.deb2b520.chunk.js.map",
-    "static/js/3.5e330995.chunk.js": "/static/js/3.5e330995.chunk.js",
-    "static/js/3.5e330995.chunk.js.map": "/static/js/3.5e330995.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.ad45ea6f.chunk.css.map": "/static/css/2.ad45ea6f.chunk.css.map",
-    "static/css/main.39ef9284.chunk.css.map": "/static/css/main.39ef9284.chunk.css.map",
-    "static/js/2.deb2b520.chunk.js.LICENSE.txt": "/static/js/2.deb2b520.chunk.js.LICENSE.txt",
-    "static/media/BHD-cinema.a12077eb.png": "/static/media/BHD-cinema.a12077eb.png",
-    "static/media/bhd-star-bitexco.ff46aa1a.png": "/static/media/bhd-star-bitexco.ff46aa1a.png",
-    "static/media/css.css": "/static/media/film-trang-ti.fee4f805.jpg"
+    "main.css": "/BC03Wed-Movie/static/css/main.963b02d2.chunk.css",
+    "main.js": "/BC03Wed-Movie/static/js/main.61302b61.chunk.js",
+    "main.js.map": "/BC03Wed-Movie/static/js/main.61302b61.chunk.js.map",
+    "runtime-main.js": "/BC03Wed-Movie/static/js/runtime-main.b30f1428.js",
+    "runtime-main.js.map": "/BC03Wed-Movie/static/js/runtime-main.b30f1428.js.map",
+    "static/css/2.ad45ea6f.chunk.css": "/BC03Wed-Movie/static/css/2.ad45ea6f.chunk.css",
+    "static/js/2.3e8de13f.chunk.js": "/BC03Wed-Movie/static/js/2.3e8de13f.chunk.js",
+    "static/js/2.3e8de13f.chunk.js.map": "/BC03Wed-Movie/static/js/2.3e8de13f.chunk.js.map",
+    "static/js/3.5e330995.chunk.js": "/BC03Wed-Movie/static/js/3.5e330995.chunk.js",
+    "static/js/3.5e330995.chunk.js.map": "/BC03Wed-Movie/static/js/3.5e330995.chunk.js.map",
+    "index.html": "/BC03Wed-Movie/index.html",
+    "static/css/2.ad45ea6f.chunk.css.map": "/BC03Wed-Movie/static/css/2.ad45ea6f.chunk.css.map",
+    "static/css/main.963b02d2.chunk.css.map": "/BC03Wed-Movie/static/css/main.963b02d2.chunk.css.map",
+    "static/js/2.3e8de13f.chunk.js.LICENSE.txt": "/BC03Wed-Movie/static/js/2.3e8de13f.chunk.js.LICENSE.txt",
+    "static/media/BHD-cinema.a12077eb.png": "/BC03Wed-Movie/static/media/BHD-cinema.a12077eb.png",
+    "static/media/bhd-star-bitexco.ff46aa1a.png": "/BC03Wed-Movie/static/media/bhd-star-bitexco.ff46aa1a.png",
+    "static/media/css.css": "/BC03Wed-Movie/static/media/film-trang-ti.fee4f805.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8172d39a.js",
+    "static/js/runtime-main.b30f1428.js",
     "static/css/2.ad45ea6f.chunk.css",
-    "static/js/2.deb2b520.chunk.js",
-    "static/css/main.39ef9284.chunk.css",
-    "static/js/main.71d07dc2.chunk.js"
+    "static/js/2.3e8de13f.chunk.js",
+    "static/css/main.963b02d2.chunk.css",
+    "static/js/main.61302b61.chunk.js"
   ]
 }
