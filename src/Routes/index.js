@@ -5,7 +5,7 @@ import NowListPage from "../Container/HomeTemplate/NowlistPage";
 
 const routesHome = [
   {
-    path: "/",
+    path: "/BC03Wed-Movie",
     exact: true,
     component: HomePage,
   },
