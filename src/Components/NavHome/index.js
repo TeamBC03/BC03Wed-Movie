@@ -35,6 +35,11 @@ const signOut = () => {
   localStorage.removeItem("User");
   window.location.reload();
 };
+const EnterPress = (e) => {
+  if (e.code === "Enter") {
+    console.log("enter roi do");
+  }
+};
 function NavHome(props) {
   return (
     <div className="navContainer">
@@ -44,7 +49,7 @@ function NavHome(props) {
       <div className="nav-center">
         <ul>
           <li>
-            <a href="#">Trang chủ </a>
+            <NavLink to="/">Trang chủ</NavLink>
           </li>
           <li>
             <a href="#">Lịch chiếu </a>
@@ -53,7 +58,8 @@ function NavHome(props) {
             <a href="#">Cụm rạp </a>
           </li>
           <li className="nav-search">
-            <input /> <i className="fas fa-search" />
+            <input onKeyPress={EnterPress} />
+            <i className="fas fa-search iconSearch" />
           </li>
         </ul>
       </div>

@@ -40,6 +40,8 @@
 }
 .nav-search i {
   cursor: pointer;
+  font-size: 100px;
+  color: red;
 }
 .nav-search i:hover {
   color: aqua;
