@@ -44,7 +44,9 @@ function Film() {
           role="tabpanel"
           aria-labelledby="dangChieu-tab"
         >
-          <NavLink to="/NowList">Xem Them</NavLink>
+          <NavLink to="/NowList" className="see-all">
+            XEM TẤT CẢ <i class="fa fa-chevron-right"></i>
+          </NavLink>
           <div class="row">
             <div class="col-md-3 film-item">
               <div class="film-image">

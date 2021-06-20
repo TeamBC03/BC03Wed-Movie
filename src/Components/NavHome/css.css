@@ -18,22 +18,29 @@
 }
 .nav-center ul li {
   margin-right: 20px;
+
 }
 .nav-center ul li a {
   text-decoration: none;
   color: black;
+  font-size: 17px;
+  font-weight:500;
 }
 .nav-center ul li a:hover {
   color: red;
 }
+.nav-center ul {
+  margin-bottom:0;
+}
 .nav-right ul {
   display: flex;
   list-style: none;
+  margin-bottom: 0;
 }
 .nav-search {
   border: 1px solid black;
   border-radius: 10px;
-  padding: 1px 3px;
+  padding: 3px 10px;
 }
 .nav-search input {
   border: none;
@@ -54,4 +61,11 @@
 }
 .nav-right ul li a {
   cursor: pointer;
+}
+.nav-right a{
+  text-decoration: none;
+  color: #9b9b9b;
+}
+.nav-right a:hover{
+  color:#fb4226;
 }

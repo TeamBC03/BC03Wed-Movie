@@ -1,0 +1,29 @@
+.header-seeAll {
+  background-color: #f26b38;
+  margin-bottom: 0;
+  padding: 15px 0;
+  text-align: center;
+  color: #fff;
+}
+.container-seeAll .card {
+  padding: 0;
+  color: #000;
+  border: none;
+}
+.list-seeAll {
+  justify-content: space-around;
+}
+.card-seeAll img {
+  width: 200px;
+  height: 300px;
+}
+.card-seeAll .card-title {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-seeAll .card-body {
+  padding: 0;
+  margin-top: 10px;
+}

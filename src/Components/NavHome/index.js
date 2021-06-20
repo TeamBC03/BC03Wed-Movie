@@ -48,13 +48,13 @@ function NavHome(props) {
       </div>
       <div className="nav-center">
         <ul>
-          <li>
+          <li className="pt-1">
             <NavLink to="/">Trang chủ</NavLink>
           </li>
-          <li>
+          <li className="pt-1">
             <a href="#">Lịch chiếu </a>
           </li>
-          <li>
+          <li className="pt-1">
             <a href="#">Cụm rạp </a>
           </li>
           <li className="nav-search">

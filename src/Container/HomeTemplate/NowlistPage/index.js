@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { nowListMovieFectch } from "./Modules/action";
+import "./css.css";
 
 function NowListPage(props) {
   useEffect(() => {
@@ -10,18 +11,18 @@ function NowListPage(props) {
   const renderList = (data) => {
     return data.map((item) => {
       return (
-        <div className="card col-md-2  m-4 ">
-          <img className="card-img-top" src={item.hinhAnh} alt />
+        <div className="card col-md-2 m-4 card-seeAll ">
+          <img className="card-img-top card-image" src={item.hinhAnh} alt />
           <div className="card-body center">
             <h4 className="card-title">{item.tenPhim}</h4>
-            <p className="card-text">{item.moTa}</p>
+            {/* <p className="card-text">{item.moTa}</p> */}
             <button
               className="btn btn-danger"
               onClick={() => {
                 clickBooking(item.maPhim);
               }}
             >
-              Mua vé
+              Chi tiết
             </button>
           </div>
         </div>
@@ -38,9 +39,11 @@ function NowListPage(props) {
   return (
     <div>
       {console.log(props.data)}
-      <h3 className="header">PHIM ĐANG CHIẾU</h3>
-      <div className="container">
-        <div className=" row ">{renderList(props.data)}</div>
+      <h3 className="header-seeAll">PHIM ĐANG CHIẾU</h3>
+      <div className=" container-seeAll">
+        <div className="container container-seeAll">
+          <div className="row list-seeAll">{renderList(props.data)}</div>
+        </div>
       </div>
     </div>
   );
