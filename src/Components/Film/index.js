@@ -7,7 +7,7 @@ import { Film_Fetch } from "./modules/action";
 
 function Film() {
   return (
-    <section class="film container">
+    <section class="film">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button

@@ -6,7 +6,7 @@ import cinemaStarBitexco from "./images/bhd-star-bitexco.png";
 export default function Cinema() {
   return (
     <div>
-      <section class="cinema container">
+      <section class="cinema">
         <div class="row">
           <div class="col-2">
             <div

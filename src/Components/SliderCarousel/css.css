@@ -1,7 +1,6 @@
 .Carousel {
   position: relative;
 }
-
 .fastBooking-content {
   display: flex;
   flex-direction: column;
@@ -29,6 +28,7 @@
 .fastBooking-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap !important;
 }
 .Carousel-FastBooking-fluid {
   padding: 10px 20px;
@@ -59,4 +59,8 @@
 
 .Carousel-FastBooking-fluid ul li button:hover {
   color: #f26b38;
+}
+
+.fastBooking-container .nav-item .nav-link{
+  padding:0;
 }
