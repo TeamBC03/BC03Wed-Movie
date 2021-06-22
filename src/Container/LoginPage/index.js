@@ -35,26 +35,26 @@ export default function LogInPage(props) {
   };
   loadLogin();
   return (
-    <div className="signUp">
-      <div className="signUpContainer-right">
-        <h2>Đăng Nhập</h2>
+    <div className="login">
+      <div className="loginContainer-right">
+        <h2 className="login-title">ĐĂNG NHẬP</h2>
         <form className="row g-3 formSign" onSubmit={handleSubmit}>
           <div className="col-12">
             <label htmlFor="inputAddress2" className="form-label">
-              Tài Khoản
+              Tài Khoản :
             </label>
             <input
               type="text"
               className="form-control"
               id="inputTk"
-              placeholder="Apartment, studio, or floor"
+              placeholder="Nhập tài khoản"
               onChange={handleOnChange}
               name="taikhoan"
             />
           </div>
           <div className="col-12">
             <label htmlFor="inputPassword4" className="form-label">
-              Mật Khẩu
+              Mật Khẩu :
             </label>
             <input
               type="password"
@@ -62,10 +62,30 @@ export default function LogInPage(props) {
               id="inputPassword1"
               onChange={handleOnChange}
               name="matkhau"
+              placeholder="Nhập mật khẩu"
             />
           </div>
-          <div className="col-md-6">
-            <button type="submit" className="btn btn-primary">
+          <div className="col-12">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="gridCheck"
+              />
+              <label className="form-check-label" htmlFor="gridCheck">
+                Ghi nhớ đăng nhập
+              </label>
+            </div>
+          </div>
+          <a href="#">Quên mật khẩu ?</a>
+          <a href="#">Tạo tài khoản mới</a>
+          {/* <div className="col-md-6 button-signUp">
+            <button type="submit" className="btn btn-primary ">
+              Đăng Kí 
+            </button>
+          </div> */}
+          <div className="col-md button-signIn">
+            <button type="submit" className="btn btn-primary ">
               Đăng Nhập
             </button>
           </div>

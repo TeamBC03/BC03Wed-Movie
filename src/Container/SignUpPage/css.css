@@ -1,34 +1,36 @@
-html,
-body {
-  height: 100%;
-}
 .signUp {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+  background-image: url("./img/bg2.jpg");
+  font-size:16px;
+  font-weight:600;
 }
-
+.signUp-title {
+  text-align: center;
+}
 .signUpContainer-right {
-  width: 25%;
-
-  padding: 50px 50px;
-  background-color: black;
-  color: white !important;
-  border-radius: 10px;
+  margin-left: auto;
+  width: 50%;
+  height: 100vh;
+  padding: 35px 50px;
+  background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+  color: #000 !important;
 }
 .formSign {
-  padding: 20px 20px;
+  padding: 5px 20px;
 }
 .formSign input {
   border: none;
-  background: black;
+  background: #fff;
   border-bottom: 1px solid white;
 }
 .formSign input:focus {
   box-shadow: none;
-  background-color: black;
-  color: white !important;
   border-color: violet;
+}
+.button-signUp,
+.button-signIn {
+  text-align: center;
 }

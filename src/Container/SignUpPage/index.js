@@ -32,24 +32,24 @@ export default function SignUp() {
   return (
     <div className="signUp">
       <div className="signUpContainer-right">
-        <h2>ĐĂNG KÍ</h2>
+        <h2 className="signUp-title">ĐĂNG KÍ</h2>
         <form className="row g-3 formSign" onSubmit={handleSubmit}>
           <div className="col-12">
             <label htmlFor="inputAddress2" className="form-label">
-              Tài Khoản
+              Tài Khoản :
             </label>
             <input
               type="text"
               className="form-control"
               id="inputTk"
-              placeholder="Apartment, studio, or floor"
               onChange={handleOnchange}
               name="taiKhoan"
+              placeholder="Nhập tài khoản"
             />
           </div>
           <div className="col-12">
             <label htmlFor="inputPassword4" className="form-label">
-              Mật Khẩu
+              Mật Khẩu :
             </label>
             <input
               type="password"
@@ -57,34 +57,37 @@ export default function SignUp() {
               id="inputPassword1"
               onChange={handleOnchange}
               name="matKhau"
+              placeholder="Nhập mật khẩu"
             />
           </div>
           <div className="col-12">
             <label htmlFor="inputPassword4" className="form-label">
-              Nhập Lại Mật Khẩu
+              Nhập Lại Mật Khẩu :
             </label>
             <input
               type="password"
               className="form-control"
               id="inputPassword2"
+              placeholder="Nhập lại mật khẩu"
             />
           </div>
           <div className="col-12">
             <label htmlFor="inputAddress2" className="form-label">
-              Họ Tên
+              Họ Tên :
             </label>
             <input
               type="text"
               className="form-control"
               id="inputHt"
-              placeholder
+              placeholder="Nhập họ tên"
               onChange={handleOnchange}
               name="hoTen"
+              
             />
           </div>
           <div className="col-12">
             <label htmlFor="inputEmail4" className="form-label">
-              Email
+              Email :
             </label>
             <input
               type="email"
@@ -92,11 +95,12 @@ export default function SignUp() {
               id="inputEmail4"
               onChange={handleOnchange}
               name="email"
+              placeholder="Nhập email"
             />
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <label htmlFor="inputCity" className="form-label">
-              SDT
+              SDT :
             </label>
             <input
               type="number"
@@ -104,8 +108,9 @@ export default function SignUp() {
               id="inputSdt"
               onChange={handleOnchange}
               name="soDT"
+              placeholder="Nhập SĐT"
             />
-          </div>
+          </div> */}
           <div className="col-12">
             <div className="form-check">
               <input
@@ -118,13 +123,13 @@ export default function SignUp() {
               </label>
             </div>
           </div>
-          <div className="col-md-6">
-            <button type="submit" className="btn btn-primary">
+          <div className="col-md-6 button-signUp">
+            <button type="submit" className="btn btn-primary ">
               Đăng Kí
             </button>
           </div>
-          <div className="col-md-6">
-            <button type="submit" className="btn btn-primary">
+          <div className="col-md-6 button-signIn">
+            <button type="submit" className="btn btn-primary ">
               Đăng Nhập
             </button>
           </div>
