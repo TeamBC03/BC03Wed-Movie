@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./detailFilm.css" />
+  </head>
+  <body>
+    <div class="detailFilm">
+      <div class="mainTop">
+        <div class="styleBlur"></div>
+        <div class="styleGradient"></div>
+        <div class="content d-flex">
+          <div class="col-md-3 content-image">
+            <img src="./img/film.png" />
+          </div>
+          <div class="col-md-5 content-film">
+            <div class="content-date">
+              <span>16.04.2021</span>
+            </div>
+            <div class="content-name">
+              <span class="content-name__age">C18</span>
+              <span class="content-name__name">Lật Mặt : 48h </span>
+            </div>
+            <div class="content-time">
+              <span>100 phút - 0 IMDb - 2D/Digital</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mainBottom">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="thongTin-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#thongTin"
+              type="button"
+              role="tab"
+              aria-controls="thongTin"
+              aria-selected="true"
+            >
+              Thông Tin
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="danhGia-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#danhGia"
+              type="button"
+              role="tab"
+              aria-controls="danhGia"
+              aria-selected="false"
+            >
+              Đánh Giá
+            </button>
+          </li>
+        </ul>
+
+        <div class="container-fluid tab-content__background">
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="thongTin"
+              role="tabpanel"
+              aria-labelledby="thongTin-tab"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Ngày công chiếu</p>
+                    <p class="thongTin-info">16.04.2021</p>
+                  </div>
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Đạo diễn</p>
+                    <p class="thongTin-info">Lý Hải</p>
+                  </div>
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Diễn viên</p>
+                    <p class="thongTin-info">
+                      Tiết Cương, Huỳnh Đông, Mạc Văn Khoa, Ốc Thanh Vân
+                    </p>
+                  </div>
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Thể loại</p>
+                    <p class="thongTin-info">Hành động</p>
+                  </div>
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Định dạng</p>
+                    <p class="thongTin-info">2D/Digital</p>
+                  </div>
+                  <div class="row thongTin-left">
+                    <p class="thongTin-title">Quốc gia SX</p>
+                    <p class="thongTin-info">Việt Nam</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="fw-bold">Nội dung</p>
+                  <span
+                    >Lật Mặt 5: 48H kể về Hiền - một cựu vận động viên võ thuật
+                    sau khi giải nghệ vì chấn thương đã cùng vợ và con gái về
+                    quê thăm gia đình Lâm. Họ bị cuốn vào một cuộc rượt đuổi với
+                    tay phản diện A Dìn. Để bảo vệ cho gia đình nhỏ, Hiền phải
+                    đưa vợ con chạy trốn khắp miền Tây sông nước với sự trợ giúp
+                    của người bạn thật thà và hài hước.</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="danhGia"
+              role="tabpanel"
+              aria-labelledby="danhGia-tab"
+            >
+              <div class="detailReviewer">
+                <div class="yourRating blockReviewer">
+                  <span class="imgReviewer">
+                    <img src="img/avatar.png" />
+                  </span>
+                  <input
+                    class="inputReviewer"
+                    type="text"
+                    placeholder="Bạn nghĩ gì về phim này ?"
+                  />
+                  <span class="starReviewer">
+                    <img src="img/listStar.png" />
+                  </span>
+                </div>
+                <div class="listReview">
+                  <div class="blockReviewer blockReviewerComment">
+                    <div class="reviewerComment">
+                      <div class="mainInfo">
+                        <div class="infoReview">
+                          <div class="infoReviewIcon">
+                            <img src="img/avatar.png">
+                          </div>
+                          <div class="infoReviewName">
+                            <p class="infoReviewName__name">Member</p>
+                            <p class="infoReviewName__day">1 ngày trước</p>
+                          </div>
+                        </div>
+                        <div class="infoRating">
+                          <div class="infoRatingMark">
+                            9
+                          </div>
+                          <div class="infoRatingStar">
+                            <img src="img/star.png">
+                            <img src="img/star.png">
+                            <img src="img/star.png">
+                            <img src="img/star.png">
+                            <img src="img/star.png">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mainComment">Hay</div>
+                      <div class="likeComment">
+                        <div class="likeComment__like">
+                          <img src="img/like.png">
+                          <span>1 thích</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="listComment"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fix-background container-fluid"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

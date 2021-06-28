@@ -22,7 +22,6 @@ body {
 }
 .DetailMovieContainer-bot {
   color: white;
-
   z-index: 2;
   position: absolute;
   top: 88%;

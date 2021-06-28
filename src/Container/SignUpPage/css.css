@@ -11,7 +11,7 @@
   text-align: center;
 }
 .signUpContainer-right {
-  margin-left: auto;
+  margin: auto;
   width: 50%;
   height: 100vh;
   padding: 35px 50px;
