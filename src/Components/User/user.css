@@ -1,0 +1,63 @@
+.user {
+  max-width: 840px;
+  margin: auto;
+}
+.user .nav-tabs {
+  margin-left: 30px;
+}
+.user .nav-link {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  font-size: 14px;
+  font-weight: 800;
+}
+.user .nav-link.active,
+.user .nav-link:hover,
+.user .nav-link:focus {
+  background-color: #c1c1c1;
+  border: 1px solid #000;
+}
+.user .tab-content {
+  border: 1px solid #000;
+  height: 100%;
+  padding: 30px;
+}
+.user .infoTitle {
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 40px;
+}
+
+.user .ticketItem {
+  margin-bottom: 20px;
+}
+.user .ticketImage img {
+  width: 120px;
+  height: 160px;
+}
+.user .ticketCinema__image img {
+  width: 60px;
+}
+.user .ticketContent {
+  margin-left: 20px;
+}
+.user .ticketCinema__info {
+  margin-left: 10px;
+}
+.user .ticketCinema__name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.user .ticketCinema__address {
+  font-size: 14px;
+  color: #9e9a9a;
+}
+.user .ticketInfo {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.user .ticketInfo .infoTitle {
+  padding-left: 0;
+  font-size: 14px;
+}
