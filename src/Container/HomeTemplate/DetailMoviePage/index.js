@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { detailMovieFectch } from "./Modules/action";
 import {} from "css-percentage-circle";
 import DetailTicketMovie from "../../../Components/DetailTicketMovie";
+import Loading from "../../../Components/Loading/index";
 function DetailMoviePage(props) {
   const [data, setdata] = useState();
   useEffect(() => {
@@ -17,9 +18,10 @@ function DetailMoviePage(props) {
   //   console.log(data);
   // }, [props.data]);
   if (props.loading) {
-    return <div>Đang Loading</div>;
+    console.log("dang loadding");
+    return <Loading />;
   }
-
+  console.log("đã ra");
   return (
     <div className="DetailMovieContainer">
       <div className="DetailMovieContainer-top">

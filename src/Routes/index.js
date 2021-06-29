@@ -1,3 +1,4 @@
+import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
 import DetailMoviePage from "../Container/HomeTemplate/DetailMoviePage";
 import HomePage from "../Container/HomeTemplate/HomePage/index";
 import InfoUser from "../Container/HomeTemplate/InforUser";
@@ -23,6 +24,11 @@ const routesHome = [
     path: "/NowList",
     exact: false,
     component: NowListPage,
+  },
+  {
+    path: "/DetailCinema",
+    exact: false,
+    component: DetailCinemaPage,
   },
 ];
 const RoutesAdmin = [{}];
