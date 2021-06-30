@@ -1,7 +1,35 @@
 import React from "react";
 import "./detailCinema.css";
 
-export default function DetailCinema() {
+export default function DetailCinema(props) {
+  console.log("data ne", props.dataList.data);
+  const listCinema = () => {
+    return props.dataList.data.map((item) => {
+      return (
+        <button
+          class="nav-link active"
+          id="nav-home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-home"
+          type="button"
+          role="tab"
+          aria-controls="nav-home"
+          aria-selected="true"
+        >
+          <div class="cinemaItem d-flex">
+            <div class="cinemaItem-img">
+              <img src="img/bhd-star-bitexco.png" />
+            </div>
+            <div class="cinemaItem-content">
+              <span class="cinemaItem-content__name">{item.tenCumRap}</span>
+              <span class="cinemaItem-content__address">{item.diaChi}</span>
+            </div>
+          </div>
+        </button>
+      );
+    });
+  };
+
   return (
     <div>
       <div className="detailCinema"></div>
@@ -95,102 +123,7 @@ export default function DetailCinema() {
                   role="tablist"
                   aria-orientation="vertical"
                 >
-                  <button
-                    class="nav-link active"
-                    id="nav-home-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-home"
-                    aria-selected="true"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-profile-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-profile"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-messages-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-messages"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-messages"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-settings-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-settings"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-settings"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
-                      </div>
-                    </div>
-                  </button>
+                  {listCinema()}
                 </div>
                 <div class="tab-content col-md-8" id="nav-tabContent">
                   <div

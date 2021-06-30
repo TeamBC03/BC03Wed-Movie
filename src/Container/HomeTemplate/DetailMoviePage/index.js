@@ -7,9 +7,9 @@ import DetailTicketMovie from "../../../Components/DetailTicketMovie";
 import Loading from "../../../Components/Loading/index";
 function DetailMoviePage(props) {
   const [data, setdata] = useState();
-  useEffect(() => {
-    props.fetchDetail(props.match.params.id);
-  }, []);
+
+  props.fetchDetail(props.match.params.id);
+
   // useEffect(() => {
   //    setdata()
   // }, []);

@@ -26,7 +26,7 @@ const routesHome = [
     component: NowListPage,
   },
   {
-    path: "/DetailCinema",
+    path: "/DetailCinema/:macumrap/:marap",
     exact: false,
     component: DetailCinemaPage,
   },

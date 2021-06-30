@@ -2,7 +2,7 @@ import * as TypeAction from "./constants";
 import axios from "axios";
 
 const detailMovieRequest = () => {
-  return { type: TypeAction.DETAIL_MOVIE_REQUEST };
+  return { type: TypeAction.DETAIL_MOVIE_FECTCH };
 };
 const detailMovieSuccess = (data) => {
   return { type: TypeAction.DETAIL_MOVIE_SUCCESS, payload: data };

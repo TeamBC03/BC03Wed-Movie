@@ -1,11 +1,97 @@
 import React from "react";
 import "./css.css";
 import playButton from "./images/play-video.png";
-import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Film_Fetch } from "./modules/action";
+import Loading from "../../Components/Loading/index";
+export default function Film(props) {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.Film_Reducer.loading);
+  const data = useSelector((state) => state.Film_Reducer.data);
+  dispatch(Film_Fetch());
+  const DetailMovie = (id) => {
+    // props.history.replace("/detailMovie/" + id);
+    console.log(props);
+  };
+  const listMovieNow = () => {
+    return data.map((item, i) => {
+      const style = {
+        backgroundImage: `url( ${item.hinhAnh} )`,
+      };
+      const url = `/detailMovie/${item.maPhim}`;
+      if (i < 4) {
+        return (
+          <div class="col-md-3 film-item">
+            <div class="film-image" style={style}>
+              <div class="film-rate">
+                <p>8.0</p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <div class="film-overlay">
+                <button>
+                  <img src={playButton} alt="play" />
+                </button>
+              </div>
+            </div>
+            <div class="film-info">
+              <div class="film-name">
+                <span>P</span>
+                {item.tenPhim}
+              </div>
+              <div class="film-time">100 phút</div>
+              <button className="btn btn-danger">
+                <Link to={url}>CHI TIẾT</Link>
+              </button>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+  const listMovieNow1 = () => {
+    return data.map((item, i) => {
+      const style = {
+        backgroundImage: `url( ${item.hinhAnh} )`,
+      };
+      if (i >= 4 && i < 8) {
+        return (
+          <div class="col-md-3 film-item">
+            <div class="film-image" style={style}>
+              <div class="film-rate">
+                <p>8.0</p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <div class="film-overlay">
+                <button>
+                  <img src={playButton} alt="play" />
+                </button>
+              </div>
+            </div>
+            <div class="film-info">
+              <div class="film-name">
+                <span>P</span>
+                {item.tenPhim}
+              </div>
+              <div class="film-time">100 phút</div>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+  if (loading) {
+    return <Loading />;
+  }
 
-function Film() {
   return (
     <section class="film">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -47,202 +133,8 @@ function Film() {
           <NavLink to="/NowList" className="see-all">
             XEM TẤT CẢ <i class="fa fa-chevron-right"></i>
           </NavLink>
-          <div class="row">
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Ký
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Ký
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-            <div class="col-md-3 film-item">
-              <div class="film-image">
-                <div class="film-rate">
-                  <p>8.0</p>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <div class="film-overlay">
-                  <button>
-                    <img src={playButton} alt="play" />
-                  </button>
-                </div>
-              </div>
-              <div class="film-info">
-                <div class="film-name">
-                  <span>P</span>
-                  Trạng Tí Phiêu Lưu Kí
-                </div>
-                <div class="film-time">100 phút</div>
-              </div>
-            </div>
-          </div>
+          <div class="row">{listMovieNow()}</div>
+          <div class="row">{listMovieNow1()}</div>
         </div>
         <div
           class="tab-pane fade"
@@ -461,4 +353,3 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return { loading: state.Film_Reducer.loading, data: state.Film_Reducer.data };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Film);
