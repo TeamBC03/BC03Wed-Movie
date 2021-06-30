@@ -1,11 +1,11 @@
 .detailFilm {
   padding-bottom: 0;
 }
-.mainTop {
+.detailFilm .mainTop {
   height: 600px;
   position: relative;
 }
-.styleBlur {
+.detailFilm .styleBlur {
   background-image: url("./img/film.png");
   background-size: contain;
   height: 100%;
@@ -13,7 +13,7 @@
   margin: -11px 0 -5px -10px;
   width: calc(100% + 5px);
 }
-.styleGradient {
+.detailFilm .styleGradient {
   background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
   position: absolute;
   top: 0;
@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
 }
-.content {
+.detailFilm .content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,16 +31,16 @@
   font-weight: 600;
   font-size: 14px;
 }
-.content-film {
+.detailFilm .content-film {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 15px;
 }
-.content-film .content-name {
+.detailFilm .content-film .content-name {
   margin: 5px 0;
 }
-.content-film .content-name .content-name__age {
+.detailFilm .content-film .content-name .content-name__age {
   margin-right: 6px;
   background-color: #fb4226;
   font-size: 16px;
@@ -48,66 +48,66 @@
   padding: 1px 9px;
   min-width: 33px;
 }
-.content-film .content-name .content-name__name {
+.detailFilm .content-film .content-name .content-name__name {
   font-size: 24px;
 }
 
-.mainBottom {
+.detailFilm .mainBottom {
   transform: translate(0, -70px);
   color: #e9e9e9;
 }
-.mainBottom .nav-tabs,
-.mainBottom .tab-content {
+.detailFilm .mainBottom .nav-tabs,
+.detailFilm .mainBottom .tab-content {
   justify-content: center;
   max-width: 870px;
   margin: auto;
 }
-.mainBottom .tab-content__background,
-.nav-tabs {
+.detailFilm .mainBottom .tab-content__background,
+.detailFilm .nav-tabs {
   background-color: rgb(10, 32, 41);
 }
-.fix-background {
+.detailFilm .fix-background {
   height: 70px;
   background-color: rgb(10, 32, 41);
   position: absolute;
   bottom: -70px;
   left: 0;
 }
-.mainBottom .tab-pane {
+.detailFilm .mainBottom .tab-pane {
   margin: 0;
 }
-.thongTin-title {
+.detailFilm .thongTin-title {
   width: 35%;
   font-weight: 700;
 }
-.thongTin-info {
+.detailFilm .thongTin-info {
   width: 40%;
 }
-.mainBottom .tab-content #thongTin {
+.detailFilm .mainBottom .tab-content #thongTin {
   font-size: 15px;
 }
 /* tab */
-.nav-tabs {
+.detailFilm .nav-tabs {
   border-bottom: none;
   background: transparent;
 }
-.tab-content {
+.detailFilm .tab-content {
   padding-top: 40px;
 }
-#thongTin-tab,
-#danhGia-tab {
+.detailFilm #thongTin-tab,
+.detailFilm #danhGia-tab {
   border: none;
   background-color: transparent;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
 }
-#thongTin-tab.active,
-#danhGia-tab.active {
+.detailFilm #thongTin-tab.active,
+.detailFilm #danhGia-tab.active {
   color: #fb4226;
 }
 /*  */
-.blockReviewer {
+.detailFilm .blockReviewer {
   border: 1px solid #e6e6e6;
   border-bottom: none;
   border-radius: 3px;
@@ -115,15 +115,15 @@
   background-color: #fff;
   max-width: 580px;
 }
-.yourRating {
+.detailFilm .yourRating {
   padding: 0 15px;
 }
-.imgReviewer img {
+.detailFilm .imgReviewer img {
   height: 36px;
   width: 36px;
   border-radius: 50%;
 }
-.inputReviewer {
+.detailFilm .inputReviewer {
   display: inline-block;
   padding: 10px;
   width: 68%;
@@ -134,66 +134,66 @@
   color: #9b9b9b;
   font-size: 14px;
 }
-.reviewerComment {
+.detailFilm .reviewerComment {
   position: relative;
   padding: 20px 20px 12px;
   color: #000;
 }
-.mainInfo {
+.detailFilm .mainInfo {
   display: flex;
   justify-content: space-between;
 }
-.mainInfo .infoReview {
+.detailFilm .mainInfo .infoReview {
   display: flex;
 }
-.mainInfo .infoReview .infoReviewIcon img {
+.detailFilm .mainInfo .infoReview .infoReviewIcon img {
   height: 32px;
   width: 32px;
   border-radius: 50%;
 }
-.mainInfo .infoRating {
+.detailFilm .mainInfo .infoRating {
   justify-content: right;
 }
-.mainInfo .infoReviewName {
+.detailFilm .mainInfo .infoReviewName {
   margin-left: 10px;
   height: 32px;
 }
-.mainInfo .infoReviewName .infoReviewName__name {
+.detailFilm .mainInfo .infoReviewName .infoReviewName__name {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 0;
 }
-.mainInfo .infoReviewName .infoReviewName__day {
+.detailFilm .mainInfo .infoReviewName .infoReviewName__day {
   font-size: 10px;
   color: #9b9b9b;
   margin-bottom: 0;
 }
-.mainInfo .infoRating .infoRatingMark {
+.detailFilm .mainInfo .infoRating .infoRatingMark {
   color: #91d25a;
   text-align: center;
 }
-.mainInfo .infoRating .infoRatingStar img {
+.detailFilm .mainInfo .infoRating .infoRatingStar img {
   max-width: 8px;
   margin-right: -4px;
 }
-.mainComment {
+.detailFilm .mainComment {
   font-size: 14px;
   padding: 15px 0;
   border-bottom: 1px solid #e6e6e6;
 }
-.likeComment{
+.detailFilm .likeComment{
   padding-top:10px;
 }
-.likeComment .likeComment__like img {
+.detailFilm .likeComment .likeComment__like img {
   width: 16px;
   margin-top: -4px;
   cursor: pointer;
 }
-.likeComment .likeComment__like img:hover{
+.detailFilm .likeComment .likeComment__like img:hover{
   transform:scale(1.1);
   transition: all 0.2s;
 }
-.likeComment .likeComment__like span{
+.detailFilm .likeComment .likeComment__like span{
   color:#737576;
   font-weight: 500;
   margin-left:10px;

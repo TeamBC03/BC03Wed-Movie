@@ -59,7 +59,7 @@ body {
   height: 100%;
   top: 0;
 }
-.content {
+.DetailMovieContainer .content {
   background-color: rgb(10, 32, 41);
   padding-bottom: 50px;
 }
@@ -110,3 +110,5 @@ body {
 .tabContentContainer {
   background-color: rgb(10, 32, 41);
 }
+
+
