@@ -4,14 +4,13 @@ import "./detailCinema.css";
 export default function DetailCinema() {
   return (
     <div>
-      <div className="detailCinema"></div>
-
+      <div className="detailCinema">
       <div class="mainTop">
         <div class="styleBlur"></div>
         <div class="styleGradient"></div>
         <div class="content d-flex">
           <div class="col-md-3 content-image">
-            <img src="./img/bhd-star-bitexco.png" class="w-100" />
+            <img src="./img/bhd-star-bitexco.png " class="w-100" />
           </div>
           <div class="col-md-5 contentCinema">
             {/* <!-- <div class="content-date">
@@ -490,6 +489,7 @@ export default function DetailCinema() {
         </div>
         <div class="fix-background container-fluid"></div>
       </div>
+    </div>
     </div>
   );
 }

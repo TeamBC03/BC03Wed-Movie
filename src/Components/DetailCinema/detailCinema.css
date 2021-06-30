@@ -36,7 +36,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 15px;
+  margin-left: 40px;
 }
 .contentCinema .contentCinema__name {
   font-size: 24px;
@@ -84,12 +84,12 @@
 .mainBottom .tab-pane {
   margin: 0;
 }
-.thongTin-title {
-  width: 35%;
+.detailCinema .thongTin-title {
+  width: 35% !important;
   font-weight: 700;
 }
-.thongTin-info {
-  width: 40%;
+.detailCinema .thongTin-info {
+  width: 40% !important;
 }
 .mainBottom .tab-content #thongTin {
   font-size: 15px;
@@ -114,7 +114,7 @@
 }
 #thongTin-tab.active,
 #danhGia-tab.active,
-#lichChieu-tab {
+#lichChieu-tab.active {
   color: #fb4226;
 }
 #lichChieu {
@@ -187,7 +187,7 @@
 }
 .mainInfo .infoRating .infoRatingStar img {
   max-width: 8px;
-  margin-right: -4px;
+
 }
 .mainComment {
   font-size: 14px;
@@ -262,27 +262,41 @@
   padding: 0;
   height: 91px;
   border: none;
-  color:#000;
+  color: #000;
   opacity: 0.3;
   margin-bottom: 0;
 }
-.listDayTime .nav-link.active{
-  color:#fb4226;
+.listDayTime .nav-link.active {
+  color: #fb4226;
   opacity: 1;
 }
 .listDayTime .nav-link p {
   margin-bottom: 0;
 }
-.listDayTime .day{
-  font-size:14px;
-  font-weight:600;
+.listDayTime .day {
+  font-size: 14px;
+  font-weight: 600;
 }
-.listDayTime .date{
-  font-size:20px;
+.listDayTime .date {
+  font-size: 20px;
 }
 
-.list-suatChieu .tab-pane{
-  text-align:center;
-
-  
+.list-suatChieu .tab-pane {
+  text-align: center;
+}
+/* fix */
+.detailCinema .nav-tabs {
+  border-bottom: none !important;
+}
+.detailCinema .cinemaItem-content__address {
+  display: block;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border-color: transparent !important;
+}
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
 }
