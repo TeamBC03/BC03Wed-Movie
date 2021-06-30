@@ -1,4 +1,4 @@
-.row {
+.cinema .row {
   flex-wrap: nowrap;
 }
 .cinema .nav-tabs .nav-item.show .nav-link,
@@ -11,11 +11,11 @@
 }
 .cinema {
   padding-top: 120px;
-  max-width: 940px ;
-  margin:0 auto;
+  max-width: 940px;
+  margin: 0 auto;
 }
 .cinema .nav-pills,
-.cinema-content {
+.cinema .cinema-content {
   border: 1px solid #ebebec;
 }
 .cinema .nav-pills .nav-link.active {
@@ -35,24 +35,24 @@
   text-align: center;
   padding: 0;
 }
-.cinema-item {
+.cinema .cinema-item {
   margin: top 10px;
 }
-.cinema-item__image {
+.cinema .cinema-item__image {
   margin-top: 5px;
 }
 
-.cinema-item__image,
-.cinema-item__info {
+.cinema .cinema-item__image,
+.cinema .cinema-item__info {
   padding: 0;
 }
-.cinema-item__info {
+.cinema .cinema-item__info {
   font-size: 14px;
 }
-.cinema-item__info .brand-name {
+.cinema .cinema-item__info .brand-name {
   color: #8bc541;
 }
-.cinema-item__info .address {
+.cinema .cinema-item__info .address {
   font-size: 12px;
   color: #949494;
   overflow: hidden;
@@ -60,11 +60,11 @@
   white-space: nowrap;
   margin-bottom: 0;
 }
-.cinema-item__info a {
+.cinema .cinema-item__info a {
   color: #fb4226;
   font-size: 12px;
 }
-.cinema-list {
+.cinema .cinema-list {
   padding: 10px;
   border-bottom: 1px solid #ebebec;
 }
