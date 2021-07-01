@@ -1,12 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
-// import "./style.css";
 import "./detailFilm.css";
 import { connect } from "react-redux";
 import { detailMovieFectch } from "./Modules/action";
 import {} from "css-percentage-circle";
 import DetailTicketMovie from "../../../Components/DetailTicketMovie";
 import Loading from "../../../Components/Loading/index";
+<<<<<<< HEAD
 import filmImage from "./img/film.png";
+=======
+import logo from "./img/logo-cinema.png";
+import avatar from "./img/avatar.png";
+import listStar from "./img/listStar.png";
+import star from "./img/star.png";
+import like from "./img/like.png";
+>>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
 
 function DetailMoviePage(props) {
   useEffect(() => {
@@ -43,7 +50,7 @@ function DetailMoviePage(props) {
         </div>
       </div>
       <div className="mainBottom">
-        <ul className="nav nav-tabs" id="myTab" role="tablist">
+        <ul className="nav nav-tabs nav-tabs__main" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button
               class="nav-link active"
@@ -117,13 +124,8 @@ function DetailMoviePage(props) {
                       <div class="cinemaItem-img">
                         <img src="img/bhd-star-bitexco.png" />
                       </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
+                      <div class="cinemaItem-name">
+                        <span>BHD Star Bitexco</span>
                       </div>
                     </div>
                   </button>
@@ -141,13 +143,8 @@ function DetailMoviePage(props) {
                       <div class="cinemaItem-img">
                         <img src="img/bhd-star-bitexco.png" />
                       </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
+                      <div class="cinemaItem-name">
+                        <span>BHD Star Bitexco</span>
                       </div>
                     </div>
                   </button>
@@ -165,13 +162,8 @@ function DetailMoviePage(props) {
                       <div class="cinemaItem-img">
                         <img src="img/bhd-star-bitexco.png" />
                       </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
+                      <div class="cinemaItem-name">
+                        <span>BHD Star Bitexco</span>
                       </div>
                     </div>
                   </button>
@@ -189,13 +181,8 @@ function DetailMoviePage(props) {
                       <div class="cinemaItem-img">
                         <img src="img/bhd-star-bitexco.png" />
                       </div>
-                      <div class="cinemaItem-content">
-                        <span class="cinemaItem-content__name">
-                          BHD Star Bitexco
-                        </span>
-                        <span class="cinemaItem-content__address">
-                          L3-Bitexco Icon 68, 2 Hải Triều, Q.1
-                        </span>
+                      <div class="cinemaItem-name">
+                        <span>BHD Star Bitexco</span>
                       </div>
                     </div>
                   </button>
@@ -306,15 +293,99 @@ function DetailMoviePage(props) {
                         </button>
                       </div>
                     </nav>
-                    <div class="tab-content list-suatChieu" id="nav-tabContent">
+                    <div class="tab-content suatChieu-list" id="nav-tabContent">
                       <div
                         class="tab-pane fade show active"
                         id="nav-mon"
                         role="tabpanel"
                         aria-labelledby="nav-mon-tab"
                       >
-                        Không có suất chiếu
+                        <div className="suatChieu-item">
+                          <div className="suatChieu-item__cinema d-flex">
+                            <div className="suatChieu-item__image">
+                              <img src={logo} />
+                            </div>
+                            <div className="suatChieu-item__info">
+                              <p className="suatChieu-item__name">
+                                GLX - Nguyễn Du
+                              </p>
+                              <p className="suatChieu-item__address">
+                                116 Nguyễn Du, Q.1
+                              </p>
+                            </div>
+                          </div>
+                          <div className="suatChieu-item__lichChieu d-flex">
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                          </div>
+                        </div>
+                        <div className="suatChieu-item">
+                          <div className="suatChieu-item__cinema d-flex">
+                            <div className="suatChieu-item__image">
+                              <img src={logo} />
+                            </div>
+                            <div className="suatChieu-item__info">
+                              <p className="suatChieu-item__name">
+                                GLX - Nguyễn Du
+                              </p>
+                              <p className="suatChieu-item__address">
+                                116 Nguyễn Du, Q.1
+                              </p>
+                            </div>
+                          </div>
+                          <div className="suatChieu-item__lichChieu d-flex">
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                             <div className="suatChieu-item__time col-md-2">
+                               12:00
+                             </div>
+                          </div>
+                        </div>
                       </div>
+                      
                       <div
                         class="tab-pane fade"
                         id="nav-tue"
@@ -442,7 +513,7 @@ function DetailMoviePage(props) {
               <div className="detailReviewer">
                 <div className="yourRating blockReviewer">
                   <span className="imgReviewer">
-                    <img src="img/avatar.png" />
+                    <img src={avatar} />
                   </span>
                   <input
                     className="inputReviewer"
@@ -450,7 +521,7 @@ function DetailMoviePage(props) {
                     placeholder="Bạn nghĩ gì về phim này ?"
                   />
                   <span className="starReviewer">
-                    <img src="img/listStar.png" />
+                    <img src={listStar} />
                   </span>
                 </div>
                 <div className="listReview">
@@ -459,7 +530,11 @@ function DetailMoviePage(props) {
                       <div className="mainInfo">
                         <div className="infoReview">
                           <div className="infoReviewIcon">
+<<<<<<< HEAD
                             <img src={require("./img/avatar.png")} />
+=======
+                            <img src={avatar} />
+>>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
                           </div>
                           <div className="infoReviewName">
                             <p className="infoReviewName__name">Member</p>
@@ -469,18 +544,22 @@ function DetailMoviePage(props) {
                         <div className="infoRating">
                           <div className="infoRatingMark">9</div>
                           <div className="infoRatingStar">
-                            <img src="img/star.png" />
-                            <img src="img/star.png" />
-                            <img src="img/star.png" />
-                            <img src="img/star.png" />
-                            <img src="img/star.png" />
+                            <img src={star} />
+                            <img src={star} /> 
+                            <img src={star} />
+                            <img src={star} /> 
+                            <img src={star} />
                           </div>
                         </div>
                       </div>
                       <div className="mainComment">Hay</div>
                       <div className="likeComment">
                         <div className="likeComment__like">
+<<<<<<< HEAD
                           <img src="./img/like.png" />
+=======
+                          <img src={like} />
+>>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
                           <span>1 thích</span>
                         </div>
                       </div>
