@@ -178,7 +178,7 @@
 }
 .mainInfo .infoRating .infoRatingStar img {
   max-width: 8px;
-  margin-right: -4px;
+
 }
 .mainComment {
   font-size: 14px;
@@ -215,25 +215,12 @@
   width: 50px;
   height: 50px;
 }
-.cinemaItem-content {
-  padding-left: 10px;
-  text-align: left;
+.cinemaItem-name {
+  padding-left: 15px;
+  margin: auto 0;
+  color: #000;
 }
-.cinemaItem-content__name {
-  font-size: 15px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: #555;
-  font-weight: 600;
-}
-.cinemaItem-content__address {
-  font-size: 12px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: #b7b7b7;
-}
+
 .cinemaList {
   border-right: 1px solid #e6e6e6;
   margin-right: 0;
@@ -260,9 +247,10 @@
 .listDayTime .nav-link.active {
   color: #fb4226 !important;
   opacity: 1;
+  margin-bottom: 0;
 }
-.listDayTime .nav-link:hover{
-  color:#000;
+.listDayTime .nav-link:hover {
+  color: #000;
 }
 .listDayTime .nav-link p {
   margin-bottom: 0;
@@ -275,11 +263,11 @@
   font-size: 20px;
 }
 
-.list-suatChieu .tab-pane {
+.suatChieu-list .tab-pane {
   text-align: center;
 }
 /* fix */
-.detailFilm .nav-tabs {
+.detailFilm .nav-tabs__main {
   border-bottom: none !important;
 }
 .detailFilm .cinemaItem-content__address {
@@ -293,12 +281,48 @@
 }
 
 /*  */
-.thongTin-left{
+.thongTin-left {
+  display: flex;
+}
+#lichChieu {
+  background-color: #fff;
+}
+.suatChieu-list .tab-pane {
+  color: #000;
+}
+/* fix lich chieu suat chieu */
+.detailFilm .suatChieu-item {
+  padding: 20px 0;
+  margin-left: 20px;
+}
+.detailFilm .suatChieu-item__image img {
+  width: 50px;
+  height: 50px;
+}
+.detailFilm .suatChieu-item__info {
+  text-align: left;
+  padding-left: 10px;
+}
+.detailFilm .suatChieu-item__name,.detailFilm .suatChieu-item__address{
+  margin-bottom:0;
+} 
+.detailFilm .suatChieu-item__name {
+  font-weight: 600;
+}
+.detailFilm .suatChieu-item__address {
+  font-size:13px;
+  color: #9b9b9b;
+}
+.detailFilm .suatChieu-item__lichChieu{
   display:flex;
+  flex-wrap: wrap;
+  margin-top:10px;
 }
-#lichChieu{
-  background-color:#fff;
-}
-.list-suatChieu .tab-pane{
-  color :#000;
+.detailFilm .suatChieu-item__time{
+  font-size:24px;
+  text-align:left;
+  color:#58ae39;
+  font-weight:500;
+  /* margin-top:15px; */
+  letter-spacing: 2px;
 }
