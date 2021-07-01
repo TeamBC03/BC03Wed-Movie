@@ -1,58 +1,67 @@
-.cinema .row {
-  flex-wrap: nowrap;
+.cinema {
+  display: flex;
+  border: 1px solid #ebebec;
+  max-width: 940px;
+  margin: 120px auto;
+}
+.cinema .cinema-cumRap {
+  width: 90px;
+  border-right: 1px solid #000;
 }
 .cinema .nav-tabs .nav-item.show .nav-link,
-.cinema .nav-tabs .nav-link.active {
-  border-color: transparent;
-}
+.cinema .nav-tabs .nav-link.active,
 .cinema .nav-tabs .nav-link:focus,
 .cinema .nav-tabs .nav-link:hover {
   border-color: transparent;
 }
-.cinema {
-  padding-top: 120px;
-  max-width: 940px;
-  margin: 0 auto;
-}
-.cinema .nav-pills,
-.cinema .cinema-content {
+.cinema .cinema-cumRap {
   border: 1px solid #ebebec;
 }
-.cinema .nav-pills .nav-link.active {
+.cinema .cinema-cumRap .cinema-cumRap__item.active {
   background: transparent;
 }
-.cinema .nav-link img {
+.cinema .cinema-cumRap__item {
+  text-align: center;
+  padding: 0;
+  color: #000;
+  width: 90px;
+}
+.cinema .cinema-cumRap__item img {
   width: 50px;
   padding: 15px 0;
   border-bottom: 1px solid #ebebec;
   opacity: 0.5;
 }
-.cinema .nav-link.active img,
-.cinema .nav-link:hover img {
+.cinema .cinema-cumRap__item.active img,
+.cinema .cinema-cumRap__item:hover img {
   opacity: 1;
 }
-.cinema .nav-link {
-  text-align: center;
-  padding: 0;
-}
-.cinema .cinema-item {
-  margin: top 10px;
-}
-.cinema .cinema-item__image {
-  margin-top: 5px;
-}
 
-.cinema .cinema-item__image,
-.cinema .cinema-item__info {
-  padding: 0;
+/* cinema item */
+.cinema .cinema-item .cinema-item__image {
+  width: 50px;
+  height: 50px;
 }
-.cinema .cinema-item__info {
+.cinema .cinema-item .cinema-item__image img {
+  margin-top: 8px;
+}
+.cinema .cinema-item .cinema-item__info {
+  text-align: left;
+  padding-left: 25px;
+  padding-right: 0;
+}
+.cinema .cinema-item .cinema-item__info span {
   font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
 }
-.cinema .cinema-item__info .brand-name {
+.cinema .cinema-item .cinema-item__info .brand-name {
   color: #8bc541;
 }
-.cinema .cinema-item__info .address {
+.cinema .cinema-item .cinema-item__info .address {
   font-size: 12px;
   color: #949494;
   overflow: hidden;
@@ -60,11 +69,97 @@
   white-space: nowrap;
   margin-bottom: 0;
 }
-.cinema .cinema-item__info a {
-  color: #fb4226;
+.cinema .cinema-item .cinema-item__info a {
   font-size: 12px;
+  color: #fb4226;
+  display: block;
 }
-.cinema .cinema-list {
-  padding: 10px;
+.cinema .cinema-listCinema {
+  border-right: 1px solid #ebebec;
+  width: 270px;
+}
+.cinema .cinema-listCinema .nav-tabs{
+  border-bottom: none;
+}
+.cinema .cinema-listCinema .nav-item {
   border-bottom: 1px solid #ebebec;
+  height: 81px;
+  margin: 0 15px;
+}
+.cinema .cinema-listCinema .nav-link {
+  padding: 0;
+  opacity: 0.3;
+}
+.cinema .cinema-listCinema .nav-link.active {
+  opacity: 1;
+}
+
+
+/*  */
+.cinema .suatChieu-item {
+  padding: 20px 0;
+  margin-left: 20px;
+}
+.cinema .suatChieu-item__image img {
+  width: 50px;
+  height: 50px;
+}
+.cinema .suatChieu-item__info {
+  text-align: left;
+  padding-left: 10px;
+}
+.cinema .suatChieu-item__name,.cinema .suatChieu-item__address{
+  margin-bottom:0;
+} 
+.cinema .suatChieu-item__name {
+  font-weight: 600;
+}
+.cinema .suatChieu-item__address {
+  font-size:13px;
+  color: #9b9b9b;
+}
+.cinema .suatChieu-item__lichChieu{
+  display:flex;
+  flex-wrap: wrap;
+  margin-top:10px;
+}
+.cinema .suatChieu-item__time{
+  font-size:24px;
+  text-align:left;
+  color:#58ae39;
+  font-weight:500;
+  letter-spacing: 2px;
+}
+/*  */
+.cinema .listDayTime {
+  border-bottom: 1px solid #e6e6e6;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.cinema .listDayTime .nav-link {
+  padding: 0;
+  height: 80px;
+  border: none;
+  color: #000;
+  opacity: 0.3;
+  margin-bottom: 0;
+
+}
+.cinema .listDayTime .nav-link.active {
+  color: #fb4226 !important;
+  opacity: 1;
+  margin-bottom: 0;
+}
+.cinema .listDayTime .nav-link:hover {
+  color: #000;
+}
+.cinema .listDayTime .nav-link p {
+  margin-bottom: 0;
+}
+.cinema .listDayTime .day {
+  font-size: 18px;
+  font-weight: 600;
+}
+.cinema .listDayTime .date {
+  font-size: 20px;
 }
