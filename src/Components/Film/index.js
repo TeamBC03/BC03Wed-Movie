@@ -44,9 +44,10 @@ export default function Film(props) {
                 {item.tenPhim}
               </div>
               <div class="film-time">100 phút</div>
-              <button className="btn btn-danger">
-                <Link to={url}>CHI TIẾT</Link>
-              </button>
+
+              <Link to={url} className="btn btn-success">
+                CHI TIẾT
+              </Link>
             </div>
           </div>
         );

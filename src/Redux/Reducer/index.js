@@ -3,6 +3,7 @@ import DetailTicketMovie from "../../Components/DetailTicketMovie/Modules/Reduce
 import Film_Reducer from "../../Components/Film/modules/Reducer";
 import DetailCinemaReducer from "../../Container/HomeTemplate/DetailCinemaPage/modules/Reducer";
 import DetailMovie from "../../Container/HomeTemplate/DetailMoviePage/Modules/Reducer";
+import InfoReducer from "../../Container/HomeTemplate/InforUser/Modules/Reducer";
 import nowMovieReducer from "../../Container/HomeTemplate/NowlistPage/Modules/Reducer";
 const rootReducer = combineReducers({
   DetailMovie: DetailMovie,
@@ -10,5 +11,6 @@ const rootReducer = combineReducers({
   nowMovieReducer: nowMovieReducer,
   Film_Reducer: Film_Reducer,
   DetailCinemaReducer: DetailCinemaReducer,
+  InfoReducer: InfoReducer,
 });
 export default rootReducer;

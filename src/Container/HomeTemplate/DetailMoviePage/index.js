@@ -6,20 +6,14 @@ import { detailMovieFectch } from "./Modules/action";
 import {} from "css-percentage-circle";
 import DetailTicketMovie from "../../../Components/DetailTicketMovie";
 import Loading from "../../../Components/Loading/index";
-import filmImage from "./img/film.png"
+import filmImage from "./img/film.png";
 
 function DetailMoviePage(props) {
-  const [data, setdata] = useState();
-
-  props.fetchDetail(props.match.params.id);
-
-  // useEffect(() => {
-  //    setdata()
-  // }, []);
-  // useEffect(() => {
-  //   setdata(props.data);
-  //   console.log(data);
-  // }, [props.data]);
+  useEffect(() => {
+    props.fetchDetail(props.match.params.id);
+    console.log("effet");
+  }, []);
+  console.log("loading", props.loading);
   if (props.loading) {
     console.log("dang loadding");
     return <Loading />;
@@ -28,7 +22,7 @@ function DetailMoviePage(props) {
   return (
     <div className="detailFilm">
       <div className="mainTop">
-        <div className="styleBlur" /> 
+        <div className="styleBlur" />
         <div className="styleGradient" />
         <div className="content d-flex">
           <div className="col-md-3 content-image">
@@ -465,7 +459,7 @@ function DetailMoviePage(props) {
                       <div className="mainInfo">
                         <div className="infoReview">
                           <div className="infoReviewIcon">
-                            <img src="img/avatar.png" />
+                            <img src={require("./img/avatar.png")} />
                           </div>
                           <div className="infoReviewName">
                             <p className="infoReviewName__name">Member</p>
@@ -486,7 +480,7 @@ function DetailMoviePage(props) {
                       <div className="mainComment">Hay</div>
                       <div className="likeComment">
                         <div className="likeComment__like">
-                          <img src="img/like.png" />
+                          <img src="./img/like.png" />
                           <span>1 thích</span>
                         </div>
                       </div>

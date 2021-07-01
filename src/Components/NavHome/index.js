@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React, { memo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./css.css";
@@ -40,7 +39,7 @@ const EnterPress = (e) => {
     console.log("enter roi do");
   }
 };
-function NavHome(props) {
+export default function NavHome(props) {
   return (
     <div className="navContainer">
       <div className="nav-left">
@@ -67,4 +66,3 @@ function NavHome(props) {
     </div>
   );
 }
-export default memo(NavHome);

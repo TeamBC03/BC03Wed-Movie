@@ -2,7 +2,7 @@ import * as TypeAction from "./constants";
 import axios from "axios";
 
 const detailMovieRequest = () => {
-  return { type: TypeAction.DETAIL_MOVIE_FECTCH };
+  return { type: TypeAction.DETAIL_MOVIE_REQUEST };
 };
 const detailMovieSuccess = (data) => {
   return { type: TypeAction.DETAIL_MOVIE_SUCCESS, payload: data };
@@ -13,7 +13,7 @@ const detailMovieErr = (err) => {
 
 export const detailMovieFectch = (maphim) => {
   return (dispatch) => {
-    dispatch(detailMovieRequest);
+    dispatch(detailMovieRequest());
     axios({
       url:
         "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=" +

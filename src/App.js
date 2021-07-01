@@ -4,6 +4,7 @@ import HomeTemplate from "./Container/HomeTemplate";
 import { routesHome } from "./Routes/index";
 import LogInPage from "./Container/LoginPage";
 import SignUp from "./Container/SignUpPage";
+import CinemaSeat from "./Components/CinemaSeats";
 function App() {
   const renderHomeTemplate = (routes) => {
     if (routes && routes.length > 0) {
@@ -26,6 +27,7 @@ function App() {
         {renderHomeTemplate(routesHome)}
         {console.log("luan22")}
         <Route path="/signUp" component={SignUp} />
+        <Route path="/BuyTicket" component={CinemaSeat} />
         <Route path="/login" component={LogInPage} />
         <Route path="" component={Page404} />
       </Switch>
