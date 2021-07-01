@@ -5,15 +5,12 @@ import { detailMovieFectch } from "./Modules/action";
 import {} from "css-percentage-circle";
 import DetailTicketMovie from "../../../Components/DetailTicketMovie";
 import Loading from "../../../Components/Loading/index";
-<<<<<<< HEAD
 import filmImage from "./img/film.png";
-=======
 import logo from "./img/logo-cinema.png";
 import avatar from "./img/avatar.png";
 import listStar from "./img/listStar.png";
 import star from "./img/star.png";
 import like from "./img/like.png";
->>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
 
 function DetailMoviePage(props) {
   useEffect(() => {
@@ -315,31 +312,31 @@ function DetailMoviePage(props) {
                             </div>
                           </div>
                           <div className="suatChieu-item__lichChieu d-flex">
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
 
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
                           </div>
                         </div>
                         <div className="suatChieu-item">
@@ -357,35 +354,35 @@ function DetailMoviePage(props) {
                             </div>
                           </div>
                           <div className="suatChieu-item__lichChieu d-flex">
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
 
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
-                             <div className="suatChieu-item__time col-md-2">
-                               12:00
-                             </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
+                            <div className="suatChieu-item__time col-md-2">
+                              12:00
+                            </div>
                           </div>
                         </div>
                       </div>
-                      
+
                       <div
                         class="tab-pane fade"
                         id="nav-tue"
@@ -530,11 +527,9 @@ function DetailMoviePage(props) {
                       <div className="mainInfo">
                         <div className="infoReview">
                           <div className="infoReviewIcon">
-<<<<<<< HEAD
                             <img src={require("./img/avatar.png")} />
-=======
+
                             <img src={avatar} />
->>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
                           </div>
                           <div className="infoReviewName">
                             <p className="infoReviewName__name">Member</p>
@@ -545,9 +540,9 @@ function DetailMoviePage(props) {
                           <div className="infoRatingMark">9</div>
                           <div className="infoRatingStar">
                             <img src={star} />
-                            <img src={star} /> 
                             <img src={star} />
-                            <img src={star} /> 
+                            <img src={star} />
+                            <img src={star} />
                             <img src={star} />
                           </div>
                         </div>
@@ -555,11 +550,8 @@ function DetailMoviePage(props) {
                       <div className="mainComment">Hay</div>
                       <div className="likeComment">
                         <div className="likeComment__like">
-<<<<<<< HEAD
                           <img src="./img/like.png" />
-=======
                           <img src={like} />
->>>>>>> 799f0b0854a0c8bdf2cfe247546df1e12bf23eb2
                           <span>1 thích</span>
                         </div>
                       </div>
