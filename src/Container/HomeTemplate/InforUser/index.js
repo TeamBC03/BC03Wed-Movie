@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { InfoFectch } from "./Modules/action";
 import "./css.css";
@@ -13,6 +14,10 @@ export default function InfoUser(props) {
       dispatch(InfoFectch(JSON.parse(localStorage.getItem("User")).taiKhoan));
     }
   }, []);
+
+  const handleOnchange = (e) => {
+    console.log(e.target);
+  };
   if (!localStorage.getItem("User")) {
     props.history.replace("/");
 
@@ -22,6 +27,51 @@ export default function InfoUser(props) {
     return <Loading />;
   }
 
+  const renderMovieViewed = () => {
+    return data.thongTinDatVe.map((item) => {
+      return (
+        <div class="col-md d-flex ticketItem">
+          <div class="ticketContent">
+            <div class="ticketCinema d-flex">
+              <div class="ticketCinema__image">
+                <img src="./img/bhd-star-bitexco.png" />
+              </div>
+              <div class="ticketCinema__info">
+                <div class="ticketCinema__name">
+                  {item.danhSachGhe[0].tenHeThongRap}
+                </div>
+                <div class="ticketCinema__address">
+                  116 Nguyễn Du, Q.1, TP. HCM
+                </div>
+              </div>
+            </div>
+            <div class="ticketInfo">
+              <div class="ticketInfo__name d-flex">
+                <div class="col-md-4 infoTitle">Tên phim</div>
+                <div class="col-md-6 infoUser">{item.tenPhim}</div>
+              </div>
+              <div class="ticketInfo__date d-flex">
+                <div class="col-md-4 infoTitle">Ngày đặt</div>
+                <div class="col-md-6 infoUser">{item.ngayDat}</div>
+              </div>
+              <div class="ticketInfo__room d-flex">
+                <div class="col-md-4 infoTitle">Số rạp</div>
+                <div class="col-md-6 infoUser">
+                  {item.danhSachGhe[0].tenCumRap}
+                </div>
+              </div>
+              <div class="ticketInfo__seat d-flex">
+                <div class="col-md-4 infoTitle">Số ghế</div>
+                <div class="col-md-6 infoUser">
+                  {item.danhSachGhe[0].tenGhe}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
   return (
     <div className="container InfoUser">
       <div>
@@ -49,23 +99,32 @@ export default function InfoUser(props) {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
-                      Recipient:
+                      Họ và Tên
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="recipient-name"
+                      id="name"
+                      onChange={handleOnchange}
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="message-text" className="col-form-label">
-                      Message:
+                    <label htmlFor="recipient-name" className="col-form-label">
+                      Email
                     </label>
-                    <textarea
-                      className="form-control"
-                      id="message-text"
-                      defaultValue={""}
-                    />
+                    <input type="text" className="form-control" id="email" />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="recipient-name" className="col-form-label">
+                      MẬT KHẨU
+                    </label>
+                    <input type="text" className="form-control" id="password" />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="recipient-name" className="col-form-label">
+                      SDT
+                    </label>
+                    <input type="text" className="form-control" id="SDT" />
                   </div>
                 </form>
               </div>
@@ -251,142 +310,7 @@ export default function InfoUser(props) {
                 </div>
               </div>
             </div>
-            <div className="row gutters-sm">
-              <div className="col-sm-6 mb-3">
-                <div className="card h-100">
-                  <div className="card-body">
-                    <h6 className="d-flex align-items-center mb-3">
-                      <i className="material-icons text-info mr-2">
-                        assignment
-                      </i>
-                      Project Status
-                    </h6>
-                    <small>Web Design</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "80%" }}
-                        aria-valuenow={80}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Website Markup</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "72%" }}
-                        aria-valuenow={72}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>One Page</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "89%" }}
-                        aria-valuenow={89}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Mobile Template</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "55%" }}
-                        aria-valuenow={55}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Backend API</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "66%" }}
-                        aria-valuenow={66}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 mb-3">
-                <div className="card h-100">
-                  <div className="card-body">
-                    <h6 className="d-flex align-items-center mb-3">
-                      <i className="material-icons text-info mr-2">
-                        assignment
-                      </i>
-                      Project Status
-                    </h6>
-                    <small>Web Design</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "80%" }}
-                        aria-valuenow={80}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Website Markup</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "72%" }}
-                        aria-valuenow={72}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>One Page</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "89%" }}
-                        aria-valuenow={89}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Mobile Template</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "55%" }}
-                        aria-valuenow={55}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    <small>Backend API</small>
-                    <div className="progress mb-3" style={{ height: 5 }}>
-                      <div
-                        className="progress-bar bg-primary"
-                        role="progressbar"
-                        style={{ width: "66%" }}
-                        aria-valuenow={66}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="row gutters-sm">{renderMovieViewed()}</div>
           </div>
         </div>
       </div>

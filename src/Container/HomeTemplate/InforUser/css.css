@@ -1,3 +1,36 @@
 .InfoUser {
   margin-top: 100px;
 }
+
+.ticketItem {
+  margin-bottom: 20px;
+}
+.user .ticketImage img {
+  width: 120px;
+  height: 160px;
+}
+.ticketCinema__image img {
+  width: 60px;
+}
+.ticketContent {
+  margin-left: 20px;
+}
+.ticketCinema__info {
+  margin-left: 10px;
+}
+.ticketCinema__name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.ticketCinema__address {
+  font-size: 14px;
+  color: #9e9a9a;
+}
+.ticketInfo {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.ticketInfo .infoTitle {
+  padding-left: 0;
+  font-size: 14px;
+}
