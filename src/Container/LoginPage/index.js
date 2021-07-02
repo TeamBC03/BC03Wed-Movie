@@ -1,8 +1,10 @@
 import React, { useCallback, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./css.css";
 import axios from "axios";
 export default function LogInPage(props) {
   const [state, setState] = useState({ taikhoan: "", matkhau: "" });
+  const [state1, setState1] = useState({ loading: false });
   const handleOnChange = (event) => {
     const { name, value } = event.target;
     setState({
@@ -11,6 +13,7 @@ export default function LogInPage(props) {
     });
   };
   const handleSubmit = (event) => {
+    setState1({ ...state1, loading: true });
     event.preventDefault();
     axios({
       url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
@@ -18,12 +21,13 @@ export default function LogInPage(props) {
       data: state,
     })
       .then((result) => {
+        setState1({ ...state1, loading: true });
         localStorage.setItem("User", JSON.stringify(result.data));
         props.history.replace("/");
-
-        console.log(result.data);
       })
       .catch((err) => {
+        setState1({ ...state1, loading: true });
+        alert("loi roi");
         console.log(err);
       });
   };
@@ -78,7 +82,7 @@ export default function LogInPage(props) {
             </div>
           </div>
           <a href="#">Quên mật khẩu ?</a>
-          <a href="#">Tạo tài khoản mới</a>
+          <Link to="/signUp">Tạo tài khoản mới</Link>
           {/* <div className="col-md-6 button-signUp">
             <button type="submit" className="btn btn-primary ">
               Đăng Kí 

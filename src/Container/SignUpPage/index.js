@@ -6,7 +6,7 @@ export default function SignUp() {
     taiKhoan: "",
     hoTen: "",
     email: "",
-    soDt: "",
+    soDT: "",
     matKhau: "",
     maNhom: "GP01",
     maLoaiNguoiDung: "KhachHang",
@@ -28,6 +28,7 @@ export default function SignUp() {
   const handleOnchange = (event) => {
     const { name, value } = event.target;
     setState({ ...state, [name]: value });
+    console.log(state);
   };
   return (
     <div className="signUp">
@@ -82,7 +83,6 @@ export default function SignUp() {
               placeholder="Nhập họ tên"
               onChange={handleOnchange}
               name="hoTen"
-              
             />
           </div>
           <div className="col-12">
@@ -98,7 +98,7 @@ export default function SignUp() {
               placeholder="Nhập email"
             />
           </div>
-          {/* <div className="col-12">
+          <div className="col-12">
             <label htmlFor="inputCity" className="form-label">
               SDT :
             </label>
@@ -110,7 +110,7 @@ export default function SignUp() {
               name="soDT"
               placeholder="Nhập SĐT"
             />
-          </div> */}
+          </div>
           <div className="col-12">
             <div className="form-check">
               <input

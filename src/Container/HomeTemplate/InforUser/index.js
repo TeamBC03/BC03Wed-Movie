@@ -5,9 +5,19 @@ import { InfoFectch } from "./Modules/action";
 import "./css.css";
 import Loading from "../../../Components/Loading/index";
 export default function InfoUser(props) {
+  const [state, setState] = useState({
+    taiKhoan: "",
+    hoTen: "",
+    email: "",
+    soDT: "",
+    matKhau: "",
+    maNhom: "GP01",
+    maLoaiNguoiDung: "KhachHang",
+  });
+
   const data = useSelector((state) => state.InfoReducer.data);
   const loading = useSelector((state) => state.InfoReducer.loading);
-  console.log(data);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("User")) {
@@ -15,12 +25,28 @@ export default function InfoUser(props) {
     }
   }, []);
 
-  const handleOnchange = (e) => {
-    console.log(e.target);
+  const handleOnchange = (event) => {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
+  };
+  const handleSubmit = () => {
+    console.log(state);
+    window.location.reload();
+  };
+  const setdefaut = () => {
+    setState({
+      ...state,
+      taiKhoan: data.taiKhoan,
+      hoTen: data.hoTen,
+      email: data.email,
+      soDT: data.soDT,
+      matKhau: data.matKhau,
+      maNhom: "GP01",
+      maLoaiNguoiDung: "KhachHang",
+    });
   };
   if (!localStorage.getItem("User")) {
     props.history.replace("/");
-
     return <div></div>;
   }
   if (loading) {
@@ -106,25 +132,48 @@ export default function InfoUser(props) {
                       className="form-control"
                       id="name"
                       onChange={handleOnchange}
+                      name="hoTen"
+                      value={state.hoTen}
                     />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
                       Email
                     </label>
-                    <input type="text" className="form-control" id="email" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="email"
+                      onChange={handleOnchange}
+                      name="email"
+                      value={state.email}
+                    />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
                       MẬT KHẨU
                     </label>
-                    <input type="text" className="form-control" id="password" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="password"
+                      onChange={handleOnchange}
+                      name="matKhau"
+                      value={state.matKhau}
+                    />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
                       SDT
                     </label>
-                    <input type="text" className="form-control" id="SDT" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="SDT"
+                      onChange={handleOnchange}
+                      name="soDT"
+                      value={state.soDT}
+                    />
                   </div>
                 </form>
               </div>
@@ -136,8 +185,12 @@ export default function InfoUser(props) {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
-                  Send message
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleSubmit}
+                >
+                  Cập Nhật
                 </button>
               </div>
             </div>
@@ -275,7 +328,14 @@ export default function InfoUser(props) {
               <div className="card-body">
                 <div className="row">
                   <div className="col-sm-3">
-                    <h6 className="mb-0">HỌ VÀ TÊN</h6>
+                    <h6 className="mb-0">Tên Tài Khoản</h6>
+                  </div>
+                  <div className="col-sm-9 text-secondary">{data.taiKhoan}</div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h6 className="mb-0">Họ và Tên</h6>
                   </div>
                   <div className="col-sm-9 text-secondary">{data.hoTen}</div>
                 </div>
@@ -303,8 +363,9 @@ export default function InfoUser(props) {
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
                       data-bs-whatever="@mdo"
+                      onClick={setdefaut}
                     >
-                      Open modal for @mdo
+                      Chỉnh Sửa Thông Tin
                     </button>
                   </div>
                 </div>
