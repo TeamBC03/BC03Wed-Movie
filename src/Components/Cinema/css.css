@@ -15,7 +15,7 @@
   border-color: transparent;
 }
 .cinema .cinema-cumRap {
-  border: 1px solid #ebebec;
+  border-right: 1px solid #ebebec;
 }
 .cinema .cinema-cumRap .cinema-cumRap__item.active {
   background: transparent;
@@ -162,4 +162,21 @@
 }
 .cinema .listDayTime .date {
   font-size: 20px;
+}
+
+
+/* fix  */
+.cinema .brand-name{
+  display:block;
+}
+.cinema-item__info{
+  width: 190px !important;
+}
+.cinema{
+  height:567px;
+}
+.cinema-listCinema{
+  height:567px;
+  overflow-y:scroll;
+  padding-bottom: 81px;
 }

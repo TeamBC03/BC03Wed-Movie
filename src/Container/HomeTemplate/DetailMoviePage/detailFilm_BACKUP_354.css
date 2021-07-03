@@ -327,6 +327,13 @@ d .listDayTime .nav-link.active {
 .detailFilm .cinemaList {
   border-bottom: none;
 }
+<<<<<<< HEAD
+#nav-tabContent {
+=======
+.detailFilm #nav-tabContent{
+>>>>>>> f56fd914009bbeaac12c926524bb8933a0d84dbb
+  border-left: 1px solid #e6e6e6;
+}
 .activation {
   background-color: #fb4226;
 }
