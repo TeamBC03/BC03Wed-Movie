@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { InfoFectch } from "./Modules/action";
+import { InfoFectch, InfoChangeFectch } from "./Modules/action";
 import "./css.css";
 import Loading from "../../../Components/Loading/index";
 export default function InfoUser(props) {
@@ -30,8 +30,9 @@ export default function InfoUser(props) {
     setState({ ...state, [name]: value });
   };
   const handleSubmit = () => {
+    dispatch(InfoChangeFectch(state));
     console.log(state);
-    window.location.reload();
+    // window.location.reload();
   };
   const setdefaut = () => {
     setState({
