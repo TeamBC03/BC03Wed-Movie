@@ -82,10 +82,11 @@ function DetailMoviePage(props) {
       return item.maHeThongRap === cumrap;
     });
     setState({ ...state, dataRap: dataRap1 });
+    let btn = document.querySelectorAll(".btnday");
+    btn[0].click();
   };
 
   const renderLichChieuNgay = (day) => {
-    let btn = document.querySelectorAll(".btnday");
     console.log("Ngày", day);
     let dataLichChieu1 = [];
     if (state.dataRap !== null) {
@@ -267,7 +268,10 @@ function DetailMoviePage(props) {
                 >
                   {renderCinema()}
                 </div>
-                <div class="tab-content col-md-8 detailCinema__lichChieu-right" id="nav-tabContent">
+                <div
+                  class="tab-content col-md-8 detailCinema__lichChieu-right"
+                  id="nav-tabContent"
+                >
                   <div
                     class="tab-pane fade show active"
                     id="nav-home"
