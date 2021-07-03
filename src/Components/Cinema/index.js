@@ -23,13 +23,13 @@ export default function Cinema() {
     return data.map((item) => {
       return (
         <button
-          class="nav-link active cinema-cumRap__item"
+          class="nav-link  cinema-cumRap__item"
           id="bhd-tab"
           data-bs-toggle="pill"
           data-bs-target="#bhd"
           role="tab"
           aria-controls="bhd"
-          aria-selected="true"
+          aria-selected="false"
           type="button"
           onClick={() => {
             ClickCinema(item.maHeThongRap);
@@ -48,14 +48,14 @@ export default function Cinema() {
         return (
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link active"
+              class="nav-link "
               id="home-tab"
               data-bs-toggle="tab"
               data-bs-target="#home"
               type="button"
               role="tab"
               aria-controls="home"
-              aria-selected="true"
+              aria-selected="false"
               onClick={() => {
                 ClickCinemaSys(i);
               }}
