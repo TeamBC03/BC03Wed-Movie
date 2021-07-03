@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./css.css";
 import logoCinema from "./images/BHD-cinema.png";
@@ -7,6 +7,48 @@ import logo from "./images/logo-cinema.png";
 import Loading from "../Loading";
 import { Cinema_Fetch, CinemaSys_Fetch } from "./Modules/actions";
 export default function Cinema() {
+  const tomorrow = new Date();
+  const [state, setState] = useState({ dataRap: null });
+  const [state1, setState1] = useState({ dataLichChieu: [] });
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + i);
+    let day = "";
+    switch (tomorrow.getDay()) {
+      case 0: {
+        day = "Chủ Nhật";
+        break;
+      }
+      case 1: {
+        day = "Thứ 2";
+        break;
+      }
+      case 2: {
+        day = "Thứ 3";
+        break;
+      }
+      case 3: {
+        day = "Thứ 4";
+        break;
+      }
+      case 4: {
+        day = "Thứ 5";
+        break;
+      }
+      case 5: {
+        day = "Thứ 6";
+        break;
+      }
+      case 6: {
+        day = "Thứ 7";
+        break;
+      }
+      default:
+        break;
+    }
+    days.push(day);
+  }
   const loading = useSelector((state) => state.CinemaReducer.loading);
   const data = useSelector((state) => state.CinemaReducer.data);
   const loadingSys = useSelector((state) => state.CinemaReducer.loadingSys);
@@ -57,7 +99,7 @@ export default function Cinema() {
               aria-controls="home"
               aria-selected="false"
               onClick={() => {
-                ClickCinemaSys(i);
+                ClickCinemaSys(item);
               }}
             >
               <div class="cinema-item row">
@@ -81,11 +123,37 @@ export default function Cinema() {
   const ClickCinema = (cumrap) => {
     dispatch(CinemaSys_Fetch(cumrap));
   };
-  const ClickCinemaSys = (i) => {
-    console.log(i);
+  const ClickCinemaSys = (dataList) => {
+    setState({ ...state, dataRap: dataList.danhSachPhim });
+    console.log(state.dataRap);
   };
-  console.log(data);
-
+  const renderLichChieu = (day) => {
+    console.log(day);
+    let dataLichChieu1 = [];
+    if (state.dataRap.length != 0) {
+      state.dataRap.forEach((item) => {
+        let suatchieu = item.lstLichChieuTheoPhim.filter((lichchieu) => {
+          const moonLanding = new Date(lichchieu.ngayChieuGioChieu);
+          const daynow = new Date();
+          return (
+            moonLanding.getFullYear() === daynow.getFullYear() &&
+            moonLanding.getMonth() === daynow.getMonth() &&
+            moonLanding.getDate() === day
+          );
+        });
+        let suatchieurap = {
+          tenPhim: item.tenPhim,
+          maPhim: item.maPhim,
+          suatchieu: suatchieu,
+        };
+        if (suatchieurap.suatchieu.length != 0) {
+          dataLichChieu1.push(suatchieurap);
+        }
+      });
+      console.log(dataLichChieu1);
+      setState1({ ...state1, dataLichChieu: dataLichChieu1 });
+    }
+  };
   return (
     <div>
       <section class="cinema">
@@ -143,9 +211,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-mon"
                       aria-selected="true"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate());
+                      }}
                     >
-                      <p class="day">Thứ 2</p>
-                      <p class="date">01</p>
+                      <p class="day">{days[0]}</p>
+                      <p class="date">{tomorrow.getDate()}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -156,9 +227,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-tue"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 1);
+                      }}
                     >
-                      <p class="day">Thứ 3</p>
-                      <p class="date">02</p>
+                      <p class="day">{days[1]}</p>
+                      <p class="date">{tomorrow.getDate() + 1}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -169,9 +243,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-wed"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 2);
+                      }}
                     >
-                      <p class="day">Thứ 4</p>
-                      <p class="date">03</p>
+                      <p class="day">{days[2]}</p>
+                      <p class="date">{tomorrow.getDate() + 2}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -182,9 +259,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-thu"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 3);
+                      }}
                     >
-                      <p class="day">Thứ 5</p>
-                      <p class="date">04</p>
+                      <p class="day">{days[3]}</p>
+                      <p class="date">{tomorrow.getDate() + 3}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -195,9 +275,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-fri"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 4);
+                      }}
                     >
-                      <p class="day">Thứ 6</p>
-                      <p class="date">05</p>
+                      <p class="day">{days[4]}</p>
+                      <p class="date">{tomorrow.getDate() + 4}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -208,9 +291,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-sat"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 5);
+                      }}
                     >
-                      <p class="day">Thứ 7</p>
-                      <p class="date">06</p>
+                      <p class="day">{days[5]}</p>
+                      <p class="date">{tomorrow.getDate() + 5}</p>
                     </button>
                     <button
                       class="nav-link"
@@ -221,9 +307,12 @@ export default function Cinema() {
                       role="tab"
                       aria-controls="nav-sun"
                       aria-selected="false"
+                      onClick={() => {
+                        renderLichChieu(tomorrow.getDate() + 6);
+                      }}
                     >
-                      <p class="day">Chủ Nhật</p>
-                      <p class="date">07</p>
+                      <p class="day">{days[6]}</p>
+                      <p class="date">{tomorrow.getDate() + 6}</p>
                     </button>
                   </div>
                 </nav>
