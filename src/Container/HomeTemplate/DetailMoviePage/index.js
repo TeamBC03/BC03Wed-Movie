@@ -13,15 +13,192 @@ import star from "./img/star.png";
 import like from "./img/like.png";
 
 function DetailMoviePage(props) {
+  const [state, setState] = useState({ dataRap: null });
+  const [state1, setState1] = useState({ dataLichChieu: null });
+  const tomorrow = new Date();
+  const mapmap = [0, 1, 2, 3, 4, 5, 6];
+  tomorrow.setDate(tomorrow.getDate() - 1);
+  const getDatee = () => {
+    return mapmap.map((item) => {
+      let day = "";
+      console.log(tomorrow.getDay());
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      switch (tomorrow.getDay()) {
+        case 0: {
+          day = "Chủ Nhật";
+          break;
+        }
+        case 1: {
+          day = "Thứ 2";
+          break;
+        }
+        case 2: {
+          day = "Thứ 3";
+          break;
+        }
+        case 3: {
+          day = "Thứ 4";
+          break;
+        }
+        case 4: {
+          day = "Thứ 5";
+          break;
+        }
+        case 5: {
+          day = "Thứ 6";
+          break;
+        }
+        case 6: {
+          day = "Thứ 7";
+          break;
+        }
+        default:
+          break;
+      }
+      return (
+        <button
+          class="nav-link active"
+          id="nav-mon-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-mon"
+          type="button"
+          role="tab"
+          aria-controls="nav-mon"
+          aria-selected="true"
+          onClick={renderLichChieuNgay}
+        >
+          <p class="day">{day}</p>
+          <p class="date">{tomorrow.getDate()}</p>
+        </button>
+      );
+    });
+  };
+  const LichChieu = (cumrap) => {
+    let dataRap1 = props.data.heThongRapChieu.filter((item) => {
+      return item.maHeThongRap === cumrap;
+    });
+    setState({ ...state, dataRap: dataRap1 }, console.log(state));
+  };
+  const renderLichChieu = () => {
+    if (state.dataRap === null) {
+      return <div>dang load ne</div>;
+    } else {
+      return state.dataRap[0].cumRapChieu.map((item) => {
+        return (
+          <div className="suatChieu-item">
+            <div className="suatChieu-item__cinema d-flex">
+              <div className="suatChieu-item__image">
+                <img src={logo} />
+              </div>
+              <div className="suatChieu-item__info">
+                <p className="suatChieu-item__name">{item.tenCumRap}</p>
+                <p className="suatChieu-item__address">116 Nguyễn Du, Q.1</p>
+              </div>
+            </div>
+            <div className="suatChieu-item__lichChieu d-flex">
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+            </div>
+          </div>
+        );
+      });
+    }
+  };
+  const renderLichChieuNgay = (day) => {
+    let dataLichChieu1 = [];
+    if (state.dataRap !== null) {
+      state.dataRap[0].cumRapChieu.forEach((item) => {
+        let suatchieu = item.lichChieuPhim.filter((lichchieu) => {
+          const moonLanding = new Date(lichchieu.ngayChieuGioChieu);
+          const daynow = new Date();
+          return (
+            moonLanding.getFullYear() === 2021 &&
+            moonLanding.getMonth() === daynow.getMonth()
+          );
+        });
+        let suatchieuRap = { tenCumrap: item.tenCumRap, suatchieu: suatchieu };
+        if (suatchieuRap.suatchieu.length != 0) {
+          dataLichChieu1.push(suatchieuRap);
+        }
+      });
+      console.log(dataLichChieu1);
+    }
+  };
+  const renderLichChieuNgay1 = () => {
+    if (state1.dataLichChieu === null) {
+      return <div>dang load ne</div>;
+    } else {
+      return state1.dataRa.cumRapChieu.map((item) => {
+        return (
+          <div className="suatChieu-item">
+            <div className="suatChieu-item__cinema d-flex">
+              <div className="suatChieu-item__image">
+                <img src={logo} />
+              </div>
+              <div className="suatChieu-item__info">
+                <p className="suatChieu-item__name">{item.tenCumRap}</p>
+                <p className="suatChieu-item__address">116 Nguyễn Du, Q.1</p>
+              </div>
+            </div>
+            <div className="suatChieu-item__lichChieu d-flex">
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+              <div className="suatChieu-item__time col-md-2">12:00</div>
+            </div>
+          </div>
+        );
+      });
+    }
+  };
   useEffect(() => {
     props.fetchDetail(props.match.params.id);
-    console.log("effet");
   }, []);
+
   console.log("loading", props.loading);
   if (props.loading) {
-    console.log("dang loadding");
     return <Loading />;
   }
+  const renderCinema = () => {
+    return props.data.heThongRapChieu.map((item) => {
+      return (
+        <button
+          class="nav-link active"
+          id="nav-home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-home"
+          type="button"
+          role="tab"
+          aria-controls="nav-home"
+          aria-selected="true"
+          onClick={() => {
+            LichChieu(item.maHeThongRap);
+          }}
+        >
+          <div class="cinemaItem d-flex">
+            <div class="cinemaItem-img">
+              <img src={item.logo} />
+            </div>
+            <div class="cinemaItem-name">
+              <span>{item.tenHeThongRap}</span>
+            </div>
+          </div>
+        </button>
+      );
+    });
+  };
   console.log("đã ra");
   return (
     <div className="detailFilm">
@@ -41,7 +218,7 @@ function DetailMoviePage(props) {
               <span className="content-name__name">{props.data.tenPhim} </span>
             </div>
             <div className="content-time">
-              <span>100 phút - 0 IMDb - 2D/Digital</span>
+              <span>`100 phút {props.data.danhGia}-SAO - 2D/Digital`</span>
             </div>
           </div>
         </div>
@@ -107,82 +284,7 @@ function DetailMoviePage(props) {
                   role="tablist"
                   aria-orientation="vertical"
                 >
-                  <button
-                    class="nav-link active"
-                    id="nav-home-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-home"
-                    aria-selected="true"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-name">
-                        <span>BHD Star Bitexco</span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-profile-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-profile"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-name">
-                        <span>BHD Star Bitexco</span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-messages-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-messages"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-messages"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-name">
-                        <span>BHD Star Bitexco</span>
-                      </div>
-                    </div>
-                  </button>
-                  <button
-                    class="nav-link"
-                    id="nav-settings-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-settings"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-settings"
-                    aria-selected="false"
-                  >
-                    <div class="cinemaItem d-flex">
-                      <div class="cinemaItem-img">
-                        <img src="img/bhd-star-bitexco.png" />
-                      </div>
-                      <div class="cinemaItem-name">
-                        <span>BHD Star Bitexco</span>
-                      </div>
-                    </div>
-                  </button>
+                  {renderCinema()}
                 </div>
                 <div class="tab-content col-md-8" id="nav-tabContent">
                   <div
@@ -197,97 +299,7 @@ function DetailMoviePage(props) {
                         id="nav-tab"
                         role="tablist"
                       >
-                        <button
-                          class="nav-link active"
-                          id="nav-mon-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-mon"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-mon"
-                          aria-selected="true"
-                        >
-                          <p class="day">Thứ 2</p>
-                          <p class="date">01</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-tue-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-tue"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-tue"
-                          aria-selected="false"
-                        >
-                          <p class="day">Thứ 3</p>
-                          <p class="date">02</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-wed-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-wed"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-wed"
-                          aria-selected="false"
-                        >
-                          <p class="day">Thứ 4</p>
-                          <p class="date">03</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-thu-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-thu"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-thu"
-                          aria-selected="false"
-                        >
-                          <p class="day">Thứ 5</p>
-                          <p class="date">04</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-fri-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-fri"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-fri"
-                          aria-selected="false"
-                        >
-                          <p class="day">Thứ 6</p>
-                          <p class="date">05</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-sat-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-sat"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-sat"
-                          aria-selected="false"
-                        >
-                          <p class="day">Thứ 7</p>
-                          <p class="date">06</p>
-                        </button>
-                        <button
-                          class="nav-link"
-                          id="nav-sun-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#nav-sun"
-                          type="button"
-                          role="tab"
-                          aria-controls="nav-sun"
-                          aria-selected="false"
-                        >
-                          <p class="day">Chủ Nhật</p>
-                          <p class="date">07</p>
-                        </button>
+                        {getDatee()}
                       </div>
                     </nav>
                     <div class="tab-content suatChieu-list" id="nav-tabContent">
@@ -297,90 +309,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-mon-tab"
                       >
-                        <div className="suatChieu-item">
-                          <div className="suatChieu-item__cinema d-flex">
-                            <div className="suatChieu-item__image">
-                              <img src={logo} />
-                            </div>
-                            <div className="suatChieu-item__info">
-                              <p className="suatChieu-item__name">
-                                GLX - Nguyễn Du
-                              </p>
-                              <p className="suatChieu-item__address">
-                                116 Nguyễn Du, Q.1
-                              </p>
-                            </div>
-                          </div>
-                          <div className="suatChieu-item__lichChieu d-flex">
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                          </div>
-                        </div>
-                        <div className="suatChieu-item">
-                          <div className="suatChieu-item__cinema d-flex">
-                            <div className="suatChieu-item__image">
-                              <img src={logo} />
-                            </div>
-                            <div className="suatChieu-item__info">
-                              <p className="suatChieu-item__name">
-                                GLX - Nguyễn Du
-                              </p>
-                              <p className="suatChieu-item__address">
-                                116 Nguyễn Du, Q.1
-                              </p>
-                            </div>
-                          </div>
-                          <div className="suatChieu-item__lichChieu d-flex">
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                            <div className="suatChieu-item__time col-md-2">
-                              12:00
-                            </div>
-                          </div>
-                        </div>
+                        {renderLichChieu()}
                       </div>
 
                       <div
@@ -527,9 +456,7 @@ function DetailMoviePage(props) {
                       <div className="mainInfo">
                         <div className="infoReview">
                           <div className="infoReviewIcon">
-
                             <img src={avatar} />
-
                           </div>
                           <div className="infoReviewName">
                             <p className="infoReviewName__name">Member</p>
@@ -550,7 +477,6 @@ function DetailMoviePage(props) {
                       <div className="mainComment">Hay</div>
                       <div className="likeComment">
                         <div className="likeComment__like">
-
                           <img src={like} />
 
                           <span>1 thích</span>

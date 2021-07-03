@@ -16,13 +16,13 @@ export const detailMovieFectch = (maphim) => {
     dispatch(detailMovieRequest());
     axios({
       url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=" +
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=" +
         maphim,
       method: "GET",
     })
       .then((result) => {
         dispatch(detailMovieSuccess(result.data));
-        console.log(result);
+        console.log(result.data);
       })
       .catch((err) => {
         dispatch(detailMovieErr(err));
