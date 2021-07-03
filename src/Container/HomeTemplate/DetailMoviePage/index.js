@@ -14,12 +14,12 @@ import like from "./img/like.png";
 
 function DetailMoviePage(props) {
   const [state, setState] = useState({ dataRap: null });
-  const [state1, setState1] = useState({ dataLichChieu: null });
+  const [state1, setState1] = useState({ dataLichChieu: [] });
   const tomorrow = new Date();
   const mapmap = [0, 1, 2, 3, 4, 5, 6];
   tomorrow.setDate(tomorrow.getDate() - 1);
   const getDatee = () => {
-    return mapmap.map((item) => {
+    return mapmap.map((item, i) => {
       let day = "";
       console.log(tomorrow.getDay());
       tomorrow.setDate(tomorrow.getDate() + 1);
@@ -57,7 +57,7 @@ function DetailMoviePage(props) {
       }
       return (
         <button
-          class="nav-link active"
+          class="nav-link active btnday"
           id="nav-mon-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-mon"
@@ -65,7 +65,9 @@ function DetailMoviePage(props) {
           role="tab"
           aria-controls="nav-mon"
           aria-selected="true"
-          onClick={renderLichChieuNgay}
+          onClick={() => {
+            renderLichChieuNgay(i);
+          }}
         >
           <p class="day">{day}</p>
           <p class="date">{tomorrow.getDate()}</p>
@@ -73,45 +75,15 @@ function DetailMoviePage(props) {
       );
     });
   };
-  const LichChieu = (cumrap) => {
+  const LichChieu = async (cumrap) => {
     let dataRap1 = props.data.heThongRapChieu.filter((item) => {
       return item.maHeThongRap === cumrap;
     });
-    setState({ ...state, dataRap: dataRap1 }, console.log(state));
+    setState({ ...state, dataRap: dataRap1 });
   };
-  const renderLichChieu = () => {
-    if (state.dataRap === null) {
-      return <div>dang load ne</div>;
-    } else {
-      return state.dataRap[0].cumRapChieu.map((item) => {
-        return (
-          <div className="suatChieu-item">
-            <div className="suatChieu-item__cinema d-flex">
-              <div className="suatChieu-item__image">
-                <img src={logo} />
-              </div>
-              <div className="suatChieu-item__info">
-                <p className="suatChieu-item__name">{item.tenCumRap}</p>
-                <p className="suatChieu-item__address">116 Nguyễn Du, Q.1</p>
-              </div>
-            </div>
-            <div className="suatChieu-item__lichChieu d-flex">
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
 
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-              <div className="suatChieu-item__time col-md-2">12:00</div>
-            </div>
-          </div>
-        );
-      });
-    }
-  };
   const renderLichChieuNgay = (day) => {
+    let btn = document.querySelectorAll(".btnday");
     let dataLichChieu1 = [];
     if (state.dataRap !== null) {
       state.dataRap[0].cumRapChieu.forEach((item) => {
@@ -119,7 +91,7 @@ function DetailMoviePage(props) {
           const moonLanding = new Date(lichchieu.ngayChieuGioChieu);
           const daynow = new Date();
           return (
-            moonLanding.getFullYear() === 2021 &&
+            moonLanding.getFullYear() === daynow.getFullYear() &&
             moonLanding.getMonth() === daynow.getMonth()
           );
         });
@@ -129,13 +101,14 @@ function DetailMoviePage(props) {
         }
       });
       console.log(dataLichChieu1);
+      setState1({ ...state1, dataLichChieu: dataLichChieu1 });
     }
   };
   const renderLichChieuNgay1 = () => {
-    if (state1.dataLichChieu === null) {
-      return <div>dang load ne</div>;
+    if (state1.dataLichChieu.length === 0) {
+      return <div>Không có suất chiếu trong ngày</div>;
     } else {
-      return state1.dataRa.cumRapChieu.map((item) => {
+      return state1.dataLichChieu.map((item) => {
         return (
           <div className="suatChieu-item">
             <div className="suatChieu-item__cinema d-flex">
@@ -173,9 +146,10 @@ function DetailMoviePage(props) {
   }
   const renderCinema = () => {
     return props.data.heThongRapChieu.map((item) => {
+      console.log(item);
       return (
         <button
-          class="nav-link active"
+          class="nav-link activation btnCinema"
           id="nav-home-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-home"
@@ -199,7 +173,7 @@ function DetailMoviePage(props) {
       );
     });
   };
-  console.log("đã ra");
+
   return (
     <div className="detailFilm">
       <div className="mainTop">
@@ -309,7 +283,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-mon-tab"
                       >
-                        {renderLichChieu()}
+                        {renderLichChieuNgay1()}
                       </div>
 
                       <div
