@@ -8,7 +8,7 @@ import Loading from "../Loading";
 import { Cinema_Fetch, CinemaSys_Fetch } from "./Modules/actions";
 export default function Cinema() {
   const tomorrow = new Date();
-  const [state, setState] = useState({ dataRap: null });
+  const [state, setState] = useState({ dataRap: [] });
   const [state1, setState1] = useState({ dataLichChieu: [] });
   const days = [];
   for (let i = 0; i < 7; i++) {
@@ -90,7 +90,7 @@ export default function Cinema() {
         return (
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link "
+              class="nav-link cinebtn"
               id="home-tab"
               data-bs-toggle="tab"
               data-bs-target="#home"
@@ -111,7 +111,7 @@ export default function Cinema() {
                     <span class="brand-name">{item.tenCumRap}</span>
                   </span>
                   <p class="address">{item.diaChi}</p>
-                  <a href="#">[chi tiết]</a>
+                  <a>[chi tiết]</a>
                 </div>
               </div>
             </button>
@@ -125,7 +125,10 @@ export default function Cinema() {
   };
   const ClickCinemaSys = (dataList) => {
     setState({ ...state, dataRap: dataList.danhSachPhim });
-    console.log(state.dataRap);
+    if (!loadingSys) {
+      let btn = document.querySelectorAll(".fibtn");
+      btn[0].click();
+    }
   };
   const renderLichChieu = (day) => {
     console.log(day);
@@ -142,6 +145,7 @@ export default function Cinema() {
           );
         });
         let suatchieurap = {
+          hinhAnh: item.hinhAnh,
           tenPhim: item.tenPhim,
           maPhim: item.maPhim,
           suatchieu: suatchieu,
@@ -152,6 +156,39 @@ export default function Cinema() {
       });
       console.log(dataLichChieu1);
       setState1({ ...state1, dataLichChieu: dataLichChieu1 });
+    }
+  };
+  const renderLichChieu1 = () => {
+    if (state1.dataLichChieu.length == 0) {
+      return <div>Không có Suất Chiếu</div>;
+    } else {
+      return state1.dataLichChieu.map((item) => {
+        return (
+          <div className="suatChieu-item">
+            <div className="suatChieu-item__cinema d-flex">
+              <div className="suatChieu-item__image">
+                <img src={item.hinhAnh} />
+              </div>
+              <div className="suatChieu-item__info">
+                <p className="suatChieu-item__name">{item.tenPhim}</p>
+              </div>
+            </div>
+            <div className="suatChieu-item__lichChieu d-flex">
+              {item.suatchieu.map((item1) => {
+                return (
+                  <div className="suatChieu-item__time col-md-2">
+                    {`${new Date(
+                      item1.ngayChieuGioChieu
+                    ).getHours()}:${new Date(
+                      item1.ngayChieuGioChieu
+                    ).getMinutes()}`}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      });
     }
   };
   return (
@@ -203,7 +240,7 @@ export default function Cinema() {
                     role="tablist"
                   >
                     <button
-                      class="nav-link active"
+                      class="nav-link active fibtn"
                       id="nav-mon-tab"
                       data-bs-toggle="tab"
                       data-bs-target="#nav-mon"
@@ -323,90 +360,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-mon-tab"
                   >
-                    <div className="suatChieu-item">
-                      <div className="suatChieu-item__cinema d-flex">
-                        <div className="suatChieu-item__image">
-                          <img src={logo} />
-                        </div>
-                        <div className="suatChieu-item__info">
-                          <p className="suatChieu-item__name">
-                            GLX - Nguyễn Du
-                          </p>
-                          <p className="suatChieu-item__address">
-                            116 Nguyễn Du, Q.1
-                          </p>
-                        </div>
-                      </div>
-                      <div className="suatChieu-item__lichChieu d-flex">
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                      </div>
-                    </div>
-                    <div className="suatChieu-item">
-                      <div className="suatChieu-item__cinema d-flex">
-                        <div className="suatChieu-item__image">
-                          <img src={logo} />
-                        </div>
-                        <div className="suatChieu-item__info">
-                          <p className="suatChieu-item__name">
-                            GLX - Nguyễn Du
-                          </p>
-                          <p className="suatChieu-item__address">
-                            116 Nguyễn Du, Q.1
-                          </p>
-                        </div>
-                      </div>
-                      <div className="suatChieu-item__lichChieu d-flex">
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                        <div className="suatChieu-item__time col-md-2">
-                          12:00
-                        </div>
-                      </div>
-                    </div>
+                    {renderLichChieu1()}
                   </div>
 
                   <div
@@ -415,7 +369,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-tue-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                   <div
                     class="tab-pane fade"
@@ -423,7 +377,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-wed-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                   <div
                     class="tab-pane fade"
@@ -431,7 +385,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-thu-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                   <div
                     class="tab-pane fade"
@@ -439,7 +393,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-fri-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                   <div
                     class="tab-pane fade"
@@ -447,7 +401,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-sat-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                   <div
                     class="tab-pane fade"
@@ -455,7 +409,7 @@ export default function Cinema() {
                     role="tabpanel"
                     aria-labelledby="nav-sun-tab"
                   >
-                    Không có suất chiếu
+                    {renderLichChieu1()}
                   </div>
                 </div>
               </div>
