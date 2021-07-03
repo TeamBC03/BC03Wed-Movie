@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./detailFilm.css";
 import { connect } from "react-redux";
 import { detailMovieFectch } from "./Modules/action";
@@ -110,12 +111,16 @@ function DetailMoviePage(props) {
     }
   };
   const renderListLichChieu = (suatchieu) => {
+    console.log("suat chieu", suatchieu);
     return suatchieu.map((item) => {
       return (
         <div className="suatChieu-item__time col-md-2">
-          {`${new Date(item.ngayChieuGioChieu).getHours()}:${new Date(
-            item.ngayChieuGioChieu
-          ).getMinutes()}`}
+          <Link to={`/CinemaSeat/${item.maLichChieu}`}>
+            {" "}
+            {`${new Date(item.ngayChieuGioChieu).getHours()}:${new Date(
+              item.ngayChieuGioChieu
+            ).getMinutes()}`}
+          </Link>
         </div>
       );
     });

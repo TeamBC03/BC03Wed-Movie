@@ -1,3 +1,4 @@
+import CinemaSeatPage from "../Container/HomeTemplate/CinemaSeatPage";
 import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
 import DetailMoviePage from "../Container/HomeTemplate/DetailMoviePage";
 import HomePage from "../Container/HomeTemplate/HomePage/index";
@@ -29,6 +30,11 @@ const routesHome = [
     path: "/DetailCinema/:macumrap/:marap",
     exact: false,
     component: DetailCinemaPage,
+  },
+  {
+    path: "/CinemaSeat/:id",
+    exact: false,
+    component: CinemaSeatPage,
   },
 ];
 const RoutesAdmin = [{}];
