@@ -58,7 +58,7 @@ function DetailMoviePage(props) {
       }
       return (
         <button
-          class="nav-link active btnday"
+          class="nav-link btnday"
           id="nav-mon-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-mon"
@@ -156,7 +156,7 @@ function DetailMoviePage(props) {
       console.log(item);
       return (
         <button
-          class="nav-link active"
+          class="nav-link"
           id="nav-home-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-home"
@@ -260,14 +260,14 @@ function DetailMoviePage(props) {
             >
               <div class="d-flex align-items-start detailCinema__lichChieu">
                 <div
-                  class="nav flex-column nav-tabs col-md-4 cinemaList"
+                  class="nav flex-column nav-tabs col-md-4 cinemaList detailCinema__lichChieu-left"
                   id="nav-tab"
                   role="tablist"
                   aria-orientation="vertical"
                 >
                   {renderCinema()}
                 </div>
-                <div class="tab-content col-md-8" id="nav-tabContent">
+                <div class="tab-content col-md-8 detailCinema__lichChieu-right" id="nav-tabContent">
                   <div
                     class="tab-pane fade show active"
                     id="nav-home"

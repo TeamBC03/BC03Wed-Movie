@@ -242,7 +242,7 @@
   opacity: 0.3;
   margin-bottom: 0;
 }
-d .listDayTime .nav-link.active {
+.listDayTime .nav-link.active {
   color: #fb4226 !important;
   opacity: 1;
   margin-bottom: 0;
@@ -327,6 +327,10 @@ d .listDayTime .nav-link.active {
 .detailFilm .cinemaList {
   border-bottom: none;
 }
-.activation {
+.detailFilm .activation {
   background-color: #fb4226;
+}
+.detailFilm .detailCinema__lichChieu-right{
+  border-left: 1px solid #e6e6e6;
+  height:546px;
 }
