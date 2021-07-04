@@ -1,7 +1,91 @@
 import React from "react";
 import "./css.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { CinemaSeatFectch } from "./modules/actions";
+import Loading from "../Loading";
+import { getByDisplayValue } from "@testing-library/react";
+export default function CinemaSeat(props) {
+  // btnSeat.forEach((item, i) => {
+  //   btnSeat[i].addEventListener("click", () => {
+  //     console.log(i);
+  //   });
+  // });
+  const [state, setstate] = useState({ ListBook: [] });
 
-export default function CinemaSeat() {
+  let listBookFake = [];
+  const loading = useSelector((state) => state.CinemaSeatsReducer.loading);
+  const data = useSelector((state) => state.CinemaSeatsReducer.data);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(CinemaSeatFectch(props.id));
+  }, []);
+  useEffect(() => {
+    if (!loading) {
+      let btnSeat = document.querySelectorAll(".seat");
+      data.danhSachGhe.forEach((item, i) => {
+        if (item.taiKhoanNguoiDat != null) {
+          btnSeat[i].classList.add("active2");
+        }
+      });
+    }
+    let btnSeat = document.querySelectorAll(".seat");
+    btnSeat.forEach((item, i) => {
+      item.addEventListener("click", () => {
+        if (item.classList.contains("active1")) {
+          item.classList.remove("active1");
+        } else {
+          item.classList.add("active1");
+          listBookFake.push(data.danhSachGhe[i]);
+
+          setstate({ ...state, ListBook: listBookFake });
+          console.log(state.ListBook);
+        }
+
+        console.log(i);
+      });
+    });
+
+    console.log("load lai");
+  }, [loading]);
+  const renderBook = () => {
+    return state.ListBook.map((item) => {
+      if (item.loaiGhe === "Thuong") {
+        return " " + item.tenGhe;
+      }
+    });
+  };
+  const renderBookVIP = () => {
+    return state.ListBook.map((item) => {
+      if (item.loaiGhe === "Vip") {
+        return " " + item.tenGhe;
+      }
+    });
+  };
+
+  const CoutBookVIP = () => {
+    let number = 0;
+    state.ListBook.forEach((item) => {
+      if (item.loaiGhe === "Vip") {
+        number += parseInt(item.giaVe);
+      }
+    });
+    return number;
+  };
+  const CoutBookNor = () => {
+    let number = 0;
+    state.ListBook.forEach((item) => {
+      if (item.loaiGhe === "Thuong") {
+        number += parseInt(item.giaVe);
+      }
+    });
+    return number;
+  };
+  if (loading) {
+    return <Loading />;
+  } else {
+  }
+
   return (
     <div className="cinemaSeats">
       <div className="cinemaSeats__left col-md-8">
@@ -11,9 +95,11 @@ export default function CinemaSeat() {
               <img src="./img/logo.png" />
             </div>
             <div className="cinemaSeats-header__content">
-              <p className="cinemaSeats-header__name">Galaxy - Quang Trung</p>
+              <p className="cinemaSeats-header__name">
+                {data.thongTinPhim.tenCumRap}
+              </p>
               <p className="cinemaSeats-header__info">
-                Hôm nay - 13:00 - Rạp 5
+                {`${data.thongTinPhim.ngayChieu}-${data.thongTinPhim.gioChieu}-${data.thongTinPhim.tenRap}`}
               </p>
             </div>
           </div>
@@ -32,8 +118,14 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-2">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -50,8 +142,14 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-4">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -68,6 +166,9 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-6">
               <div className="seat" />
@@ -77,8 +178,26 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-7">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+            </div>
+            <div className="cinema-row row-8">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -97,8 +216,14 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-2">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -115,8 +240,14 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-4">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -133,6 +264,9 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-6">
               <div className="seat" />
@@ -142,8 +276,26 @@ export default function CinemaSeat() {
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
             </div>
             <div className="cinema-row row-7">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
+            </div>
+            <div className="cinema-row row-8">
+              <div className="seat" />
+              <div className="seat" />
+              <div className="seat" />
               <div className="seat" />
               <div className="seat" />
               <div className="seat" />
@@ -173,8 +325,12 @@ export default function CinemaSeat() {
           </div>
           <div className="ticketBooking__userInfo">
             <div className="ticketBooking__userInfo-bill">
-              <p className="bill-title">Giá vé</p>
-              <p className="bill-value">120.000đ</p>
+              <p className="bill-title">VÉ THƯỜNG : {renderBook()}</p>
+              <p className="bill-value">{CoutBookNor()}</p>
+            </div>
+            <div className="ticketBooking__userInfo-bill">
+              <p className="bill-title">VÉ VIP: {renderBookVIP()}</p>
+              <p className="bill-value">{CoutBookVIP()}</p>
             </div>
             <form>
               <label htmlFor="email">Email :</label>

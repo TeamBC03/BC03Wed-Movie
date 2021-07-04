@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import CinemaReducer from "../../Components/Cinema/Modules/Reducer";
+import CinemaSeatsReducer from "../../Components/CinemaSeats/modules/Reducer";
 import DetailTicketMovie from "../../Components/DetailTicketMovie/Modules/Reducer";
 import Film_Reducer from "../../Components/Film/modules/Reducer";
 import DetailCinemaReducer from "../../Container/HomeTemplate/DetailCinemaPage/modules/Reducer";
@@ -14,5 +15,6 @@ const rootReducer = combineReducers({
   DetailCinemaReducer: DetailCinemaReducer,
   InfoReducer: InfoReducer,
   CinemaReducer: CinemaReducer,
+  CinemaSeatsReducer: CinemaSeatsReducer,
 });
 export default rootReducer;

@@ -1,5 +1,5 @@
-.cinemaSeats{
-  margin-top:60px;
+.cinemaSeats {
+  margin-top: 60px;
 }
 .theatre {
   display: flex;
@@ -96,12 +96,18 @@
 .left .row-7 .seat {
   transform: skew(8deg);
 }
+.left .row-8 {
+  transform: skew(-6deg);
+}
+.left .row-8 .seat {
+  transform: skew(6deg);
+}
 
 .right {
-  margin-left: 70px;
+  margin-left: 100px;
 }
 .right .cinema-row {
-  transform: skew(7deg);
+  transform: skew(5deg);
   margin: 0 6px;
 }
 .right .seat {
@@ -124,40 +130,46 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .right .row-2 {
-  transform: skew(9deg);
+  transform: skew(7deg);
 }
 .right .row-2 .seat {
   transform: skew(-10deg);
 }
 .right .row-3 {
-  transform: skew(10deg);
+  transform: skew(9deg);
 }
 .right .row-3 .seat {
   transform: skew(-12deg);
 }
 .right .row-4 {
-  transform: skew(11deg);
+  transform: skew(10deg);
 }
 .right .row-4 .seat {
   transform: skew(-15deg);
 }
 .right .row-5 {
-  transform: skew(12deg);
+  transform: skew(11deg);
 }
 .right .row-5 .seat {
   transform: skew(-16deg);
 }
 .right .row-6 {
-  transform: skew(13deg);
+  transform: skew(12deg);
 }
 .right .row-6 .seat {
   transform: skew(-18deg);
 }
 .right .row-7 {
-  transform: skew(15deg);
+  transform: skew(13deg);
 }
 .right .row-7 .seat {
-  transform: skew(-20deg);
+  transform: skew(-15deg);
+}
+.right .row-8 {
+  transform: skew(14deg);
+}
+.right .row-8 .seat {
+  transform: skew(-15deg);
 }
 
 /* custom */
@@ -187,7 +199,7 @@
 
 .cinemaSeats__right {
   border-left: 1px solid #bebebe;
-  height:100%;
+  height: 100%;
 }
 
 .cinemaSeats .cinemaSeats-header {
@@ -235,42 +247,48 @@
 }
 
 /* CinemaSeat__right */
-.cinemaSeats .ticketBooking{
-  margin:20px 40px;
+.cinemaSeats .ticketBooking {
+  margin: 20px 40px;
 }
 .cinemaSeats .ticketBooking p {
   margin-bottom: 0;
 }
-.cinemaSeats .ticketBooking__filmInfo{
-  font-weight:500;
-  margin-bottom:20px;
+.cinemaSeats .ticketBooking__filmInfo {
+  font-weight: 500;
+  margin-bottom: 20px;
 }
-.cinemaSeats .ticketBooking__filmInfo-name{
-  font-size:20px;
+.cinemaSeats .ticketBooking__filmInfo-name {
+  font-size: 20px;
 }
-.cinemaSeats .ticketBooking__userInfo-bill{
+.cinemaSeats .ticketBooking__userInfo-bill {
   display: flex;
   justify-content: space-between;
 }
 
-.cinemaSeats .ticketBooking__userInfo-bill .bill-title{
-  font-size:20px;
-  font-weight: 500; 
-  color:#fb4226;
+.cinemaSeats .ticketBooking__userInfo-bill .bill-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fb4226;
 }
-.cinemaSeats .ticketBooking__userInfo-bill .bill-value{
-  font-size:22px;
-  font-weight:500;
-  color:#58ae39;
+.cinemaSeats .ticketBooking__userInfo-bill .bill-value {
+  font-size: 22px;
+  font-weight: 500;
+  color: #58ae39;
 }
-.cinemaSeats .ticketBooking__pay-title{
-  font-size:20px;
-  font-weight:500;
+.cinemaSeats .ticketBooking__pay-title {
+  font-size: 20px;
+  font-weight: 500;
 }
-.cinemaSeats .ticketBooking__alert{
-  margin-top:100px;
-  text-align:center;
+.cinemaSeats .ticketBooking__alert {
+  margin-top: 100px;
+  text-align: center;
 }
-.cinemaSeats .ticketBooking__alert i{
-  color:#fb4226;
+.cinemaSeats .ticketBooking__alert i {
+  color: #fb4226;
+}
+.active1 {
+  background: black !important;
+}
+.active2 {
+  background: black !important;
 }
