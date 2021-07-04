@@ -1,4 +1,4 @@
-.detailFilm {
+/* .detailFilm {
   padding-bottom: 0;
 }
 .detailFilm .mainTop {
@@ -87,7 +87,7 @@
   font-size: 15px;
 }
 /* tab */
-.detailFilm .nav-tabs {
+/* .detailFilm .nav-tabs {
   border-bottom: none;
   background: transparent;
 }
@@ -105,9 +105,9 @@
 .detailFilm #thongTin-tab.active,
 .detailFilm #danhGia-tab.active {
   color: #fb4226;
-}
+} */
 /*  */
-.detailFilm .blockReviewer {
+/* .detailFilm .blockReviewer {
   border: 1px solid #e6e6e6;
   border-bottom: none;
   border-radius: 3px;
@@ -150,8 +150,8 @@
   height: 32px;
   width: 32px;
   border-radius: 50%;
-}
-.detailFilm .mainInfo .infoRating {
+} */
+/* .detailFilm .mainInfo .infoRating {
   justify-content: right;
 }
 .detailFilm .mainInfo .infoReviewName {
@@ -197,4 +197,4 @@
   color:#737576;
   font-weight: 500;
   margin-left:10px;
-}
+} */ 

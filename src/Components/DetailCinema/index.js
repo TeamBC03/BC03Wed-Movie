@@ -2,6 +2,12 @@ import React from "react";
 import "./detailCinema.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CinemaImage from "./img/bhd-star-bitexco.png"
+import Avatar from "./img/avatar.png"
+import ListStar from "./img/listStar.png"
+import Star from "./img/star.png"
+import Like from "./img/like.png"
+
 export default function DetailCinema(props) {
   const tomorrow = new Date();
   const [state, setState] = useState({ dataRap: [] });
@@ -78,7 +84,7 @@ export default function DetailCinema(props) {
     return props.dataList.data[0].lstCumRap.map((item) => {
       return (
         <button
-          class="nav-link active"
+          class="nav-link"
           id="nav-home-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-home"
@@ -92,11 +98,11 @@ export default function DetailCinema(props) {
         >
           <div class="cinemaItem d-flex">
             <div class="cinemaItem-img">
-              <img src="img/bhd-star-bitexco.png" />
+              <img src={CinemaImage} />
             </div>
             <div class="cinemaItem-content">
-              <span class="cinemaItem-content__name">{item.tenCumRap}</span>
-              <span class="cinemaItem-content__address">{item.diaChi}</span>
+              <p class="cinemaItem-content__name">{item.tenCumRap}</p>
+              <p class="cinemaItem-content__address">{item.diaChi}</p>
             </div>
           </div>
         </button>
@@ -158,8 +164,8 @@ export default function DetailCinema(props) {
           <div class="styleBlur"></div>
           <div class="styleGradient"></div>
           <div class="content d-flex">
-            <div class="col-md-3 content-image">
-              <img src="./img/bhd-star-bitexco.png " class="w-100" />
+            <div class="col-3  content-image">
+              <img src={CinemaImage} class="w-100" />
             </div>
             <div class="col-md-5 contentCinema">
               {/* <!-- <div class="content-date">
@@ -234,7 +240,7 @@ export default function DetailCinema(props) {
                 role="tabpanel"
                 aria-labelledby="lichChieu-tab"
               >
-                <div class="d-flex align-items-start detailCinema__lichChieu">
+                <div class="align-items-start detailCinema__lichChieu">
                   <div
                     class="nav flex-column nav-tabs col-md-4 cinemaList"
                     id="nav-tab"
@@ -513,7 +519,7 @@ export default function DetailCinema(props) {
                 <div class="detailReviewer">
                   <div class="yourRating blockReviewer">
                     <span class="imgReviewer">
-                      <img src="img/avatar.png" />
+                      <img src={Avatar} />
                     </span>
                     <input
                       class="inputReviewer"
@@ -521,7 +527,7 @@ export default function DetailCinema(props) {
                       placeholder="Hãy chấm điểm cho rạp nhé!"
                     />
                     <span class="starReviewer">
-                      <img src="img/listStar.png" />
+                      <img src={ListStar} />
                     </span>
                   </div>
                   <div class="listReview">
@@ -530,7 +536,7 @@ export default function DetailCinema(props) {
                         <div class="mainInfo">
                           <div class="infoReview">
                             <div class="infoReviewIcon">
-                              <img src="img/avatar.png" />
+                              <img src={Avatar} />
                             </div>
                             <div class="infoReviewName">
                               <p class="infoReviewName__name">Member</p>
@@ -540,18 +546,18 @@ export default function DetailCinema(props) {
                           <div class="infoRating">
                             <div class="infoRatingMark">9</div>
                             <div class="infoRatingStar">
-                              <img src="img/star.png" />
-                              <img src="img/star.png" />
-                              <img src="img/star.png" />
-                              <img src="img/star.png" />
-                              <img src="img/star.png" />
+                              <img src={Star}/>
+                              <img src={Star}/>
+                              <img src={Star}/>
+                              <img src={Star}/>
+                              <img src={Star}/>
                             </div>
                           </div>
                         </div>
                         <div class="mainComment">Tốt</div>
                         <div class="likeComment">
                           <div class="likeComment__like">
-                            <img src="img/like.png" />
+                            <img src={Like} />
                             <span>1 thích</span>
                           </div>
                         </div>
