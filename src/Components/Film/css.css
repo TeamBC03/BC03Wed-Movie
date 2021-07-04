@@ -103,7 +103,7 @@
 
 .film-name {
   height: 42px;
-  max-height: 42px;
+  max-height: 30px;
   font-size: 16px;
   font-weight: 500;
   color: #000;
@@ -129,8 +129,7 @@
 .film-time {
   font-size: 13px;
   color: #4a4a4a;
-  margin-bottom: 15px;
-  margin-top: 8px;
+  margin-bottom: 10px;
 }
 .film .nav-tabs .nav-item.show .nav-link,
 .film .nav-tabs .nav-link.active {
@@ -149,4 +148,30 @@
 }
 .film .nav-tabs .nav-link:hover {
   color: #fb4226;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 981px) {
+  .film .film-list{
+    margin :0 20px;
+  } .film .film-image{
+    height:250px;
+  }
+  .film .film-button{
+    font-size:12px;
+  }
+  
+}
+@media screen and (max-width: 981px) {
+ 
+}
+@media screen and (max-width: 767px) {
+  .film .film-image{
+    height:318px;
+  }
+  .film .film-button{
+    font-size:16px;
+  }
+
 }

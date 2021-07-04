@@ -1,0 +1,66 @@
+.footer .row{
+    flex-wrap: nowrap;
+}
+.footer {
+  background-color: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #949494;
+}
+.footer .title {
+  color: #fff;
+  font-size: 80%;
+}
+.footer .first-box a {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #949494;
+  display: block;
+  transition: all 0.2s;
+  line-height: 2.3;
+  text-decoration: none;
+}
+.footer .line-partner {
+  margin-bottom: 15px;
+}
+.footer .line-partner img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  background-color: #fff;
+}
+.footer .iconApp {
+  height: 30px;
+  margin: 5px;
+}
+.footer-contact {
+  justify-content: center;
+  border-top: 1px solid #4a4a4a;
+  padding-top: 15px;
+}
+.logoZion {
+  max-width: 110px;
+}
+.footer .imgZion {
+  border-radius: 8px;
+  width: 80px;
+}
+
+.footer .info-footer span {
+  display: block;
+  line-height: 1.8;
+  color: #949494;
+  font-size: 12px;
+  font-weight: 400;
+}
+.footer .info-footer span:first-child {
+  color: #fff;
+}
+.footer .imgBoCo {
+  width: 130px;
+}
+.footer .line-partner a{
+    width: 45px;
+}

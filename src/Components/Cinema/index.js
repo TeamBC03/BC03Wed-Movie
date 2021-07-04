@@ -176,7 +176,7 @@ export default function Cinema() {
             <div className="suatChieu-item__lichChieu d-flex">
               {item.suatchieu.map((item1) => {
                 return (
-                  <div className="suatChieu-item__time col-md-2">
+                  <div className="suatChieu-item__time col-md-2 col-4">
                     {`${new Date(
                       item1.ngayChieuGioChieu
                     ).getHours()}:${new Date(
