@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "./css.css";
 import logoCinema from "./images/BHD-cinema.png";
 import cinemaStarBitexco from "./images/bhd-star-bitexco.png";
@@ -111,7 +112,11 @@ export default function Cinema() {
                     <span class="brand-name">{item.tenCumRap}</span>
                   </span>
                   <p class="address">{item.diaChi}</p>
-                  <a>[chi tiết]</a>
+                  <Link
+                    to={`/DetailCinema/${dataSys[0].maHeThongRap}/${item.maCumRap}`}
+                  >
+                    Chi Tiết
+                  </Link>
                 </div>
               </div>
             </button>

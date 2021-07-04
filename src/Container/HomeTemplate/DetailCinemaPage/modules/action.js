@@ -15,9 +15,7 @@ export const detailCinemaFectch = (macumrap, marap) => {
   return (dispatch) => {
     dispatch(detailCinemaRequest);
     axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=" +
-        macumrap,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${macumrap}&maNhom=GP01`,
       method: "GET",
     })
       .then((result) => {

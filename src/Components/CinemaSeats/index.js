@@ -45,8 +45,6 @@ export default function CinemaSeat(props) {
         console.log(i);
       });
     });
-
-    console.log("load lai");
   }, [loading]);
   const renderBook = () => {
     return state.ListBook.map((item) => {
@@ -62,7 +60,21 @@ export default function CinemaSeat(props) {
       }
     });
   };
-
+  const clickBooking = () => {
+    let danhSachVe = [];
+    state.ListBook.forEach((item) => {
+      danhSachVe.push({
+        maGhe: item.maGhe,
+        giaVe: item.giaVe,
+      });
+    });
+    const Booking = {
+      maLichChieu: props.id,
+      danhSachVe: danhSachVe,
+      taiKhoanNguoiDung: JSON.parse(localStorage.getItem("User")).taiKhoan,
+    };
+    console.log(Booking);
+  };
   const CoutBookVIP = () => {
     let number = 0;
     state.ListBook.forEach((item) => {
@@ -369,6 +381,9 @@ export default function CinemaSeat(props) {
               </label>
             </form>
           </div>
+          <button className="btn btn-danger mt-4" onClick={clickBooking}>
+            Đặt vé
+          </button>
           <div className="ticketBooking__alert">
             <span>
               <i className="fa fa-exclamation-circle" /> Vé đã mua không thể đổi
