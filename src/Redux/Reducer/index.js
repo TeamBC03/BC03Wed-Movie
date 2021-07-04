@@ -7,6 +7,7 @@ import DetailCinemaReducer from "../../Container/HomeTemplate/DetailCinemaPage/m
 import DetailMovie from "../../Container/HomeTemplate/DetailMoviePage/Modules/Reducer";
 import InfoReducer from "../../Container/HomeTemplate/InforUser/Modules/Reducer";
 import nowMovieReducer from "../../Container/HomeTemplate/NowlistPage/Modules/Reducer";
+import LoginReducer from "../../Container/LoginPage/modules/Reducer";
 const rootReducer = combineReducers({
   DetailMovie: DetailMovie,
   DetailTicketMovie: DetailTicketMovie,
@@ -16,5 +17,6 @@ const rootReducer = combineReducers({
   InfoReducer: InfoReducer,
   CinemaReducer: CinemaReducer,
   CinemaSeatsReducer: CinemaSeatsReducer,
+  LoginReducer: LoginReducer,
 });
 export default rootReducer;

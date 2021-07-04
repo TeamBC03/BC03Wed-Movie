@@ -8,8 +8,24 @@ const renderLogin = () => {
       <ul>
         <li>
           <NavLink to="/user">
-            <i className="fas fa-user-circle" />
+            <i className="fas fa-user-circle m-4" />
             <span>{JSON.parse(localStorage.getItem("User")).hoTen}</span>
+          </NavLink>
+        </li>
+        <li>
+          <a onClick={signOut}>Đăng xuất</a>
+        </li>
+      </ul>
+    );
+  }
+  if (localStorage.getItem("UserAdmin")) {
+    console.log();
+    return (
+      <ul>
+        <li>
+          <NavLink to="/user">
+            <i class="fas fa-user-shield"></i>
+            <span>{JSON.parse(localStorage.getItem("UserAdmin")).hoTen}</span>
           </NavLink>
         </li>
         <li>
@@ -32,6 +48,7 @@ const renderLogin = () => {
 };
 const signOut = () => {
   localStorage.removeItem("User");
+  localStorage.removeItem("UserAdmin");
   window.location.reload();
 };
 const EnterPress = (e) => {
