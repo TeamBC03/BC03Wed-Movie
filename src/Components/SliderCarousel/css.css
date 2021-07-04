@@ -14,7 +14,7 @@
 .Carousel-FastBooking {
   width: 25%;
   position: absolute;
-  top: 17%;
+  top: 10%;
   right: 10%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
@@ -22,7 +22,7 @@
 .fastBookingHeader h5 {
   background-color: #f26b38;
   color: white;
-  width: 50%;
+  width: 65%;
   text-align: center;
   padding: 5px;
 }
@@ -78,4 +78,21 @@
 }
 .Carousel .carousel-indicators button.active {
   background-color: #fb4226;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 1100px) {
+  .Carousel .Carousel-FastBooking{
+    width: 30%;
+    top:0;
+  }
+  .Carousel .Carousel-FastBooking .fastBookingHeader h5{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 981px) {
+  .Carousel .Carousel-FastBooking {
+    display: none;
+  }
 }

@@ -193,7 +193,7 @@ function DetailMoviePage(props) {
         <div className="styleBlur" />
         <div className="styleGradient" />
         <div className="content d-flex">
-          <div className="col-md-3 content-image">
+          <div className="col-3 content-image">
             <img src={props.data.hinhAnh} className="w-100 h-100" />
           </div>
           <div className="col-md-5 content-film">
@@ -266,7 +266,7 @@ function DetailMoviePage(props) {
             >
               <div class="d-flex align-items-start detailCinema__lichChieu">
                 <div
-                  class="nav flex-column nav-tabs col-md-4 cinemaList detailCinema__lichChieu-left"
+                  class="nav flex-column nav-tabs col-lg-4 col-12 cinemaList detailCinema__lichChieu-left"
                   id="nav-tab"
                   role="tablist"
                   aria-orientation="vertical"
@@ -274,7 +274,7 @@ function DetailMoviePage(props) {
                   {renderCinema()}
                 </div>
                 <div
-                  class="tab-content col-md-8 detailCinema__lichChieu-right"
+                  class="tab-content col-lg-8 col-12 detailCinema__lichChieu-right"
                   id="nav-tabContent"
                 >
                   <div

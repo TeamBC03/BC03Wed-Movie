@@ -1,5 +1,6 @@
 .cinema {
   display: flex;
+  flex-wrap: wrap;
   border: 1px solid #ebebec;
   max-width: 940px;
   margin: 120px auto;
@@ -41,14 +42,13 @@
 .cinema .cinema-item .cinema-item__image {
   width: 50px;
   height: 50px;
-}
-.cinema .cinema-item .cinema-item__image img {
-  margin-top: 8px;
+  margin-top: 14px;
 }
 .cinema .cinema-item .cinema-item__info {
   text-align: left;
   padding-left: 25px;
   padding-right: 0;
+  margin-top: 9px;
 }
 .cinema .cinema-item .cinema-item__info span {
   font-size: 14px;
@@ -78,10 +78,11 @@
   border-right: 1px solid #ebebec;
   width: 270px;
 }
-.cinema .cinema-listCinema .nav-tabs{
+.cinema .cinema-listCinema .nav-tabs {
   border-bottom: none;
 }
 .cinema .cinema-listCinema .nav-item {
+  width: 100%;
   border-bottom: 1px solid #ebebec;
   height: 81px;
   margin: 0 15px;
@@ -93,7 +94,6 @@
 .cinema .cinema-listCinema .nav-link.active {
   opacity: 1;
 }
-
 
 /*  */
 .cinema .suatChieu-item {
@@ -108,26 +108,27 @@
   text-align: left;
   padding-left: 10px;
 }
-.cinema .suatChieu-item__name,.cinema .suatChieu-item__address{
-  margin-bottom:0;
-} 
+.cinema .suatChieu-item__name,
+.cinema .suatChieu-item__address {
+  margin-bottom: 0;
+}
 .cinema .suatChieu-item__name {
   font-weight: 600;
 }
 .cinema .suatChieu-item__address {
-  font-size:13px;
+  font-size: 13px;
   color: #9b9b9b;
 }
-.cinema .suatChieu-item__lichChieu{
-  display:flex;
+.cinema .suatChieu-item__lichChieu {
+  display: flex;
   flex-wrap: wrap;
-  margin-top:10px;
+  margin-top: 10px;
 }
-.cinema .suatChieu-item__time{
-  font-size:24px;
-  text-align:left;
-  color:#58ae39;
-  font-weight:500;
+.cinema .suatChieu-item__time {
+  font-size: 24px;
+  text-align: left;
+  color: #58ae39;
+  font-weight: 500;
   letter-spacing: 2px;
 }
 /*  */
@@ -143,7 +144,6 @@
   color: #000;
   opacity: 0.3;
   margin-bottom: 0;
-
 }
 .cinema .listDayTime .nav-link.active {
   color: #fb4226 !important;
@@ -164,19 +164,51 @@
   font-size: 20px;
 }
 
-
 /* fix  */
-.cinema .brand-name{
-  display:block;
+.cinema .brand-name {
+  display: block;
 }
-.cinema-item__info{
+.cinema-item__info {
   width: 190px !important;
 }
-.cinema{
-  height:567px;
+.cinema {
+  height: 567px;
 }
-.cinema-listCinema{
-  height:567px;
-  overflow-y:scroll;
+.cinema-listCinema {
+  height: 567px;
+  overflow-y: scroll;
   padding-bottom: 81px;
+}
+
+/* Responsive */
+@media screen and (max-width: 952px) {
+  .cinema .cinema-listCinema {
+    width: 450px;
+  }
+  .cinema {
+    justify-content: center;
+  }
+  .cinema .cinema-item {
+    flex-wrap: nowrap;
+  }
+  .cinema .cinema-item__info {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 592px) {
+  .cinema .cinema-listCinema {
+    width: 350px;
+  }
+  .cinema .listDayTime .nav-link {
+    width: 65px;
+  }
+  .cinema .listDayTime .day {
+    font-size: 14px;
+  }
+  .cinema .listDayTime .date {
+    font-size: 14px;
+  }
+  .cinema .suatChieu-item__time{
+    font-size:18px;
+  }
 }

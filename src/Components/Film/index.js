@@ -22,7 +22,7 @@ export default function Film(props) {
       const url = `/detailMovie/${item.maPhim}`;
       if (i < 4) {
         return (
-          <div class="col-md-3 film-item">
+          <div class="col-md-3 col-6 film-item">
             <div class="film-image" style={style}>
               <div class="film-rate">
                 <p>8.0</p>
@@ -45,7 +45,7 @@ export default function Film(props) {
               </div>
               <div class="film-time">100 phút</div>
 
-              <Link to={url} className="btn btn-success">
+              <Link to={url} className="btn btn-success film-button">
                 CHI TIẾT
               </Link>
             </div>
@@ -59,9 +59,10 @@ export default function Film(props) {
       const style = {
         backgroundImage: `url( ${item.hinhAnh} )`,
       };
+      const url = `/detailMovie/${item.maPhim}`;
       if (i >= 4 && i < 8) {
         return (
-          <div class="col-md-3 film-item">
+          <div class="col-md-3 col-6 film-item">
             <div class="film-image" style={style}>
               <div class="film-rate">
                 <p>8.0</p>
@@ -83,6 +84,9 @@ export default function Film(props) {
                 {item.tenPhim}
               </div>
               <div class="film-time">100 phút</div>
+              <Link to={url} className="btn btn-success film-button">
+                CHI TIẾT
+              </Link>
             </div>
           </div>
         );
@@ -134,8 +138,8 @@ export default function Film(props) {
           <NavLink to="/NowList" className="see-all">
             XEM TẤT CẢ <i class="fa fa-chevron-right"></i>
           </NavLink>
-          <div class="row">{listMovieNow()}</div>
-          <div class="row">{listMovieNow1()}</div>
+          <div class="row film-list">{listMovieNow()}</div>
+          <div class="row film-list">{listMovieNow1()}</div>
         </div>
         <div
           class="tab-pane fade"
@@ -143,7 +147,7 @@ export default function Film(props) {
           role="tabpanel"
           aria-labelledby="sapChieu-tab"
         >
-          <div class="row">
+          <div class="row ">
             <div class="col-md-3 film-item">
               <div class="film-image">
                 <div class="film-rate">

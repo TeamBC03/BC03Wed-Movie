@@ -17,7 +17,7 @@
   z-index: 9;
 }
 .nav-left img {
-  width: 50%;
+  max-width: 150px;
 }
 .nav-center ul {
   display: flex;
@@ -77,3 +77,23 @@
   color: #fb4226;
 }
 
+/* Responsive */
+@media screen and (max-width: 1200px) {
+  .navContainer a,
+  .navContainer .nav-center a {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1092px) {
+  .navContainer .nav-search {
+    display: none;
+  }
+  .navContainer .nav-left img {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .navContainer .nav-center {
+    display: none;
+  }
+}
