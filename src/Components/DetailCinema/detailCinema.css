@@ -296,3 +296,84 @@
 .detailCinema .nav-tabs .nav-link:hover {
   border-color: transparent !important;
 }
+.suatChieu-item {
+  padding: 20px 0;
+  margin-left: 20px;
+}
+.suatChieu-item__image img {
+  width: 50px;
+  height: 50px;
+}
+.suatChieu-item__info {
+  text-align: left;
+  padding-left: 10px;
+}
+.suatChieu-item__name,
+.suatChieu-item__address {
+  margin-bottom: 0;
+}
+.suatChieu-item__name {
+  font-weight: 600;
+}
+.suatChieu-item__address {
+  font-size: 13px;
+  color: #9b9b9b;
+}
+.suatChieu-item__lichChieu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.suatChieu-item__time {
+  font-size: 24px;
+  text-align: left;
+  color: #58ae39;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+/*  */
+.listDayTime {
+  border-bottom: 1px solid #e6e6e6;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.listDayTime .nav-link {
+  padding: 0;
+  height: 80px;
+  border: none;
+  color: #000;
+  opacity: 0.3;
+  margin-bottom: 0;
+}
+.listDayTime .nav-link.active {
+  color: #fb4226 !important;
+  opacity: 1;
+  margin-bottom: 0;
+}
+.listDayTime .nav-link:hover {
+  color: #000;
+}
+.listDayTime .nav-link p {
+  margin-bottom: 0;
+}
+.listDayTime .day {
+  font-size: 18px;
+  font-weight: 600;
+}
+.listDayTime .date {
+  font-size: 20px;
+}
+
+/* fix  */
+.brand-name {
+  display: block;
+}
+.item__info {
+  width: 190px !important;
+}
+
+.listCinema {
+  height: 567px;
+  overflow-y: scroll;
+  padding-bottom: 81px;
+}
