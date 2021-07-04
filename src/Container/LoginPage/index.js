@@ -1,10 +1,16 @@
 import React, { useCallback, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Loading from "../../Components/Loading";
 import "./css.css";
-import axios from "axios";
+import { fetchLoginAuth } from "./modules/actions";
 export default function LogInPage(props) {
+  if (localStorage.getItem("User") || localStorage.getItem("UserAdmin")) {
+    props.history.replace("/");
+  }
   const [state, setState] = useState({ taikhoan: "", matkhau: "" });
-  const [state1, setState1] = useState({ loading: false });
+  const loading = useSelector((state) => state.LoginReducer.loading);
+  const dispatch = useDispatch();
   const handleOnChange = (event) => {
     const { name, value } = event.target;
     setState({
@@ -13,31 +19,12 @@ export default function LogInPage(props) {
     });
   };
   const handleSubmit = (event) => {
-    setState1({ ...state1, loading: true });
     event.preventDefault();
-    axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
-      method: "POST",
-      data: state,
-    })
-      .then((result) => {
-        setState1({ ...state1, loading: true });
-        localStorage.setItem("User", JSON.stringify(result.data));
-        props.history.replace("/");
-      })
-      .catch((err) => {
-        setState1({ ...state1, loading: true });
-        alert("loi roi");
-        console.log(err);
-      });
+    dispatch(fetchLoginAuth(state, props.history));
   };
-
-  const loadLogin = () => {
-    if (localStorage.getItem("User")) {
-      props.history.replace("/");
-    }
-  };
-  loadLogin();
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="login">
       <div className="loginContainer-right">

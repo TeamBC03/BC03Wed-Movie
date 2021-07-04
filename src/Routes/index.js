@@ -1,3 +1,4 @@
+import DashBoardPage from "../Container/AdminTemplate/DashBoardPage";
 import CinemaSeatPage from "../Container/HomeTemplate/CinemaSeatPage";
 import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
 import DetailMoviePage from "../Container/HomeTemplate/DetailMoviePage";
@@ -37,6 +38,12 @@ const routesHome = [
     component: CinemaSeatPage,
   },
 ];
-const RoutesAdmin = [{}];
+const RoutesAdmin = [
+  {
+    exact: true,
+    path: "/dashboard",
+    component: DashBoardPage,
+  },
+];
 
 export { RoutesAdmin, routesHome };

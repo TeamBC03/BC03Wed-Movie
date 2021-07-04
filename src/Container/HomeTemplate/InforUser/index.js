@@ -23,6 +23,11 @@ export default function InfoUser(props) {
     if (localStorage.getItem("User")) {
       dispatch(InfoFectch(JSON.parse(localStorage.getItem("User")).taiKhoan));
     }
+    if (localStorage.getItem("UserAdmin")) {
+      dispatch(
+        InfoFectch(JSON.parse(localStorage.getItem("UserAdmin")).taiKhoan)
+      );
+    }
   }, []);
 
   const handleOnchange = (event) => {
@@ -46,7 +51,7 @@ export default function InfoUser(props) {
       maLoaiNguoiDung: "KhachHang",
     });
   };
-  if (!localStorage.getItem("User")) {
+  if (!(localStorage.getItem("User") || localStorage.getItem("UserAdmin"))) {
     props.history.replace("/");
     return <div></div>;
   }
