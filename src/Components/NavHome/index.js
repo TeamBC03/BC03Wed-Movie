@@ -8,7 +8,8 @@ const renderLogin = () => {
       <ul>
         <li>
           <NavLink to="/user">
-            <i className="fas fa-user-circle m-4" />
+            {/* <i className="fas fa-user-circle" /> */}
+            <i class="fa fa-user"></i>
             <span>{JSON.parse(localStorage.getItem("User")).hoTen}</span>
           </NavLink>
         </li>

@@ -76,6 +76,11 @@
 .nav-right a:hover {
   color: #fb4226;
 }
+.nav-right svg{
+margin-right:5px;
+font-size: 18px;
+
+}
 
 /* Responsive */
 @media screen and (max-width: 1200px) {

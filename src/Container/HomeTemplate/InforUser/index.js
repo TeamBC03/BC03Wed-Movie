@@ -62,7 +62,7 @@ export default function InfoUser(props) {
   const renderMovieViewed = () => {
     return data.thongTinDatVe.map((item) => {
       return (
-        <div class="col-md d-flex ticketItem">
+        <div class="col-lg-6 col-12 d-flex ticketItem">
           <div class="ticketContent">
             <div class="ticketCinema d-flex">
               <div class="ticketCinema__image">
@@ -79,22 +79,22 @@ export default function InfoUser(props) {
             </div>
             <div class="ticketInfo">
               <div class="ticketInfo__name d-flex">
-                <div class="col-md-4 infoTitle">Tên phim</div>
-                <div class="col-md-6 infoUser">{item.tenPhim}</div>
+                <div class="col-3 infoTitle">Tên phim</div>
+                <div class="col-9 infoUser">{item.tenPhim}</div>
               </div>
               <div class="ticketInfo__date d-flex">
-                <div class="col-md-4 infoTitle">Ngày đặt</div>
-                <div class="col-md-6 infoUser">{item.ngayDat}</div>
+                <div class="col-3 infoTitle">Ngày đặt</div>
+                <div class="col-9 infoUser">{item.ngayDat}</div>
               </div>
               <div class="ticketInfo__room d-flex">
-                <div class="col-md-4 infoTitle">Số rạp</div>
-                <div class="col-md-6 infoUser">
+                <div class="col-3 infoTitle">Số rạp</div>
+                <div class="col-9 infoUser">
                   {item.danhSachGhe[0].tenCumRap}
                 </div>
               </div>
               <div class="ticketInfo__seat d-flex">
-                <div class="col-md-4 infoTitle">Số ghế</div>
-                <div class="col-md-6 infoUser">
+                <div class="col-3 infoTitle">Số ghế</div>
+                <div class="col-9 infoUser">
                   {item.danhSachGhe.map((item) => item.tenGhe + "   ")}
                 </div>
               </div>
@@ -377,7 +377,8 @@ export default function InfoUser(props) {
                 </div>
               </div>
             </div>
-            <div className="row gutters-sm" id="historyBooking">
+            <div className="row gutters-sm historyBooking" id="historyBooking">
+              <p className="historyBooking-title">Lịch sử đặt vé</p>
               {renderMovieViewed()}
             </div>
           </div>

@@ -5,21 +5,20 @@
 .ticketItem {
   margin-bottom: 20px;
 }
+
 .user .ticketImage img {
   width: 120px;
   height: 160px;
 }
 .ticketCinema__image img {
   width: 60px;
-}
-.ticketContent {
-  margin-left: 20px;
+  height: 70px;
 }
 .ticketCinema__info {
-  margin-left: 10px;
+  margin:auto 20px;
 }
 .ticketCinema__name {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 .ticketCinema__address {
@@ -34,6 +33,43 @@
   padding-left: 0;
   font-size: 14px;
 }
-.InfoUser svg{
-  margin-right:10px;
+.InfoUser svg {
+  margin-right: 10px;
+}
+/* historyBooking */
+.historyBooking {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 100%;
+  margin-left:0 !important;
+  padding: 15px 15px 10px 15px;
+  height:400px;
+  overflow-y:scroll;
+  margin-bottom:50px;
+}
+.historyBooking-title{
+  font-size:22px;
+  padding-left:0 !important;
+  font-weight:600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.ticketItem{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ticketContent{
+  width: 100%;
+}
+.ticketInfo{
+  margin-right:30px;
+}
+.infoTitle{
+  font-weight:500;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+  .ticketInfo{
+    margin-right:0;
+  }
 }
