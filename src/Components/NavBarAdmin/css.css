@@ -340,7 +340,7 @@ body > .navbar-collapse {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 260px;
+  width: 200px;
   display: block;
   z-index: 1;
   color: #fff;
@@ -348,14 +348,17 @@ body > .navbar-collapse {
   background-size: cover;
   background-position: center center;
 }
-
+.sidebar {
+  position: fixed;
+  top: 0;
+}
 .sidebar .sidebar-wrapper,
 body > .navbar-collapse .sidebar-wrapper {
   position: relative;
   max-height: calc(100vh - 75px);
   min-height: 100%;
   overflow: auto;
-  width: 260px;
+  width: 200px;
   z-index: 4;
   padding-bottom: 100px;
 }
@@ -740,7 +743,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   background: rgba(203, 203, 210, 0.15);
   position: relative;
   float: right;
-  width: calc(100% - 260px);
+  width: calc(100% - 200px);
   min-height: 100%;
 }
 
@@ -2468,7 +2471,7 @@ fieldset[disabled] .form-control {
 .card .card-image {
   width: 100%;
   overflow: hidden;
-  height: 260px;
+  height: 200px;
   border-radius: 4px 4px 0 0;
   position: relative;
   -webkit-transform-style: preserve-3d;
@@ -3780,11 +3783,11 @@ fieldset[disabled] .form-control {
     border-top: none;
     text-align: left;
     padding: 0;
-    -webkit-transform: translate3d(260px, 0, 0);
-    -moz-transform: translate3d(260px, 0, 0);
-    -o-transform: translate3d(260px, 0, 0);
-    -ms-transform: translate3d(260px, 0, 0);
-    transform: translate3d(260px, 0, 0);
+    -webkit-transform: translate3d(200px, 0, 0);
+    -moz-transform: translate3d(200px, 0, 0);
+    -o-transform: translate3d(200px, 0, 0);
+    -ms-transform: translate3d(200px, 0, 0);
+    transform: translate3d(200px, 0, 0);
     -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -3828,11 +3831,11 @@ fieldset[disabled] .form-control {
   }
   .nav-show .wrapper {
     left: 0;
-    -webkit-transform: translate3d(-260px, 0, 0);
-    -moz-transform: translate3d(-260px, 0, 0);
-    -o-transform: translate3d(-260px, 0, 0);
-    -ms-transform: translate3d(-260px, 0, 0);
-    transform: translate3d(-260px, 0, 0);
+    -webkit-transform: translate3d(-200px, 0, 0);
+    -moz-transform: translate3d(-200px, 0, 0);
+    -o-transform: translate3d(-200px, 0, 0);
+    -ms-transform: translate3d(-200px, 0, 0);
+    transform: translate3d(-200px, 0, 0);
   }
   .navbar-toggle .icon-bar {
     display: block;

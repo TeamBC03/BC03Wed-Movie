@@ -3,6 +3,7 @@ import CinemaReducer from "../../Components/Cinema/Modules/Reducer";
 import CinemaSeatsReducer from "../../Components/CinemaSeats/modules/Reducer";
 import DetailTicketMovie from "../../Components/DetailTicketMovie/Modules/Reducer";
 import Film_Reducer from "../../Components/Film/modules/Reducer";
+import DashBoardReducer from "../../Container/AdminTemplate/DashBoardPage/Modules/Reducer";
 import DetailCinemaReducer from "../../Container/HomeTemplate/DetailCinemaPage/modules/Reducer";
 import DetailMovie from "../../Container/HomeTemplate/DetailMoviePage/Modules/Reducer";
 import InfoReducer from "../../Container/HomeTemplate/InforUser/Modules/Reducer";
@@ -18,5 +19,6 @@ const rootReducer = combineReducers({
   CinemaReducer: CinemaReducer,
   CinemaSeatsReducer: CinemaSeatsReducer,
   LoginReducer: LoginReducer,
+  DashBoardReducer: DashBoardReducer,
 });
 export default rootReducer;
