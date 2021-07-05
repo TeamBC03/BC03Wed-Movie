@@ -2,7 +2,7 @@ import React from "react";
 import "./css.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { CinemaSeatFectch } from "./modules/actions";
+import { CinemaSeatFectch, CinemaSeatBookingFectch } from "./modules/actions";
 import Loading from "../Loading";
 import { getByDisplayValue } from "@testing-library/react";
 export default function CinemaSeat(props) {
@@ -20,6 +20,7 @@ export default function CinemaSeat(props) {
   useEffect(() => {
     dispatch(CinemaSeatFectch(props.id));
   }, []);
+
   useEffect(() => {
     if (!loading) {
       let btnSeat = document.querySelectorAll(".seat");
@@ -29,17 +30,25 @@ export default function CinemaSeat(props) {
         }
       });
     }
+
     let btnSeat = document.querySelectorAll(".seat");
     btnSeat.forEach((item, i) => {
       item.addEventListener("click", () => {
-        if (item.classList.contains("active1")) {
-          item.classList.remove("active1");
-        } else {
-          item.classList.add("active1");
-          listBookFake.push(data.danhSachGhe[i]);
+        if (!item.classList.contains("active2")) {
+          if (item.classList.contains("active1")) {
+            item.classList.remove("active1");
+            let vitri = listBookFake.findIndex((ghe) => {
+              return ghe.maGhe === item.maGhe;
+            });
+            listBookFake.splice(vitri, 1);
+            setstate({ ...state, ListBook: listBookFake });
+          } else {
+            item.classList.add("active1");
+            listBookFake.push(data.danhSachGhe[i]);
 
-          setstate({ ...state, ListBook: listBookFake });
-          console.log(state.ListBook);
+            setstate({ ...state, ListBook: listBookFake });
+            console.log(state.ListBook);
+          }
         }
 
         console.log(i);
@@ -61,6 +70,7 @@ export default function CinemaSeat(props) {
     });
   };
   const clickBooking = () => {
+    let tk = "";
     let danhSachVe = [];
     state.ListBook.forEach((item) => {
       danhSachVe.push({
@@ -68,12 +78,19 @@ export default function CinemaSeat(props) {
         giaVe: item.giaVe,
       });
     });
+    if (localStorage.getItem("User")) {
+      tk = JSON.parse(localStorage.getItem("User")).taiKhoan;
+    } else {
+      tk = JSON.parse(localStorage.getItem("UserAdmin")).taiKhoan;
+    }
+
     const Booking = {
       maLichChieu: props.id,
       danhSachVe: danhSachVe,
-      taiKhoanNguoiDung: JSON.parse(localStorage.getItem("User")).taiKhoan,
+      taiKhoanNguoiDung: tk,
     };
     console.log(Booking);
+    dispatch(CinemaSeatBookingFectch(Booking));
   };
   const CoutBookVIP = () => {
     let number = 0;
@@ -104,7 +121,7 @@ export default function CinemaSeat(props) {
         <div className="cinemaSeats-header">
           <div className="cinemaSeats-header__cinema d-flex">
             <div className="cinemaSeats-header__image">
-              <img src="./img/logo.png" />
+              <img src={data.thongTinPhim.hinhAnh} />
             </div>
             <div className="cinemaSeats-header__content">
               <p className="cinemaSeats-header__name">
@@ -326,13 +343,13 @@ export default function CinemaSeat(props) {
         <div className="ticketBooking">
           <div className="ticketBooking__filmInfo">
             <p className="ticketBooking__filmInfo-name">
-              Câu chuyện đồ chơi - Toy Story 4
+              {data.thongTinPhim.tenPhim}
             </p>
             <p className="ticketBooking__filmInfo-cinema">
-              Galaxy - Quang Trung
+              {data.thongTinPhim.tenCumRap}
             </p>
             <p className="ticketBooking__filmInfo-info">
-              Hôm nay 15/07/2021 - 18:00 - RẠP 5
+              {`${data.thongTinPhim.ngayChieu} - ${data.thongTinPhim.gioChieu} -${data.thongTinPhim.tenRap}`}
             </p>
           </div>
           <div className="ticketBooking__userInfo">
@@ -381,7 +398,11 @@ export default function CinemaSeat(props) {
               </label>
             </form>
           </div>
-          <button className="btn btn-danger mt-4" onClick={clickBooking}>
+          <button
+            className="btn btn-danger mt-4"
+            id="btnBooking"
+            onClick={clickBooking}
+          >
             Đặt vé
           </button>
           <div className="ticketBooking__alert">

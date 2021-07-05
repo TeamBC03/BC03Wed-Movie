@@ -95,7 +95,7 @@ export default function InfoUser(props) {
               <div class="ticketInfo__seat d-flex">
                 <div class="col-md-4 infoTitle">Số ghế</div>
                 <div class="col-md-6 infoUser">
-                  {item.danhSachGhe[0].tenGhe}
+                  {item.danhSachGhe.map((item) => item.tenGhe + "   ")}
                 </div>
               </div>
             </div>
@@ -377,7 +377,9 @@ export default function InfoUser(props) {
                 </div>
               </div>
             </div>
-            <div className="row gutters-sm">{renderMovieViewed()}</div>
+            <div className="row gutters-sm" id="historyBooking">
+              {renderMovieViewed()}
+            </div>
           </div>
         </div>
       </div>

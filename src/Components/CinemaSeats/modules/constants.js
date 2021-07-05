@@ -1,3 +1,9 @@
 export const CINEMA_SEATS_REQUEST = "CinemaSeatsReducer/DETAIL_MOVIE_REQEST";
 export const CINEMA_SEATS_SUCCESS = "CinemaSeatsReducer/DETAIL_MOVIE_SUCCESS";
 export const CINEMA_SEATS_FAILED = "CinemaSeatReducer/DETAIL_MOVIE_FAILED";
+export const CINEMA_SEAT_BOOKING_REQUEST =
+  "CinemaSeatsReducer/CINEMA_SEAT_BOOKING_REQEST";
+export const CINEMA_SEAT_BOOKING_SUCCESS =
+  "CinemaSeatsReducer/CINEMA_SEAT_BOOKING_SUCCESS";
+export const CINEMA_SEAT_BOOKING_FAILED =
+  "CinemaSeatReducer/CINEMA_SEAT_BOOKING_FAILED";
