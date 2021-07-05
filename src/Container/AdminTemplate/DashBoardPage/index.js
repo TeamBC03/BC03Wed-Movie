@@ -9,6 +9,7 @@ import {
   DashboardAddUser,
   DashboardDeleteUser,
   DashboardEditUser,
+  DashBoardAddfilm,
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 export default function DashBoardPage() {
@@ -19,6 +20,15 @@ export default function DashBoardPage() {
     (state) => state.DashBoardReducer.loadingFilm
   );
   const dataFilm = useSelector((state) => state.DashBoardReducer.dataFilm);
+  const [stateFilm, setstateFilm] = useState({
+    hinhAnh: {},
+    maPhim: "",
+    tenPhim: "",
+    trailer: "",
+    moTa: "",
+    maNhom: "GP01",
+    ngayKhoiChieu: "",
+  });
   const [state, setState] = useState({
     search: "",
     searchFilm: "",
@@ -125,7 +135,7 @@ export default function DashBoardPage() {
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td className="idfi">{i}</td>
+          <td className="idfi">{item.maPhim}</td>
           <td>{item.tenPhim}</td>
           <td>
             {" "}
@@ -147,13 +157,9 @@ export default function DashBoardPage() {
   const handleChange = (e) => {
     let target = e.target;
     if (target.name === "hinhAnh") {
-      this.setState({ hinhAnh: e.target.files[0] }, () => {
-        console.log(this.state);
-      });
+      setstateFilm({ ...stateFilm, hinhAnh: e.target.files[0] });
     } else {
-      this.setState({ [e.target.name]: e.target.value }, () => {
-        console.log(this.state);
-      });
+      setstateFilm({ ...stateFilm, [e.target.name]: e.target.value });
     }
   };
 
@@ -173,21 +179,47 @@ export default function DashBoardPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     var form_data = new FormData();
-    for (var key in this.state) {
-      form_data.append(key, this.state[key]);
-    }
+    for (var key in stateFilm) {
+      if (key === "ngayKhoiChieu") {
+        let date = new Date(stateFilm[key]);
+        let date1 = "";
+        if (date.getDate() < 10 && date.getMonth() + 1 < 10) {
+          date1 =
+            "0" +
+            date.getDate() +
+            "/" +
+            "0" +
+            (date.getMonth() + 1) +
+            "/" +
+            date.getFullYear();
+        } else if (date.getDate() < 10) {
+          date1 =
+            "0" +
+            date.getDate() +
+            "/" +
+            date.getMonth() +
+            "/" +
+            date.getFullYear();
+        } else if (date.getMonth() < 10) {
+          date1 =
+            date.getDate() +
+            "/" +
+            "0" +
+            date.getMonth() +
+            "/" +
+            date.getFullYear();
+        } else {
+          date1 = date.getDate() + date.getMonth() + date.getFullYear();
+        }
 
-    axios({
-      url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
-      method: "POST",
-      data: form_data,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+        console.log(date1);
+        form_data.append(key, date1);
+      } else {
+        form_data.append(key, stateFilm[key]);
+      }
+    }
+    // console.log(form_data);
+    DashBoardAddfilm(form_data);
   };
   const signOut = () => {
     localStorage.removeItem("User");
@@ -394,11 +426,16 @@ export default function DashBoardPage() {
                       onChange={handleChange}
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="form-control"
-                    data-bs-dismiss="modal"
-                  >
+                  <div className="form-group">
+                    <label>Mã nhóm</label>
+                    <input
+                      name="ngayKhoiChieu"
+                      type="datetime-local"
+                      className="form-control"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button type="submit" className="form-control">
                     Submit
                   </button>
                 </form>

@@ -149,3 +149,18 @@ export const DashboardEditUser = (user) => {
       alert(error);
     });
 };
+export const DashBoardAddfilm = (form_data) => {
+  axios({
+    url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
+    method: "POST",
+    data: form_data,
+  })
+    .then((res) => {
+      console.log(res);
+      alert(res);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      alert(err.response.data);
+    });
+};
