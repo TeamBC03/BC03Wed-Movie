@@ -55,3 +55,49 @@ export const DashboardFilmFectch = () => {
       });
   };
 };
+export const DashboardAddUser = (user) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+
+  return (dispatch) => {
+    dispatch(actAddUserRequest());
+    axios({
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+      method: "POST",
+      data: user,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((result) => {
+        dispatch(actAddUserSuccess(result.data));
+        console.log(result);
+        alert(result.statusText);
+      })
+      .catch((error) => {
+        dispatch(actAddUserFailed(error));
+        alert(error.data);
+      });
+  };
+};
+
+const actAddUserRequest = () => {
+  return {
+    type: TypeAction.DASHBOARD_ADD_USER_REQUEST,
+  };
+};
+
+const actAddUserSuccess = (data) => {
+  return {
+    type: TypeAction.DASHBOARD_ADD_USER_SUCCESS,
+    payload: data,
+  };
+};
+const actAddUserFailed = (error) => {
+  return {
+    type: TypeAction.DASHBOARD_ADD_USER_FAILED,
+    payload: error,
+  };
+};
