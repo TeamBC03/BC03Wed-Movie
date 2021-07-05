@@ -78,7 +78,8 @@ export const DashboardAddUser = (user) => {
       })
       .catch((error) => {
         dispatch(actAddUserFailed(error));
-        alert(error.data);
+        console.log(error);
+        alert(error);
       });
   };
 };
@@ -100,4 +101,51 @@ const actAddUserFailed = (error) => {
     type: TypeAction.DASHBOARD_ADD_USER_FAILED,
     payload: error,
   };
+};
+export const DashboardDeleteUser = (taiKhoan) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+  axios({
+    url:
+      "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=" +
+      taiKhoan,
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+    .then((result) => {
+      console.log(result.data);
+      alert(result.data);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log();
+      alert("Lỗi Server Hoặc Người dùng đã đặt vé ");
+    });
+};
+export const DashboardEditUser = (user) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+  axios({
+    url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+    method: "PUT",
+    data: user,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+    .then((result) => {
+      console.log(result.data);
+      alert(result.data + "thanh cong");
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log();
+      alert(error);
+    });
 };

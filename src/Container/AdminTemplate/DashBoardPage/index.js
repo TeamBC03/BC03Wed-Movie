@@ -7,6 +7,8 @@ import {
   DashboardFectch,
   DashboardFilmFectch,
   DashboardAddUser,
+  DashboardDeleteUser,
+  DashboardEditUser,
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 export default function DashBoardPage() {
@@ -20,7 +22,13 @@ export default function DashBoardPage() {
   const [state, setState] = useState({
     search: "",
     searchFilm: "",
+    check: true,
   });
+  const DashboardDelete = (taiKhoan) => {
+    DashboardDeleteUser(taiKhoan);
+    console.log(taiKhoan);
+  };
+
   const [stateUser, setStateUser] = useState({
     taiKhoan: "",
     matKhau: "",
@@ -30,6 +38,21 @@ export default function DashBoardPage() {
     maLoaiNguoiDung: "KhachHang",
     hoTen: "",
   });
+  const editUser = async (user) => {
+    await setStateUser({
+      ...stateUser,
+      taiKhoan: user.taiKhoan,
+      matKhau: user.matKhau,
+      email: user.email,
+      soDt: user.soDt,
+      maNhom: "GP01",
+      maLoaiNguoiDung: user.maLoaiNguoiDung,
+      hoTen: user.hoTen,
+    });
+    await setState({ ...state, check: false });
+    console.log(user);
+  };
+
   useEffect(() => {
     dispatch(DashboardFectch());
     dispatch(DashboardFilmFectch());
@@ -68,8 +91,25 @@ export default function DashBoardPage() {
           <td>{item.soDt}</td>
           <td className="LastTd">{item.maLoaiNguoiDung}</td>
           <td>
-            <button className="btn btn-danger">Xóa</button>
-            <button className="btn btn-dark">Chỉnh Sửa</button>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                DashboardDelete(item.taiKhoan);
+              }}
+            >
+              Xóa
+            </button>
+            <button
+              className="btn btn-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleUser"
+              data-bs-whatever="@mdo"
+              onClick={() => {
+                editUser(item);
+              }}
+            >
+              Chỉnh Sửa
+            </button>
           </td>
         </tr>
       );
@@ -122,7 +162,13 @@ export default function DashBoardPage() {
   };
   const handleSubmitUser = (e) => {
     e.preventDefault();
-    dispatch(DashboardAddUser(stateUser));
+    if (state.check) {
+      dispatch(DashboardAddUser(stateUser));
+    } else {
+      DashboardEditUser(stateUser);
+    }
+
+    document.getElementById("myForm").reset();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -189,7 +235,7 @@ export default function DashBoardPage() {
                 />
               </div>
               <div className="modal-body">
-                <form onSubmit={handleSubmitUser}>
+                <form onSubmit={handleSubmitUser} id="myForm">
                   <h3 className="text-center">
                     THÊM PHIM MỚI - CYBERSOFT.EDU.VN
                   </h3>
@@ -199,12 +245,14 @@ export default function DashBoardPage() {
                     <input
                       name="taiKhoan"
                       className="form-control"
+                      value={stateUser.taiKhoan}
                       onChange={handleChangeUser}
                     />
                   </div>
                   <div className="form-group">
                     <label>Mật Khẩu</label>
                     <input
+                      value={stateUser.matKhau}
                       name="matKhau"
                       className="form-control"
                       onChange={handleChangeUser}
@@ -214,6 +262,7 @@ export default function DashBoardPage() {
                     <label>Họ Và Tên</label>
                     <input
                       name="hoTen"
+                      value={stateUser.hoTen}
                       className="form-control"
                       onChange={handleChangeUser}
                     />
@@ -222,6 +271,7 @@ export default function DashBoardPage() {
                     <label>Email</label>
                     <input
                       name="email"
+                      value={stateUser.email}
                       className="form-control"
                       onChange={handleChangeUser}
                     />
@@ -231,6 +281,7 @@ export default function DashBoardPage() {
                     <label>Số DT</label>
                     <input
                       name="soDt"
+                      value={stateUser.soDt}
                       className="form-control"
                       onChange={handleChangeUser}
                     />
@@ -241,6 +292,7 @@ export default function DashBoardPage() {
                       id="cars"
                       name="maLoaiNguoiDung"
                       onChange={handleChangeUser}
+                      value={stateUser.maLoaiNguoiDung}
                     >
                       <option value="KhachHang">Khách Hàng</option>
                       <option value="QuanTri">ADMIN</option>
@@ -259,9 +311,6 @@ export default function DashBoardPage() {
                   data-bs-dismiss="modal"
                 >
                   Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Send message
                 </button>
               </div>
             </div>
@@ -345,7 +394,11 @@ export default function DashBoardPage() {
                       onChange={handleChange}
                     />
                   </div>
-                  <button type="submit" className="form-control">
+                  <button
+                    type="submit"
+                    className="form-control"
+                    data-bs-dismiss="modal"
+                  >
                     Submit
                   </button>
                 </form>
