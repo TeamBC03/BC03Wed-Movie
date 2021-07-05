@@ -73,7 +73,7 @@ export default function DashBoardPage() {
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td>{i}</td>
+          <td className="idfi">{i}</td>
           <td>{item.tenPhim}</td>
           <td>
             {" "}
