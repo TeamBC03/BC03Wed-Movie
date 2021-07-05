@@ -22,8 +22,13 @@ export default function AdminTemplate({ Component, ...props }) {
             </LayoutAdmin>
           );
         }
+        if (localStorage.getItem("User")) {
+          alert("Bạn không có  Quyền, Hãy Đăng Nhập Bằng Tài Khoản Khác");
+          return <Redirect to="/" />;
+        }
         //Đá về trang Auth
-        return <Redirect to="/auth" />;
+        alert("Vui Lòng Đăng Nhập");
+        return <Redirect to="/login" />;
       }}
     />
   );
