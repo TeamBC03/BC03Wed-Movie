@@ -10,6 +10,8 @@ import {
   DashboardDeleteUser,
   DashboardEditUser,
   DashBoardAddfilm,
+  DashboardDeleteFilm,
+  DashboardEditFilm,
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 export default function DashBoardPage() {
@@ -33,6 +35,7 @@ export default function DashBoardPage() {
     search: "",
     searchFilm: "",
     check: true,
+    checkfilm: true,
   });
   const DashboardDelete = (taiKhoan) => {
     DashboardDeleteUser(taiKhoan);
@@ -144,8 +147,25 @@ export default function DashBoardPage() {
           <td>{item.moTa}</td>
           <td className="">{item.ngayKhoiChieu}</td>
           <td>
-            <button className="btn btn-danger">Xóa</button>
-            <button className="btn btn-dark">Chỉnh Sửa</button>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                DashboardDeletePhim(item.maPhim);
+              }}
+            >
+              Xóa
+            </button>
+            <button
+              className="btn btn-dark"
+              onClick={() => {
+                EditFilm(item);
+              }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@mdo"
+            >
+              Chỉnh Sửa
+            </button>
             <button className="btn btn-dark">Tạo Lịch Chiếu </button>
           </td>
           {/* <td>{item.soDt}</td>
@@ -153,6 +173,18 @@ export default function DashBoardPage() {
         </tr>
       );
     });
+  };
+  const EditFilm = async (film) => {
+    await setstateFilm({
+      ...setstateFilm,
+      maPhim: film.maPhim,
+      tenPhim: film.tenPhim,
+      trailer: film.trailer,
+      moTa: film.moTa,
+      maNhom: "GP01",
+      ngayKhoiChieu: film.ngayKhoiChieu,
+    });
+    await setState({ ...state, checkfilm: false });
   };
   const handleChange = (e) => {
     let target = e.target;
@@ -180,6 +212,7 @@ export default function DashBoardPage() {
     e.preventDefault();
     var form_data = new FormData();
     for (var key in stateFilm) {
+      console.log(key);
       if (key === "ngayKhoiChieu") {
         let date = new Date(stateFilm[key]);
         let date1 = "";
@@ -212,14 +245,23 @@ export default function DashBoardPage() {
           date1 = date.getDate() + date.getMonth() + date.getFullYear();
         }
 
-        console.log(date1);
         form_data.append(key, date1);
       } else {
         form_data.append(key, stateFilm[key]);
       }
+      console.log(stateFilm[key]);
+    }
+    if (state.checkfilm) {
+      console.log("add");
+      DashBoardAddfilm(form_data);
+    } else {
+      console.log("edit");
+      DashboardEditFilm(form_data);
     }
     // console.log(form_data);
-    DashBoardAddfilm(form_data);
+  };
+  const DashboardDeletePhim = (maPhim) => {
+    DashboardDeleteFilm(maPhim);
   };
   const signOut = () => {
     localStorage.removeItem("User");
@@ -382,6 +424,7 @@ export default function DashBoardPage() {
                       name="maPhim"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.maPhim}
                     />
                   </div>
                   <div className="form-group">
@@ -390,6 +433,7 @@ export default function DashBoardPage() {
                       name="tenPhim"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.tenPhim}
                     />
                   </div>
                   <div className="form-group">
@@ -398,6 +442,7 @@ export default function DashBoardPage() {
                       name="trailer"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.trailer}
                     />
                   </div>
                   <div className="form-group">
@@ -415,6 +460,7 @@ export default function DashBoardPage() {
                       name="moTa"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.moTa}
                     />
                   </div>
                   <div className="form-group">
@@ -427,11 +473,12 @@ export default function DashBoardPage() {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Mã nhóm</label>
+                    <label>Ngày Khởi Chiếu</label>
                     <input
                       name="ngayKhoiChieu"
                       type="datetime-local"
                       className="form-control"
+                      value={stateFilm.ngayKhoiChieu}
                       onChange={handleChange}
                     />
                   </div>

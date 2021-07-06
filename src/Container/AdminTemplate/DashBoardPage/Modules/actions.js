@@ -51,7 +51,7 @@ export const DashboardFilmFectch = () => {
       })
       .catch((err) => {
         dispatch(DashboardFilmErr(err));
-        console.log(err);
+        alert(err.response.data);
       });
   };
 };
@@ -75,11 +75,12 @@ export const DashboardAddUser = (user) => {
         dispatch(actAddUserSuccess(result.data));
         console.log(result);
         alert(result.statusText);
+        window.location.reload();
       })
       .catch((error) => {
         dispatch(actAddUserFailed(error));
         console.log(error);
-        alert(error);
+        alert(error.response.data);
       });
   };
 };
@@ -122,8 +123,31 @@ export const DashboardDeleteUser = (taiKhoan) => {
       window.location.reload();
     })
     .catch((error) => {
-      console.log();
-      alert("Lỗi Server Hoặc Người dùng đã đặt vé ");
+      alert(error.response.data);
+    });
+};
+export const DashboardDeleteFilm = (maPhim) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+  axios({
+    url:
+      "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=" +
+      maPhim,
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+    .then((result) => {
+      console.log(result.data);
+      alert(result.data);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(error.response.data);
     });
 };
 export const DashboardEditUser = (user) => {
@@ -141,12 +165,43 @@ export const DashboardEditUser = (user) => {
   })
     .then((result) => {
       console.log(result.data);
-      alert(result.data + "thanh cong");
-      window.location.reload();
+      if (result.data) {
+        alert("Thành Công");
+        window.location.reload();
+      } else {
+        alert(result);
+      }
     })
     .catch((error) => {
       console.log();
-      alert(error);
+      alert(error.response.data);
+    });
+};
+export const DashboardEditFilm = (phim) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+  axios({
+    url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload",
+    method: "POST",
+    data: phim,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+    .then((result) => {
+      console.log(result.data);
+      if (result.data) {
+        alert("Thành Công");
+        window.location.reload();
+      } else {
+        alert(result);
+      }
+    })
+    .catch((error) => {
+      console.log();
+      alert(error.response.data);
     });
 };
 export const DashBoardAddfilm = (form_data) => {
@@ -158,6 +213,7 @@ export const DashBoardAddfilm = (form_data) => {
     .then((res) => {
       console.log(res);
       alert(res);
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err.response.data);
