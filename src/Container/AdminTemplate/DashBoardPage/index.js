@@ -3,7 +3,16 @@ import "./css.css";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DashboardFectch, DashboardFilmFectch } from "./Modules/actions";
+import {
+  DashboardFectch,
+  DashboardFilmFectch,
+  DashboardAddUser,
+  DashboardDeleteUser,
+  DashboardEditUser,
+  DashBoardAddfilm,
+  DashboardDeleteFilm,
+  DashboardEditFilm,
+} from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 import axios from "axios";
 
@@ -15,25 +24,62 @@ export default function DashBoardPage() {
     (state) => state.DashBoardReducer.loadingFilm
   );
   const dataFilm = useSelector((state) => state.DashBoardReducer.dataFilm);
+  const [stateFilm, setstateFilm] = useState({
+    hinhAnh: {},
+    maPhim: "",
+    tenPhim: "",
+    trailer: "",
+    moTa: "",
+    maNhom: "GP01",
+    ngayKhoiChieu: "",
+  });
   const [state, setState] = useState({
     search: "",
     searchFilm: "",
+    check: true,
+    checkfilm: true,
   });
+  const DashboardDelete = (taiKhoan) => {
+    DashboardDeleteUser(taiKhoan);
+    console.log(taiKhoan);
+  };
+
+  const [stateUser, setStateUser] = useState({
+    taiKhoan: "",
+    matKhau: "",
+    email: "",
+    soDt: "",
+    maNhom: "GP01",
+    maLoaiNguoiDung: "KhachHang",
+    hoTen: "",
+  });
+  const editUser = async (user) => {
+    await setStateUser({
+      ...stateUser,
+      taiKhoan: user.taiKhoan,
+      matKhau: user.matKhau,
+      email: user.email,
+      soDt: user.soDt,
+      maNhom: "GP01",
+      maLoaiNguoiDung: user.maLoaiNguoiDung,
+      hoTen: user.hoTen,
+    });
+    await setState({ ...state, check: false });
+    console.log(user);
+  };
+
   useEffect(() => {
     dispatch(DashboardFectch());
     dispatch(DashboardFilmFectch());
   }, []);
   const handleInputChangeFilm = (e) => {
-    console.log(e.target.value);
     setState({ ...state, searchFilm: e.target.value });
   };
   const handleInputChange = (e) => {
-    console.log(e.target.value);
     setState({ ...state, search: e.target.value });
   };
   const renderUser = () => {
     if (localStorage.getItem("UserAdmin")) {
-      console.log();
       return (
         <NavLink to="/user">
           <i className="fas fa-user-shield"></i>
@@ -48,18 +94,37 @@ export default function DashBoardPage() {
     let dataSearch = data.filter((item) => {
       return item.taiKhoan.toLowerCase().includes(state.search.toLowerCase());
     });
-    console.log(dataSearch);
+
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td className="idfi">{i}</td>
+          <td className="idfi text-align-center">{i}</td>
           <td>{item.taiKhoan}</td>
           <td>{item.matKhau}</td>
           <td>{item.hoTen}</td>
           <td>{item.email}</td>
           <td>{item.soDt}</td>
-          <td className="LastTd d-flex align-items-center">
-            {item.maLoaiNguoiDung}
+          <td className="LastTd">{item.maLoaiNguoiDung}</td>
+          <td>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                DashboardDelete(item.taiKhoan);
+              }}
+            >
+              Xóa
+            </button>
+            <button
+              className="btn btn-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleUser"
+              data-bs-whatever="@mdo"
+              onClick={() => {
+                editUser(item);
+              }}
+            >
+              Chỉnh Sửa
+            </button>
           </td>
         </tr>
       );
@@ -71,54 +136,134 @@ export default function DashBoardPage() {
         .toLowerCase()
         .includes(state.searchFilm.toLowerCase());
     });
-    console.log(dataSearch);
+
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td className="idfi">{i}</td>
+          <td className="idfi">{item.maPhim}</td>
           <td>{item.tenPhim}</td>
           <td>
             {" "}
             <img src={item.hinhAnh} className="imgDas"></img>
           </td>
           <td>{item.moTa}</td>
-          <td className="d-flex align-items-center">{item.ngayKhoiChieu}</td>
+          <td className="">{item.ngayKhoiChieu}</td>
+          <td>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                DashboardDeletePhim(item.maPhim);
+              }}
+            >
+              Xóa
+            </button>
+            <button
+              className="btn btn-dark"
+              onClick={() => {
+                EditFilm(item);
+              }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@mdo"
+            >
+              Chỉnh Sửa
+            </button>
+            <button className="btn btn-dark">Tạo Lịch Chiếu </button>
+          </td>
           {/* <td>{item.soDt}</td>
           <td className="LastTd">{item.maLoaiNguoiDung}</td> */}
         </tr>
       );
     });
   };
+  const EditFilm = async (film) => {
+    await setstateFilm({
+      ...setstateFilm,
+      maPhim: film.maPhim,
+      tenPhim: film.tenPhim,
+      trailer: film.trailer,
+      moTa: film.moTa,
+      maNhom: "GP01",
+      ngayKhoiChieu: film.ngayKhoiChieu,
+    });
+    await setState({ ...state, checkfilm: false });
+  };
   const handleChange = (e) => {
     let target = e.target;
     if (target.name === "hinhAnh") {
-      this.setState({ hinhAnh: e.target.files[0] }, () => {
-        console.log(this.state);
-      });
+      setstateFilm({ ...stateFilm, hinhAnh: e.target.files[0] });
     } else {
-      this.setState({ [e.target.name]: e.target.value }, () => {
-        console.log(this.state);
-      });
+      setstateFilm({ ...stateFilm, [e.target.name]: e.target.value });
     }
+  };
+
+  const handleChangeUser = (e) => {
+    setStateUser({ ...stateUser, [e.target.name]: e.target.value });
+  };
+  const handleSubmitUser = (e) => {
+    e.preventDefault();
+    if (state.check) {
+      dispatch(DashboardAddUser(stateUser));
+    } else {
+      DashboardEditUser(stateUser);
+    }
+
+    document.getElementById("myForm").reset();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     var form_data = new FormData();
-    for (var key in this.state) {
-      form_data.append(key, this.state[key]);
-    }
+    for (var key in stateFilm) {
+      console.log(key);
+      if (key === "ngayKhoiChieu") {
+        let date = new Date(stateFilm[key]);
+        let date1 = "";
+        if (date.getDate() < 10 && date.getMonth() + 1 < 10) {
+          date1 =
+            "0" +
+            date.getDate() +
+            "/" +
+            "0" +
+            (date.getMonth() + 1) +
+            "/" +
+            date.getFullYear();
+        } else if (date.getDate() < 10) {
+          date1 =
+            "0" +
+            date.getDate() +
+            "/" +
+            date.getMonth() +
+            "/" +
+            date.getFullYear();
+        } else if (date.getMonth() < 10) {
+          date1 =
+            date.getDate() +
+            "/" +
+            "0" +
+            date.getMonth() +
+            "/" +
+            date.getFullYear();
+        } else {
+          date1 = date.getDate() + date.getMonth() + date.getFullYear();
+        }
 
-    axios({
-      url: "http://movie0706.cybersoft.edu.vn/api/quanlyphim/ThemPhimUploadHinh",
-      method: "POST",
-      data: form_data,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+        form_data.append(key, date1);
+      } else {
+        form_data.append(key, stateFilm[key]);
+      }
+      console.log(stateFilm[key]);
+    }
+    if (state.checkfilm) {
+      console.log("add");
+      DashBoardAddfilm(form_data);
+    } else {
+      console.log("edit");
+      DashboardEditFilm(form_data);
+    }
+    // console.log(form_data);
+  };
+  const DashboardDeletePhim = (maPhim) => {
+    DashboardDeleteFilm(maPhim);
   };
   const signOut = () => {
     localStorage.removeItem("User");
@@ -139,12 +284,116 @@ export default function DashBoardPage() {
           type="button"
           className="btn btn-primary"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          data-bs-target="#exampleUser"
           data-bs-whatever="@mdo"
         >
-          Thêm Phim
+          Thêm USER
         </button>
 
+        <div
+          className="modal fade"
+          id="exampleUser"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  New message
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <form onSubmit={handleSubmitUser} id="myForm">
+                  <h3 className="text-center">
+                    THÊM PHIM MỚI - CYBERSOFT.EDU.VN
+                  </h3>
+
+                  <div className="form-group">
+                    <label>Tài Khoản</label>
+                    <input
+                      name="taiKhoan"
+                      className="form-control"
+                      value={stateUser.taiKhoan}
+                      onChange={handleChangeUser}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Mật Khẩu</label>
+                    <input
+                      value={stateUser.matKhau}
+                      name="matKhau"
+                      className="form-control"
+                      onChange={handleChangeUser}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Họ Và Tên</label>
+                    <input
+                      name="hoTen"
+                      value={stateUser.hoTen}
+                      className="form-control"
+                      onChange={handleChangeUser}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input
+                      name="email"
+                      value={stateUser.email}
+                      className="form-control"
+                      onChange={handleChangeUser}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Số DT</label>
+                    <input
+                      name="soDt"
+                      value={stateUser.soDt}
+                      className="form-control"
+                      onChange={handleChangeUser}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Loại Người Dùng</label>
+                    <select
+                      id="cars"
+                      name="maLoaiNguoiDung"
+                      onChange={handleChangeUser}
+                      value={stateUser.maLoaiNguoiDung}
+                    >
+                      <option value="KhachHang">Khách Hàng</option>
+                      <option value="QuanTri">ADMIN</option>
+                    </select>
+                  </div>
+
+                  <button type="submit" className="form-control">
+                    Submit
+                  </button>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
         <div
           className="modal fade"
           id="exampleModal"
@@ -177,6 +426,7 @@ export default function DashBoardPage() {
                       name="maPhim"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.maPhim}
                     />
                   </div>
                   <div className="form-group">
@@ -185,6 +435,7 @@ export default function DashBoardPage() {
                       name="tenPhim"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.tenPhim}
                     />
                   </div>
                   <div className="form-group">
@@ -193,6 +444,7 @@ export default function DashBoardPage() {
                       name="trailer"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.trailer}
                     />
                   </div>
                   <div className="form-group">
@@ -210,6 +462,7 @@ export default function DashBoardPage() {
                       name="moTa"
                       className="form-control"
                       onChange={handleChange}
+                      value={stateFilm.moTa}
                     />
                   </div>
                   <div className="form-group">
@@ -218,6 +471,16 @@ export default function DashBoardPage() {
                       name="maNhom"
                       value="GP01"
                       className="form-control"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Ngày Khởi Chiếu</label>
+                    <input
+                      name="ngayKhoiChieu"
+                      type="datetime-local"
+                      className="form-control"
+                      value={stateFilm.ngayKhoiChieu}
                       onChange={handleChange}
                     />
                   </div>
@@ -294,13 +557,14 @@ export default function DashBoardPage() {
                   <table className="table table-hover table-striped">
                     <thead>
                       <tr>
-                        <th className="idFii">ID</th>
+                        <th>ID</th>
                         <th>Tài Khoản</th>
                         <th>Mật Khẩu</th>
                         <th>Họ Và Tên</th>
                         <th>Email</th>
                         <th>SDT</th>
                         <th>Loại</th>
+                        <th>Tác Vụ</th>
                       </tr>
                     </thead>
                     <tbody className="tbodyList">{renderListUSer()}</tbody>
@@ -316,12 +580,22 @@ export default function DashBoardPage() {
                     Here is a subtitle for this table
                   </p>
                   <input type="text" onChange={handleInputChangeFilm} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo"
+                  >
+                    Thêm Phim
+                  </button>
                 </div>
                 <div className="card-body table-full-width table-responsive">
                   <table className="table table-hover">
                     <thead>
                       <tr>
-                        <th className="idFi">ID</th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Salary</th>
                         <th>Country</th>
