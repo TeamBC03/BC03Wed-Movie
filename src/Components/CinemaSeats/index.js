@@ -58,14 +58,14 @@ export default function CinemaSeat(props) {
   const renderBook = () => {
     return state.ListBook.map((item) => {
       if (item.loaiGhe === "Thuong") {
-        return " " + item.tenGhe;
+        return " " + item.tenGhe + ",";
       }
     });
   };
   const renderBookVIP = () => {
     return state.ListBook.map((item) => {
       if (item.loaiGhe === "Vip") {
-        return " " + item.tenGhe;
+        return " " + item.tenGhe + ",";
       }
     });
   };
@@ -117,7 +117,7 @@ export default function CinemaSeat(props) {
 
   return (
     <div className="cinemaSeats">
-      <div className="cinemaSeats__left col-md-8">
+      <div className="cinemaSeats__left col-lg-8 col-12">
         <div className="cinemaSeats-header">
           <div className="cinemaSeats-header__cinema d-flex">
             <div className="cinemaSeats-header__image">
@@ -137,7 +137,7 @@ export default function CinemaSeat(props) {
             <p className="cinemaSeats-header__timeCountdown">5:00</p>
           </div>
         </div>
-        <div className="theatre">
+        <div className="theater">
           <div className="cinema-seats left">
             <div className="cinema-row row-1">
               <div className="seat" />
@@ -334,12 +334,34 @@ export default function CinemaSeat(props) {
               <div className="seat" />
             </div>
           </div>
-          <div className="cinema-screen">
-            <p>SCREEN</p>
+        </div>
+        <div className="cinema-screen">
+          <p>SCREEN</p>
+        </div>
+        <div className="cinemaSeats__note">
+          <div className="cinemaSeats__note-item">
+            <div className="cinemaSeats__note-item__color" id="gheTrong"></div>
+            <div className="cinemaSeats__note-item__type">Ghế trống</div>
+          </div>
+          <div className="cinemaSeats__note-item">
+            <div
+              className="cinemaSeats__note-item__color"
+              id="gheDaDuocDat"
+            ></div>
+            <div className="cinemaSeats__note-item__type">
+              Ghế đã có người đặt
+            </div>
+          </div>
+          <div className="cinemaSeats__note-item">
+            <div
+              className="cinemaSeats__note-item__color"
+              id="gheDangDat"
+            ></div>
+            <div className="cinemaSeats__note-item__type">Ghế đang chọn</div>
           </div>
         </div>
       </div>
-      <div className="cinemaSeats__right col-md-4">
+      <div className="cinemaSeats__right col-lg-4 col-12">
         <div className="ticketBooking">
           <div className="ticketBooking__filmInfo">
             <p className="ticketBooking__filmInfo-name">
@@ -352,59 +374,71 @@ export default function CinemaSeat(props) {
               {`${data.thongTinPhim.ngayChieu} - ${data.thongTinPhim.gioChieu} -${data.thongTinPhim.tenRap}`}
             </p>
           </div>
-          <div className="ticketBooking__userInfo">
-            <div className="ticketBooking__userInfo-bill">
-              <p className="bill-title">VÉ THƯỜNG : {renderBook()}</p>
-              <p className="bill-value">{CoutBookNor()}</p>
+          <div className="ticketBooking__userInfo-pay">
+            <div className="ticketBooking__userInfo">
+              <div className="ticketBooking__userInfo-bill">
+                <p className="bill-title">
+                  VÉ THƯỜNG :<p className="bill-seat">{renderBook()}</p>
+                </p>
+                <p className="bill-value">{CoutBookNor()}</p>
+              </div>
+              <div className="ticketBooking__userInfo-bill">
+                <p className="bill-title">
+                  VÉ VIP:
+                  <p className="bill-seat">{renderBookVIP()}</p>
+                </p>
+                <p className="bill-value">{CoutBookVIP()}</p>
+              </div>
+              <form>
+                <label htmlFor="email">Email :</label>
+                <br />
+                <input type="text" id="email" name="email" />
+                <br />
+                <label htmlFor="phoneNumber">Phone :</label>
+                <br />
+                <input type="text" id="phoneNumber" />
+                <br />
+                <br />
+              </form>
+              <div className="ticketBooking__userInfo-email" />
+              <div className="ticketBooking__userInfo-phoneNumber" />
+            </div>{" "}
+            <div className="ticketBooking__pay">
+              <form>
+                <p className="ticketBooking__pay-title">
+                  Hình thức thanh toán:
+                </p>
+                <input type="radio" id="zalo" name="pay" defaultValue="zalo" />
+                <label htmlFor="zalo">Thanh toán qua ZaloPay</label>
+                <br />
+                <input type="radio" id="visa" name="pay" defaultValue="visa" />
+                <label htmlFor="visa">Visa, Master, JCB</label>
+                <br />
+                <input type="radio" id="atm" name="pay" defaultValue="atm" />
+                <label htmlFor="atm">Thẻ ATM nội địa</label>
+                <br />
+                <input
+                  type="radio"
+                  id="convenienceStore"
+                  name="pay"
+                  defaultValue="convenienceStore"
+                />
+                <label htmlFor="convenienceStore">
+                  Thanh toán tại cửa hàng tiện ích
+                </label>
+              </form>
             </div>
-            <div className="ticketBooking__userInfo-bill">
-              <p className="bill-title">VÉ VIP: {renderBookVIP()}</p>
-              <p className="bill-value">{CoutBookVIP()}</p>
-            </div>
-            <form>
-              <label htmlFor="email">Email :</label>
-              <br />
-              <input type="text" id="email" name="email" />
-              <br />
-              <label htmlFor="phoneNumber">Số điện thoại :</label>
-              <br />
-              <input type="text" id="phoneNumber" />
-              <br />
-              <br />
-            </form>
-            <div className="ticketBooking__userInfo-email" />
-            <div className="ticketBooking__userInfo-phoneNumber" />
           </div>
-          <div className="ticketBooking__pay">
-            <form>
-              <p className="ticketBooking__pay-title">Hình thức thanh toán:</p>
-              <input type="radio" id="zalo" name="pay" defaultValue="zalo" />
-              <label htmlFor="zalo">Thanh toán qua ZaloPay</label>
-              <br />
-              <input type="radio" id="visa" name="pay" defaultValue="visa" />
-              <label htmlFor="visa">Visa, Master, JCB</label>
-              <br />
-              <input type="radio" id="atm" name="pay" defaultValue="atm" />
-              <label htmlFor="atm">Thẻ ATM nội địa</label>
-              <br />
-              <input
-                type="radio"
-                id="convenienceStore"
-                name="pay"
-                defaultValue="convenienceStore"
-              />
-              <label htmlFor="convenienceStore">
-                Thanh toán tại cửa hàng tiện ích
-              </label>
-            </form>
-          </div>
-          <button
-            className="btn btn-danger mt-4"
-            id="btnBooking"
-            onClick={clickBooking}
-          >
-            Đặt vé
-          </button>
+          <div className="ticketBooking__button">
+            {" "}
+            <button
+              className="btn btn-danger mt-4"
+              id="btnBooking"
+              onClick={clickBooking}
+            >
+              Đặt vé
+            </button>
+          </div>  
           <div className="ticketBooking__alert">
             <span>
               <i className="fa fa-exclamation-circle" /> Vé đã mua không thể đổi

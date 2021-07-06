@@ -1,15 +1,11 @@
 .cinemaSeats {
   margin-top: 60px;
 }
-.theatre {
+.theater {
   display: flex;
-  position: absolute;
-  /* top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 100px; */
-  top: 25%;
-  left: 7%;
+  transform: scale(0.8);
+  margin: 50px 0%;
+  max-width: 100%;
 }
 
 .cinema-seats {
@@ -174,9 +170,6 @@
 
 /* custom */
 .cinema-screen {
-  position: absolute;
-  top: 130%;
-  left: 0;
   width: 100%;
   height: 50px;
   background-color: gray;
@@ -200,6 +193,7 @@
 .cinemaSeats__right {
   border-left: 1px solid #bebebe;
   height: 100%;
+  color: #fff;
 }
 
 .cinemaSeats .cinemaSeats-header {
@@ -248,17 +242,21 @@
 
 /* CinemaSeat__right */
 .cinemaSeats .ticketBooking {
-  margin: 20px 40px;
+  padding: 20px 40px;
 }
 .cinemaSeats .ticketBooking p {
   margin-bottom: 0;
 }
 .cinemaSeats .ticketBooking__filmInfo {
-  font-weight: 500;
   margin-bottom: 20px;
 }
 .cinemaSeats .ticketBooking__filmInfo-name {
-  font-size: 20px;
+  font-size: 22px;
+}
+.cinemaSeats .ticketBooking__filmInfo-cinema,
+.cinemaSeats .ticketBooking__filmInfo-info {
+  font-size: 14px;
+  font-weight: 300;
 }
 .cinemaSeats .ticketBooking__userInfo-bill {
   display: flex;
@@ -271,7 +269,7 @@
   color: #fb4226;
 }
 .cinemaSeats .ticketBooking__userInfo-bill .bill-value {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #58ae39;
 }
@@ -280,7 +278,7 @@
   font-weight: 500;
 }
 .cinemaSeats .ticketBooking__alert {
-  margin-top: 100px;
+  margin-top: 60px;
   text-align: center;
 }
 .cinemaSeats .ticketBooking__alert i {
@@ -291,4 +289,120 @@
 }
 .active2 {
   background: black !important;
+}
+
+/*  */
+.bill-seat {
+  color: #fff;
+}
+.ticketBooking__userInfo form {
+  margin-top: 20px;
+}
+.ticketBooking__userInfo form input {
+  background-color: #161b21;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #fff;
+  width: 250px;
+  margin-bottom: 10px;
+}
+.ticketBooking__pay input {
+  margin-right: 10px;
+}
+
+/* note */
+.cinemaSeats__note {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+.cinemaSeats__note-item {
+  display: flex;
+  margin: 0 20px;
+}
+.cinemaSeats__note-item__color {
+  width: 70px;
+  height: 25px;
+  margin-right: 5px;
+}
+.cinemaSeats__note-item__type {
+  color: #fff;
+}
+#gheTrong {
+  background-color: #761818;
+}
+#gheDaDuocDat {
+  background-color: #000;
+}
+#gheDangDat {
+  background-color: #9b9b9b;
+}
+/* Responsive */
+@media screen and (max-width: 1200px) {
+  .theater {
+    transform: scale(0.6);
+    margin: 50px -10%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .cinemaSeats {
+    display: block;
+  }
+  .theater {
+    transform: scale(0.7);
+    margin: 40px 5%;
+  }
+  .ticketBooking {
+    border-top: 1px solid #fff;
+    margin-top: 30px;
+  }
+  /* .ticketBooking__userInfo-pay{
+    display: flex;
+    justify-content: space-between;
+  }
+  .ticketBooking__button{
+    text-align: center;
+  }
+  .ticketBooking__userInfo form{
+    display:flex;
+  }
+  .ticketBooking__userInfo form input{
+    margin-right:20px;
+    width: 200px;
+  }
+  .ticketBooking__userInfo form label{
+    margin-top:7px;
+    margin-right: 10px;
+  } */
+}
+@media screen and (max-width: 800px) {
+  .theater {
+    transform: scale(0.65);
+    margin: 30px -4%;
+  }
+  .cinemaSeats-header{
+    margin:20px !important;
+  }
+  .cinema-screen{
+    height:35px;
+  }  .cinema-screen p{
+font-size:16px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .theater {
+    transform: scale(0.55);
+    margin: 20px -9%;
+  }
+  .cinemaSeats__note-item__color{
+    width: 40px;
+  }.cinemaSeats__note-item__type{
+    font-size:14px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .theater {
+    transform: scale(0.45);
+    margin: 10px -15%;
+  }
 }

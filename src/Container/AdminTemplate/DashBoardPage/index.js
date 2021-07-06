@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DashboardFectch, DashboardFilmFectch } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
+import axios from "axios";
+
 export default function DashBoardPage() {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.DashBoardReducer.loading);
