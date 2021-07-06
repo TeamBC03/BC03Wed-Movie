@@ -1096,7 +1096,8 @@ fieldset[disabled] .form-control {
   padding-bottom: 5px;
   border-top: none !important;
   border-bottom: none;
-  text-align: left !important;
+  text-align: center !important;
+  padding-right:15px !important;
 }
 
 .table .td-actions .btn {
@@ -2255,7 +2256,9 @@ Copyright (c) 2015 Daniel Eden
 .card .table tbody td:last-child,
 .card .table thead th:last-child {
   padding-right: 15px;
-  display: inline-flex;
+  /* display: inline-flex; */
+  display: block;
+
 }
 
 .card .alert {
@@ -2348,11 +2351,6 @@ Copyright (c) 2015 Daniel Eden
 .card-plain .card-image {
   border-radius: 4px;
 }
-
-.card.card-plain {
-  border: none !important;
-}
-
 .card.card-plain .card-header {
   background-color: transparent !important;
 }
@@ -3796,9 +3794,9 @@ Copyright (c) 2015 Daniel Eden
   .dropdown-menu {
     display: none;
   }
-  .navbar-fixed-top {
+  /* .navbar-fixed-top {
     -webkit-backface-visibility: hidden;
-  }
+  } */
   #bodyClick {
     height: 100%;
     width: 100%;
@@ -4646,20 +4644,63 @@ td {
 tr {
   border: 1px solid black !important;
 }
-.lastTd {
-  padding: 12px 8px;
-
-  height: 100%;
-}
 .table {
   width: 1000px;
 }
 .imgDas {
   width: 50%;
 }
-.idfi {
-  width: 10% !important;
+
+/* fix */
+.admin__dashboard .card-header .card-title{
+  text-align: center;
+  font-size:28px;
+  margin-bottom: 15px;
 }
-.idFii {
-  padding: 0 !important;
+.admin__dashboard .card-header input{
+  width: 300px;
+}
+.admin__dashboard .card-header__content{
+  display:flex;
+  justify-content: space-between;
+}
+.admin__dashboard th{
+  padding-left:0 !important;
+  padding-right: 0 !important;
+  text-align: center;
+}
+.admin__dashboard .table__id{
+  width:4%;
+}
+.admin__dashboard .table__type{
+  width: 10%;
+}
+.admin__dashboard .table__password{
+  width: 10%;
+}
+.admin__dashboard .table__account{
+  width: 12%;
+}
+.admin__dashboard .table__phone{
+  width: 12%;
+}
+.admin__dashboard .tbodyList tr{
+  border-top: none !important;
+}
+.admin__dashboard .actionButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+  flex-wrap: wrap;
+}
+.admin__dashboard .actionButtons button{
+  font-size:14px;
+  margin-left: 8px;
+}
+.admin__dashboard .tableMovie__id{
+  width: 6%;
+}
+.admin__dashboard .tableMovie__name{
+  width: 13%;
 }

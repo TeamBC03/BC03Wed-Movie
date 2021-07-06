@@ -98,33 +98,35 @@ export default function DashBoardPage() {
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td className="idfi text-align-center">{i}</td>
-          <td>{item.taiKhoan}</td>
-          <td>{item.matKhau}</td>
-          <td>{item.hoTen}</td>
-          <td>{item.email}</td>
-          <td>{item.soDt}</td>
-          <td className="LastTd">{item.maLoaiNguoiDung}</td>
-          <td>
-            <button
-              className="btn btn-danger"
-              onClick={() => {
-                DashboardDelete(item.taiKhoan);
-              }}
-            >
-              Xóa
-            </button>
-            <button
-              className="btn btn-dark"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleUser"
-              data-bs-whatever="@mdo"
-              onClick={() => {
-                editUser(item);
-              }}
-            >
-              Chỉnh Sửa
-            </button>
+          <td className="table__id">{i}</td>
+          <td className="table__account">{item.taiKhoan}</td>
+          <td className="table__password">{item.matKhau}</td>
+          <td className="table__name">{item.hoTen}</td>
+          <td className="table__email">{item.email}</td>
+          <td className="table__phone">{item.soDt}</td>
+          <td className="table__type">{item.maLoaiNguoiDung}</td>
+          <td className="table__action">
+            <div className="actionButtons">
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  DashboardDelete(item.taiKhoan);
+                }}
+              >
+                Xóa
+              </button>
+              <button
+                className="btn btn-dark"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleUser"
+                data-bs-whatever="@mdo"
+                onClick={() => {
+                  editUser(item);
+                }}
+              >
+                Chỉnh Sửa
+              </button>
+            </div>
           </td>
         </tr>
       );
@@ -140,35 +142,37 @@ export default function DashBoardPage() {
     return dataSearch.map((item, i) => {
       return (
         <tr>
-          <td className="idfi">{item.maPhim}</td>
-          <td>{item.tenPhim}</td>
-          <td>
+          <td className="tableMovie__id">{item.maPhim}</td>
+          <td className="tableMovie__name">{item.tenPhim}</td>
+          <td className="tableMovie__img">
             {" "}
-            <img src={item.hinhAnh} className="imgDas"></img>
+            <img src={item.hinhAnh} className="w-100"></img>
           </td>
-          <td>{item.moTa}</td>
-          <td className="">{item.ngayKhoiChieu}</td>
-          <td>
-            <button
-              className="btn btn-danger"
-              onClick={() => {
-                DashboardDeletePhim(item.maPhim);
-              }}
-            >
-              Xóa
-            </button>
-            <button
-              className="btn btn-dark"
-              onClick={() => {
-                EditFilm(item);
-              }}
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@mdo"
-            >
-              Chỉnh Sửa
-            </button>
-            <button className="btn btn-dark">Tạo Lịch Chiếu </button>
+          <td className="tableMovie__info">{item.moTa}</td>
+          <td className="tableMovie__day">{item.ngayKhoiChieu}</td>
+          <td className="tableMovie__action2">
+            <div className="actionButtons">
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  DashboardDeletePhim(item.maPhim);
+                }}
+              >
+                Xóa
+              </button>
+              <button
+                className="btn btn-dark"
+                onClick={() => {
+                  EditFilm(item);
+                }}
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo"
+              >
+                Chỉnh Sửa
+              </button>
+              <button className="btn btn-dark">Tạo Lịch Chiếu </button>
+            </div>
           </td>
           {/* <td>{item.soDt}</td>
           <td className="LastTd">{item.maLoaiNguoiDung}</td> */}
@@ -277,242 +281,16 @@ export default function DashBoardPage() {
     return <Loading />;
   }
   return (
-    <div className="main-panel">
+    <div className="main-panel admin__dashboard">
       {/* Navbar */}
-      <div>
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleUser"
-          data-bs-whatever="@mdo"
-        >
-          Thêm USER
-        </button>
-
-        <div
-          className="modal fade"
-          id="exampleUser"
-          tabIndex={-1}
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  New message
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">
-                <form onSubmit={handleSubmitUser} id="myForm">
-                  <h3 className="text-center">
-                    THÊM PHIM MỚI - CYBERSOFT.EDU.VN
-                  </h3>
-
-                  <div className="form-group">
-                    <label>Tài Khoản</label>
-                    <input
-                      name="taiKhoan"
-                      className="form-control"
-                      value={stateUser.taiKhoan}
-                      onChange={handleChangeUser}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Mật Khẩu</label>
-                    <input
-                      value={stateUser.matKhau}
-                      name="matKhau"
-                      className="form-control"
-                      onChange={handleChangeUser}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Họ Và Tên</label>
-                    <input
-                      name="hoTen"
-                      value={stateUser.hoTen}
-                      className="form-control"
-                      onChange={handleChangeUser}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Email</label>
-                    <input
-                      name="email"
-                      value={stateUser.email}
-                      className="form-control"
-                      onChange={handleChangeUser}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Số DT</label>
-                    <input
-                      name="soDt"
-                      value={stateUser.soDt}
-                      className="form-control"
-                      onChange={handleChangeUser}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Loại Người Dùng</label>
-                    <select
-                      id="cars"
-                      name="maLoaiNguoiDung"
-                      onChange={handleChangeUser}
-                      value={stateUser.maLoaiNguoiDung}
-                    >
-                      <option value="KhachHang">Khách Hàng</option>
-                      <option value="QuanTri">ADMIN</option>
-                    </select>
-                  </div>
-
-                  <button type="submit" className="form-control">
-                    Submit
-                  </button>
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex={-1}
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  New message
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">
-                <form onSubmit={handleSubmit}>
-                  <h3 className="text-center">
-                    THÊM PHIM MỚI - CYBERSOFT.EDU.VN
-                  </h3>
-
-                  <div className="form-group">
-                    <label>Mã phim</label>
-                    <input
-                      name="maPhim"
-                      className="form-control"
-                      onChange={handleChange}
-                      value={stateFilm.maPhim}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Tên phim</label>
-                    <input
-                      name="tenPhim"
-                      className="form-control"
-                      onChange={handleChange}
-                      value={stateFilm.tenPhim}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Trailer</label>
-                    <input
-                      name="trailer"
-                      className="form-control"
-                      onChange={handleChange}
-                      value={stateFilm.trailer}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Hình ảnh</label>
-                    <input
-                      type="file"
-                      name="hinhAnh"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Mô tả</label>
-                    <input
-                      name="moTa"
-                      className="form-control"
-                      onChange={handleChange}
-                      value={stateFilm.moTa}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Mã nhóm</label>
-                    <input
-                      name="maNhom"
-                      value="GP01"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Ngày Khởi Chiếu</label>
-                    <input
-                      name="ngayKhoiChieu"
-                      type="datetime-local"
-                      className="form-control"
-                      value={stateFilm.ngayKhoiChieu}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <button type="submit" className="form-control">
-                    Submit
-                  </button>
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Send message
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <nav className="navbar navbar-expand-lg " color-on-scroll={500}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#pablo">
+          {/* <a className="navbar-brand" href="#pablo">
             {" "}
             Table List{" "}
-          </a>
-          <button
+          </a> */}
+          {/* <button
             href
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -524,7 +302,7 @@ export default function DashBoardPage() {
             <span className="navbar-toggler-bar burger-lines" />
             <span className="navbar-toggler-bar burger-lines" />
             <span className="navbar-toggler-bar burger-lines" />
-          </button>
+          </button> */}
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navigation"
@@ -544,27 +322,256 @@ export default function DashBoardPage() {
       <div className="content1">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 dashboard__user">
               <div className="card strpied-tabled-with-hover">
+                <div>
+                  <div
+                    className="modal fade"
+                    id="exampleUser"
+                    tabIndex={-1}
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">
+                            New message
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          />
+                        </div>
+                        <div className="modal-body">
+                          <form onSubmit={handleSubmitUser} id="myForm">
+                            <h3 className="text-center">
+                              THÊM PHIM MỚI - CYBERSOFT.EDU.VN
+                            </h3>
+
+                            <div className="form-group">
+                              <label>Tài Khoản</label>
+                              <input
+                                name="taiKhoan"
+                                className="form-control"
+                                value={stateUser.taiKhoan}
+                                onChange={handleChangeUser}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Mật Khẩu</label>
+                              <input
+                                value={stateUser.matKhau}
+                                name="matKhau"
+                                className="form-control"
+                                onChange={handleChangeUser}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Họ Và Tên</label>
+                              <input
+                                name="hoTen"
+                                value={stateUser.hoTen}
+                                className="form-control"
+                                onChange={handleChangeUser}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Email</label>
+                              <input
+                                name="email"
+                                value={stateUser.email}
+                                className="form-control"
+                                onChange={handleChangeUser}
+                              />
+                            </div>
+
+                            <div className="form-group">
+                              <label>Số DT</label>
+                              <input
+                                name="soDt"
+                                value={stateUser.soDt}
+                                className="form-control"
+                                onChange={handleChangeUser}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Loại Người Dùng</label>
+                              <select
+                                id="cars"
+                                name="maLoaiNguoiDung"
+                                onChange={handleChangeUser}
+                                value={stateUser.maLoaiNguoiDung}
+                              >
+                                <option value="KhachHang">Khách Hàng</option>
+                                <option value="QuanTri">ADMIN</option>
+                              </select>
+                            </div>
+
+                            <button type="submit" className="form-control">
+                              Submit
+                            </button>
+                          </form>
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="modal fade"
+                    id="exampleModal"
+                    tabIndex={-1}
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">
+                            New message
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          />
+                        </div>
+                        <div className="modal-body">
+                          <form onSubmit={handleSubmit}>
+                            <h3 className="text-center">
+                              THÊM PHIM MỚI - CYBERSOFT.EDU.VN
+                            </h3>
+
+                            <div className="form-group">
+                              <label>Mã phim</label>
+                              <input
+                                name="maPhim"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={stateFilm.maPhim}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Tên phim</label>
+                              <input
+                                name="tenPhim"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={stateFilm.tenPhim}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Trailer</label>
+                              <input
+                                name="trailer"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={stateFilm.trailer}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Hình ảnh</label>
+                              <input
+                                type="file"
+                                name="hinhAnh"
+                                className="form-control"
+                                onChange={handleChange}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Mô tả</label>
+                              <input
+                                name="moTa"
+                                className="form-control"
+                                onChange={handleChange}
+                                value={stateFilm.moTa}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Mã nhóm</label>
+                              <input
+                                name="maNhom"
+                                value="GP01"
+                                className="form-control"
+                                onChange={handleChange}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Ngày Khởi Chiếu</label>
+                              <input
+                                name="ngayKhoiChieu"
+                                type="datetime-local"
+                                className="form-control"
+                                value={stateFilm.ngayKhoiChieu}
+                                onChange={handleChange}
+                              />
+                            </div>
+                            <button type="submit" className="form-control">
+                              Submit
+                            </button>
+                          </form>
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" className="btn btn-primary">
+                            Send message
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="card-header ">
-                  <h4 className="card-title">Striped Table with Hover</h4>
-                  <p className="card-category">
-                    Here is a subtitle for this table
-                  </p>
-                  <input type="text" onChange={handleInputChange} />
+                  <h4 className="card-title">Quản lý người dùng</h4>
+                  <div className="card-header__content">
+                    {" "}
+                    <input
+                      type="text"
+                      onChange={handleInputChange}
+                      placeholder="Nhập tên tài khoản cần tìm"
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleUser"
+                      data-bs-whatever="@mdo"
+                    >
+                      Thêm Người Dùng
+                    </button>
+                  </div>
                 </div>
                 <div className="card-body table-full-width table-responsive">
                   <table className="table table-hover table-striped">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Tài Khoản</th>
-                        <th>Mật Khẩu</th>
-                        <th>Họ Và Tên</th>
-                        <th>Email</th>
-                        <th>SDT</th>
-                        <th>Loại</th>
-                        <th>Tác Vụ</th>
+                        <th className="table__id">ID</th>
+                        <th className="table__account">Tài Khoản</th>
+                        <th className="table__password">Mật Khẩu</th>
+                        <th className="table__name">Họ Và Tên</th>
+                        <th className="table__email">Email</th>
+                        <th className="table__phone">SDT</th>
+                        <th className="table__type">Loại</th>
+                        <th className="table__action">Tác Vụ</th>
                       </tr>
                     </thead>
                     <tbody className="tbodyList">{renderListUSer()}</tbody>
@@ -572,34 +579,38 @@ export default function DashBoardPage() {
                 </div>
               </div>
             </div>
-            <div className="col-md-12">
+            <div className="col-md-12 dashboard__movie">
               <div className="card card-plain table-plain-bg">
                 <div className="card-header ">
-                  <h4 className="card-title">Table on Plain Background</h4>
-                  <p className="card-category">
-                    Here is a subtitle for this table
-                  </p>
-                  <input type="text" onChange={handleInputChangeFilm} />
-                  <br />
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-whatever="@mdo"
-                  >
-                    Thêm Phim
-                  </button>
+                  <h4 className="card-title">Quản lý phim</h4>
+                  <div className="card-header__content">
+                    {" "}
+                    <input
+                      type="text"
+                      onChange={handleInputChangeFilm}
+                      placeholder="Nhập tên phim cần tìm"
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      data-bs-whatever="@mdo"
+                    >
+                      Thêm Phim
+                    </button>
+                  </div>
                 </div>
                 <div className="card-body table-full-width table-responsive">
                   <table className="table table-hover">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Salary</th>
-                        <th>Country</th>
-                        <th>City</th>
+                        <th className="tableMovie__id">ID</th>
+                        <th className="tableMovie__name">Tên phim</th>
+                        <th className="tableMovie__img">Hình Ảnh</th>
+                        <th className="tableMovie__info">Mô Tả</th>
+                        <th className="tableMovie__day">Ngày Khởi Chiếu</th>
+                        <th className="tableMovie__action2">Tác vụ</th>
                       </tr>
                     </thead>
                     <tbody className="tbodyList">{renderListFilm()}</tbody>

@@ -2718,9 +2718,6 @@ fieldset[disabled] .form-control {
   border-radius: 4px;
 }
 
-.card.card-plain {
-  border: none !important;
-}
 
 .card.card-plain .card-header {
   background-color: transparent !important;
@@ -4971,3 +4968,5 @@ License - nucleoapp.com/license/
 }
 
 /* all icon font classes list here */
+
+/* fix */

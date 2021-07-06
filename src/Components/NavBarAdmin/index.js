@@ -11,17 +11,17 @@ export default function NavBarAdmin() {
       <div className="sidebar-wrapper">
         <div className="logo">
           <a href="http://www.creative-tim.com" className="simple-text">
-            Creative Tim
+            Dashboard
           </a>
         </div>
         <ul className="nav">
           <li className="nav-item active">
             <a className="nav-link" href="dashboard.html">
-              <i className="nc-icon nc-chart-pie-35" />
+           
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a className="nav-link" href="./user.html">
               <i className="nc-icon nc-circle-09" />
               <p>User Profile</p>
@@ -62,7 +62,7 @@ export default function NavBarAdmin() {
               <i className="nc-icon nc-alien-33" />
               <p>Upgrade to PRO</p>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
