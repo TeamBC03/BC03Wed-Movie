@@ -55,6 +55,36 @@ export const DashboardFilmFectch = () => {
       });
   };
 };
+const DashboardDateFilmRequest = () => {
+  return { type: TypeAction.DASHBOARD_DATE_FILM_REQUEST };
+};
+const DashboardDateFilmSuccess = (data) => {
+  return { type: TypeAction.DASHBOARD_DATE_FILM_SUCCESS, payload: data };
+};
+const DashboardDateFilmErr = (err) => {
+  return { type: TypeAction.DASHBOARD_DATE_FILM_FAILED, payload: err };
+};
+
+export const DashboardDateFilmFectch = (maPhim, callback) => {
+  return (dispatch) => {
+    dispatch(DashboardDateFilmRequest());
+
+    axios({
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=" +
+        maPhim,
+      method: "GET",
+    })
+      .then((result) => {
+        dispatch(DashboardDateFilmSuccess(result.data));
+
+        console.log(result.data);
+      })
+      .catch((err) => {
+        dispatch(DashboardDateFilmErr(err));
+      });
+  };
+};
 export const DashboardAddUser = (user) => {
   let accessToken = "";
   if (localStorage.getItem("UserAdmin")) {

@@ -3,6 +3,7 @@ import "./css.css";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Modal } from "bootstrap";
 import {
   DashboardFectch,
   DashboardFilmFectch,
@@ -12,6 +13,7 @@ import {
   DashBoardAddfilm,
   DashboardDeleteFilm,
   DashboardEditFilm,
+  DashboardDateFilmFectch,
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 import axios from "axios";
@@ -20,6 +22,12 @@ export default function DashBoardPage() {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.DashBoardReducer.loading);
   const data = useSelector((state) => state.DashBoardReducer.data);
+  const loadingDateFilm = useSelector(
+    (state) => state.DashBoardReducer.loadingDateFilm
+  );
+  const dataDateFilm = useSelector(
+    (state) => state.DashBoardReducer.dataDateFilm
+  );
   const loadingFilm = useSelector(
     (state) => state.DashBoardReducer.loadingFilm
   );
@@ -38,12 +46,16 @@ export default function DashBoardPage() {
     searchFilm: "",
     check: true,
     checkfilm: true,
+    checkDate: true,
   });
   const DashboardDelete = (taiKhoan) => {
     DashboardDeleteUser(taiKhoan);
     console.log(taiKhoan);
   };
-
+  // const closeDate =()=>{
+  //   loadingDateFilm=true;
+  //   dataDateFilm=
+  // }
   const [stateUser, setStateUser] = useState({
     taiKhoan: "",
     matKhau: "",
@@ -88,6 +100,33 @@ export default function DashBoardPage() {
           </span>
         </NavLink>
       );
+    }
+  };
+  const renderDate = () => {
+    if (loadingDateFilm) {
+      console.log(loadingDateFilm, dataDateFilm);
+      return <div>Đang tải , đơi xíu</div>;
+    } else {
+      console.log(loadingDateFilm, dataDateFilm);
+      if (!dataDateFilm) {
+        console.log(loadingDateFilm, dataDateFilm);
+        return <div>Đang tải , đơi xíu</div>;
+      } else {
+        return dataDateFilm.lichChieu.map((item) => {
+          return (
+            <tr>
+              <td className="table__id">{item.maLichChieu}</td>
+              <td className="table__account">
+                {item.thongTinRap.tenHeThongRap}
+              </td>
+              <td className="table__password">{item.thongTinRap.tenCumRap}</td>
+              <td className="table__name">{item.ngayChieuGioChieu}</td>
+              <td className="table__email">{item.giaVe}</td>
+              <td className="table__phone">{item.thoiLuong}</td>
+            </tr>
+          );
+        });
+      }
     }
   };
   const renderListUSer = () => {
@@ -171,7 +210,14 @@ export default function DashBoardPage() {
               >
                 Chỉnh Sửa
               </button>
-              <button className="btn btn-dark">Tạo Lịch Chiếu </button>
+              <button
+                className="btn btn-dark"
+                onClick={() => {
+                  clickDate(item.maPhim);
+                }}
+              >
+                Tạo Lịch Chiếu{" "}
+              </button>
             </div>
           </td>
           {/* <td>{item.soDt}</td>
@@ -200,7 +246,12 @@ export default function DashBoardPage() {
       setstateFilm({ ...stateFilm, [e.target.name]: e.target.value });
     }
   };
+  const clickDate = (maPhim) => {
+    let myModal = new Modal(document.getElementById("DateFilmModal"));
 
+    dispatch(DashboardDateFilmFectch(maPhim));
+    myModal.show();
+  };
   const handleChangeUser = (e) => {
     setStateUser({ ...stateUser, [e.target.name]: e.target.value });
   };
@@ -283,6 +334,123 @@ export default function DashBoardPage() {
   return (
     <div className="main-panel admin__dashboard">
       {/* Navbar */}
+      <div>
+        <div
+          className="modal fade "
+          id="DateFilmModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-xl">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  New message
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  // onClick={closeDate}
+                />
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="row">
+                    <div className="mb-3 col">
+                      <label
+                        htmlFor="recipient-name"
+                        className="col-form-label"
+                      >
+                        Chọn Hệ Thống rạp
+                      </label>
+                      <select>
+                        <option>CGV</option>
+                        <option>BUH</option>
+                      </select>
+                    </div>
+                    <div className="mb-3 col">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Chọn Ngày Khởi Chiếu
+                      </label>
+                      <input type="datetime" name="ngayKhoiChieu" />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="mb-3 col">
+                      <label
+                        htmlFor="recipient-name"
+                        className="col-form-label"
+                      >
+                        Chọn Cụm Rạp
+                      </label>
+                      <select>
+                        <option>CGV</option>
+                        <option>BUH</option>
+                      </select>
+                    </div>
+                    <div className="mb-3 col">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Chọn Thời lượng
+                      </label>
+                      <div>120p</div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="mb-3 col">
+                      <label
+                        htmlFor="recipient-name"
+                        className="col-form-label"
+                      >
+                        Chọn Rạp
+                      </label>
+                      <select>
+                        <option>Rạp 1</option>
+                        <option>Rạp 2</option>
+                      </select>
+                    </div>
+                    <div className="mb-3 col">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Giá vé
+                      </label>
+                      <input type="number" />
+                    </div>
+                  </div>
+                </form>
+                <div className="card-body table-full-width table-responsive">
+                  <table className="table table-hover table-striped">
+                    <thead>
+                      <tr>
+                        <th className="table__id">Mã Lịch Chiếu</th>
+                        <th className="table__account">Hệ Thống Rạp</th>
+                        <th className="table__password">Cụm rạp</th>
+                        <th className="table__name">Ngày Giờ Chiếu</th>
+                        <th className="table__email">Giá Vé</th>
+                        <th className="table__phone">Thời Lượng Phim</th>
+                      </tr>
+                    </thead>
+                    <tbody className="tbodyList1">{renderDate()}</tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary">
+                  Send message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <nav className="navbar navbar-expand-lg " color-on-scroll={500}>
         <div className="container-fluid">
@@ -398,7 +566,8 @@ export default function DashBoardPage() {
                               />
                             </div>
                             <div className="form-group">
-                              <label>Loại Người Dùng</label><br/>
+                              <label>Loại Người Dùng</label>
+                              <br />
                               <select
                                 id="cars"
                                 name="maLoaiNguoiDung"
@@ -520,7 +689,7 @@ export default function DashBoardPage() {
                               />
                             </div>
                             <button type="submit" className="form-control">
-                              Thêm 
+                              Thêm
                             </button>
                           </form>
                         </div>

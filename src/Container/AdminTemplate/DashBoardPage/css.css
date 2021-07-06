@@ -1097,7 +1097,7 @@ fieldset[disabled] .form-control {
   border-top: none !important;
   border-bottom: none;
   text-align: center !important;
-  padding-right:15px !important;
+  padding-right: 15px !important;
 }
 
 .table .td-actions .btn {
@@ -2258,7 +2258,6 @@ Copyright (c) 2015 Daniel Eden
   padding-right: 15px;
   /* display: inline-flex; */
   display: block;
-
 }
 
 .card .alert {
@@ -4628,6 +4627,11 @@ License - nucleoapp.com/license/
   height: 500px;
   overflow: auto;
 }
+.tbodyList1 {
+  display: block;
+  height: 320px;
+  overflow: auto;
+}
 thead,
 tbody tr {
   display: table;
@@ -4652,55 +4656,55 @@ tr {
 }
 
 /* fix */
-.admin__dashboard .card-header .card-title{
+.admin__dashboard .card-header .card-title {
   text-align: center;
-  font-size:28px;
+  font-size: 28px;
   margin-bottom: 15px;
 }
-.admin__dashboard .card-header input{
+.admin__dashboard .card-header input {
   width: 300px;
 }
-.admin__dashboard .card-header__content{
-  display:flex;
+.admin__dashboard .card-header__content {
+  display: flex;
   justify-content: space-between;
 }
-.admin__dashboard th{
-  padding-left:0 !important;
+.admin__dashboard th {
+  padding-left: 0 !important;
   padding-right: 0 !important;
   text-align: center;
 }
-.admin__dashboard .table__id{
-  width:4%;
+.admin__dashboard .table__id {
+  width: 4%;
 }
-.admin__dashboard .table__type{
+.admin__dashboard .table__type {
   width: 10%;
 }
-.admin__dashboard .table__password{
+.admin__dashboard .table__password {
   width: 10%;
 }
-.admin__dashboard .table__account{
+.admin__dashboard .table__account {
   width: 12%;
 }
-.admin__dashboard .table__phone{
+.admin__dashboard .table__phone {
   width: 12%;
 }
-.admin__dashboard .tbodyList tr{
+.admin__dashboard .tbodyList tr {
   border-top: none !important;
 }
-.admin__dashboard .actionButtons{
+.admin__dashboard .actionButtons {
   display: flex;
   align-items: center;
   justify-content: center;
-  height:100%;
+  height: 100%;
   flex-wrap: wrap;
 }
-.admin__dashboard .actionButtons button{
-  font-size:14px;
+.admin__dashboard .actionButtons button {
+  font-size: 14px;
   margin-left: 8px;
 }
-.admin__dashboard .tableMovie__id{
+.admin__dashboard .tableMovie__id {
   width: 6%;
 }
-.admin__dashboard .tableMovie__name{
+.admin__dashboard .tableMovie__name {
   width: 13%;
 }
