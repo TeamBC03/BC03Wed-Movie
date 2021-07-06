@@ -3,7 +3,7 @@ import "./index.css"
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer__home">
       <div className="container">
         <div className="row">
           <div className="col-sm-4 first-box">
