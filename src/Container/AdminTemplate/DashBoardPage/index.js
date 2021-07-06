@@ -159,6 +159,7 @@ export default function DashBoardPage() {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleUser"
                 data-bs-whatever="@mdo"
+                data-backdrop="false"
                 onClick={() => {
                   editUser(item);
                 }}
@@ -260,7 +261,10 @@ export default function DashBoardPage() {
     if (state.check) {
       dispatch(DashboardAddUser(stateUser));
     } else {
-      DashboardEditUser(stateUser);
+      const callback = () => {
+        dispatch(DashboardFectch());
+      };
+      DashboardEditUser(stateUser, callback);
     }
 
     document.getElementById("myForm").reset();

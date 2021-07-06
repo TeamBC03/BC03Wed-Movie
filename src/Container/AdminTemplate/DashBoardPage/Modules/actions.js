@@ -1,6 +1,6 @@
 import * as TypeAction from "./constants";
 import axios from "axios";
-
+import { useDispatch } from "react-redux";
 const DashboardRequest = () => {
   return { type: TypeAction.DASHBOARD_REQUEST };
 };
@@ -180,7 +180,7 @@ export const DashboardDeleteFilm = (maPhim) => {
       alert(error.response.data);
     });
 };
-export const DashboardEditUser = (user) => {
+export const DashboardEditUser = (user, callback) => {
   let accessToken = "";
   if (localStorage.getItem("UserAdmin")) {
     accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
@@ -197,7 +197,7 @@ export const DashboardEditUser = (user) => {
       console.log(result.data);
       if (result.data) {
         alert("Thành Công");
-        window.location.reload();
+        callback();
       } else {
         alert(result);
       }

@@ -4708,3 +4708,7 @@ tr {
 .admin__dashboard .tableMovie__name {
   width: 13%;
 }
+.modal-backdrop {
+  z-index: -1 !important;
+  display: none;
+}
