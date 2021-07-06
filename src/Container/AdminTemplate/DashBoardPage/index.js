@@ -336,7 +336,7 @@ export default function DashBoardPage() {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">
-                            New message
+                            Thêm người dùng
                           </h5>
                           <button
                             type="button"
@@ -347,9 +347,9 @@ export default function DashBoardPage() {
                         </div>
                         <div className="modal-body">
                           <form onSubmit={handleSubmitUser} id="myForm">
-                            <h3 className="text-center">
+                            {/* <h3 className="text-center">
                               THÊM PHIM MỚI - CYBERSOFT.EDU.VN
-                            </h3>
+                            </h3> */}
 
                             <div className="form-group">
                               <label>Tài Khoản</label>
@@ -398,7 +398,7 @@ export default function DashBoardPage() {
                               />
                             </div>
                             <div className="form-group">
-                              <label>Loại Người Dùng</label>
+                              <label>Loại Người Dùng</label><br/>
                               <select
                                 id="cars"
                                 name="maLoaiNguoiDung"
@@ -411,11 +411,11 @@ export default function DashBoardPage() {
                             </div>
 
                             <button type="submit" className="form-control">
-                              Submit
+                              Thêm
                             </button>
                           </form>
                         </div>
-                        <div className="modal-footer">
+                        {/* <div className="modal-footer">
                           <button
                             type="button"
                             className="btn btn-secondary"
@@ -423,7 +423,7 @@ export default function DashBoardPage() {
                           >
                             Close
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -440,7 +440,7 @@ export default function DashBoardPage() {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">
-                            New message
+                            Thêm phim
                           </h5>
                           <button
                             type="button"
@@ -451,9 +451,9 @@ export default function DashBoardPage() {
                         </div>
                         <div className="modal-body">
                           <form onSubmit={handleSubmit}>
-                            <h3 className="text-center">
+                            {/* <h3 className="text-center">
                               THÊM PHIM MỚI - CYBERSOFT.EDU.VN
-                            </h3>
+                            </h3> */}
 
                             <div className="form-group">
                               <label>Mã phim</label>
@@ -520,11 +520,11 @@ export default function DashBoardPage() {
                               />
                             </div>
                             <button type="submit" className="form-control">
-                              Submit
+                              Thêm 
                             </button>
                           </form>
                         </div>
-                        <div className="modal-footer">
+                        {/* <div className="modal-footer">
                           <button
                             type="button"
                             className="btn btn-secondary"
@@ -533,9 +533,9 @@ export default function DashBoardPage() {
                             Close
                           </button>
                           <button type="button" className="btn btn-primary">
-                            Send message
+                            Thêm
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

@@ -4970,3 +4970,6 @@ License - nucleoapp.com/license/
 /* all icon font classes list here */
 
 /* fix */
+.admin__dashboard .navbar svg{
+margin-right:5px;
+}
