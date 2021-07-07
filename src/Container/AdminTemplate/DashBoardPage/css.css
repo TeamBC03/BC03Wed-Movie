@@ -4712,3 +4712,32 @@ tr {
   z-index: -1 !important;
   display: none;
 }
+
+/* fix tạo lich chieu */
+#DateFilmModal .modal-title{
+  font-size: 26px;
+}
+#DateFilmModal label{
+  font-weight:500;
+}
+#DateFilmModal select, #DateFilmModal input{
+  width: 80%;
+  height: 30px;
+}
+.admin__dashboard .showtime__id{
+  width:8%;
+
+}
+.admin__dashboard .showtime__price{
+  width: 10%;
+}
+.admin__dashboard .table__showtime td{
+  text-align:center;
+}
+.admin__dashboard #DateFilmModal .modal-footer{
+  margin:0 auto;
+}
+.admin__dashboard .modal__button{
+  width:50%;
+  margin:30px auto 0;
+}

@@ -134,14 +134,14 @@ export default function DashBoardPage() {
         return dataDateFilm.lichChieu.map((item) => {
           return (
             <tr>
-              <td className="table__id">{item.maLichChieu}</td>
-              <td className="table__account">
+              <td className="showtime__id">{item.maLichChieu}</td>
+              <td className="showtime__cinemas">
                 {item.thongTinRap.tenHeThongRap}
               </td>
-              <td className="table__password">{item.thongTinRap.tenCumRap}</td>
-              <td className="table__name">{item.ngayChieuGioChieu}</td>
-              <td className="table__email">{item.giaVe}</td>
-              <td className="table__phone">{item.thoiLuong}</td>
+              <td className="showtime__cinema">{item.thongTinRap.tenCumRap}</td>
+              <td className="showtime__day">{item.ngayChieuGioChieu}</td>
+              <td className="showtime__price">{item.giaVe}</td>
+              <td className="showtime__time">{item.thoiLuong}</td>
             </tr>
           );
         });
@@ -157,7 +157,7 @@ export default function DashBoardPage() {
       return (
         <tr>
           <td className="table__id">{i}</td>
-          <td className="table__account">{item.taiKhoan}</td>
+          <td className="showtime__cinemas">{item.taiKhoan}</td>
           <td className="table__password">{item.matKhau}</td>
           <td className="table__name">{item.hoTen}</td>
           <td className="table__email">{item.email}</td>
@@ -473,7 +473,7 @@ export default function DashBoardPage() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  New message
+                 Tạo lịch chiếu
                 </h5>
                 <button
                   type="button"
@@ -492,7 +492,7 @@ export default function DashBoardPage() {
                         className="col-form-label"
                       >
                         Chọn Hệ Thống rạp
-                      </label>
+                      </label><br/>
                       <select
                         defaultValue=""
                         onChange={handleDateFilm}
@@ -508,24 +508,12 @@ export default function DashBoardPage() {
                       </select>
                     </div>
                     <div className="mb-3 col">
-                      <label htmlFor="message-text" className="col-form-label">
-                        Chọn Ngày Khởi Chiếu
-                      </label>
-                      <input
-                        type="datetime-local"
-                        name="ngayKhoiChieu"
-                        onChange={handleChangeTime}
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="mb-3 col">
                       <label
                         htmlFor="recipient-name"
                         className="col-form-label"
                       >
                         Chọn Cụm Rạp
-                      </label>
+                      </label><br/>
                       <select
                         defaultValue=""
                         onChange={handleChangeCumRap}
@@ -536,43 +524,56 @@ export default function DashBoardPage() {
                       </select>
                     </div>
                     <div className="mb-3 col">
-                      <label htmlFor="message-text" className="col-form-label">
-                        Chọn Thời lượng
-                      </label>
-                      <div>120p</div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="mb-3 col">
                       <label
                         htmlFor="recipient-name"
                         className="col-form-label"
                       >
                         Chọn Rạp
-                      </label>
+                      </label><br/>
                       <select defaultValue="" onChange={handleChangeRap}>
                         <option value="">Chọn Rạp</option>
                         {renderRap()}
                       </select>
                     </div>
+                  </div>
+                  <div className="row">
+                  <div className="mb-3 col">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Chọn Ngày Khởi Chiếu
+                      </label><br/>
+                      <input
+                      className="text-center"
+                        type="datetime-local"
+                        name="ngayKhoiChieu"
+                        onChange={handleChangeTime}
+                      />
+                    </div>
+                   
+                    <div className="mb-3 col">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Chọn Thời lượng
+                      </label>
+                      <div>120p</div>
+                    </div>
                     <div className="mb-3 col">
                       <label htmlFor="message-text" className="col-form-label">
                         Giá vé
-                      </label>
+                      </label><br/>
                       <input type="number" onChange={handleChangeGiaVe} />
                     </div>
                   </div>
+                 
                 </form>
-                <div className="card-body table-full-width table-responsive">
+                <div className="card-body table-full-width table-responsive table__showtime">
                   <table className="table table-hover table-striped">
                     <thead>
                       <tr>
-                        <th className="table__id">Mã Lịch Chiếu</th>
-                        <th className="table__account">Hệ Thống Rạp</th>
-                        <th className="table__password">Cụm rạp</th>
-                        <th className="table__name">Ngày Giờ Chiếu</th>
-                        <th className="table__email">Giá Vé</th>
-                        <th className="table__phone">Thời Lượng Phim</th>
+                        <th className="showtime__id">Mã Lịch Chiếu</th>
+                        <th className="showtime__cinemas">Hệ Thống Rạp</th>
+                        <th className="showtime__cinema">Cụm rạp</th>
+                        <th className="showtime__day">Ngày Giờ Chiếu</th>
+                        <th className="showtime__price">Giá Vé</th>
+                        <th className="showtime__time">Thời Lượng Phim</th>
                       </tr>
                     </thead>
                     <tbody className="tbodyList1">{renderDate()}</tbody>
@@ -580,19 +581,19 @@ export default function DashBoardPage() {
                 </div>
               </div>
               <div className="modal-footer">
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
-                </button>
+                </button> */}
                 <button
                   type="button"
                   className="btn btn-primary"
                   onClick={submitDate}
                 >
-                  Send message
+                 Tạo lịch chiếu
                 </button>
               </div>
             </div>
@@ -727,7 +728,7 @@ export default function DashBoardPage() {
                               </select>
                             </div>
 
-                            <button type="submit" className="form-control">
+                            <button type="submit" className="form-control modal__button">
                               Thêm
                             </button>
                           </form>
@@ -836,7 +837,7 @@ export default function DashBoardPage() {
                                 onChange={handleChange}
                               />
                             </div>
-                            <button type="submit" className="form-control">
+                            <button type="submit" className="form-control modal__button" >
                               Thêm
                             </button>
                           </form>
@@ -882,7 +883,7 @@ export default function DashBoardPage() {
                     <thead>
                       <tr>
                         <th className="table__id">ID</th>
-                        <th className="table__account">Tài Khoản</th>
+                        <th className="showtime__cinemas">Tài Khoản</th>
                         <th className="table__password">Mật Khẩu</th>
                         <th className="table__name">Họ Và Tên</th>
                         <th className="table__email">Email</th>
