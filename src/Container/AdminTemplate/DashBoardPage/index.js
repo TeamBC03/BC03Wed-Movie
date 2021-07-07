@@ -14,6 +14,8 @@ import {
   DashboardDeleteFilm,
   DashboardEditFilm,
   DashboardDateFilmFectch,
+  DashboarCinemaFilmFectch,
+  DashboardAddCinema,
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 import axios from "axios";
@@ -28,6 +30,12 @@ export default function DashBoardPage() {
   const dataDateFilm = useSelector(
     (state) => state.DashBoardReducer.dataDateFilm
   );
+  const loadingCinemaFilm = useSelector(
+    (state) => state.DashBoardReducer.loadingCinemaFilm
+  );
+  const dataCinemaFilm = useSelector(
+    (state) => state.DashBoardReducer.dataCinemaFilm
+  );
   const loadingFilm = useSelector(
     (state) => state.DashBoardReducer.loadingFilm
   );
@@ -41,12 +49,19 @@ export default function DashBoardPage() {
     maNhom: "GP01",
     ngayKhoiChieu: "",
   });
+  const [stateCinema, setstateCinema] = useState({
+    maPhim: "",
+    maRap: "",
+    giaVe: "",
+    ngayChieuGioChieu: "",
+  });
   const [state, setState] = useState({
     search: "",
     searchFilm: "",
     check: true,
     checkfilm: true,
     checkDate: true,
+    dataRenderRap: null,
   });
   const DashboardDelete = (taiKhoan) => {
     DashboardDeleteUser(taiKhoan);
@@ -101,6 +116,10 @@ export default function DashBoardPage() {
         </NavLink>
       );
     }
+  };
+  const submitDate = () => {
+    DashboardAddCinema(stateCinema);
+    console.log(stateCinema);
   };
   const renderDate = () => {
     if (loadingDateFilm) {
@@ -171,6 +190,106 @@ export default function DashBoardPage() {
         </tr>
       );
     });
+  };
+  const renderCumRap = () => {
+    if (loadingCinemaFilm) {
+      return <option>Đang tải , đơi xíu</option>;
+    } else {
+      if (!dataCinemaFilm) {
+        return <option>Đang tải , đơi xíu</option>;
+      } else {
+        return dataCinemaFilm.map((item) => {
+          return <option value={item.maCumRap}>{item.tenCumRap}</option>;
+        });
+      }
+    }
+  };
+  const renderRap = () => {
+    if (state.dataRenderRap === null) {
+      return <option>Vui lòng chọn Cụm rạp</option>;
+    } else {
+      return state.dataRenderRap[0].danhSachRap.map((item) => {
+        return <option value={item.maRap}>{item.tenRap}</option>;
+      });
+    }
+  };
+  const handleChangeCumRap = (e) => {
+    let dataRap = dataCinemaFilm.filter((item) => {
+      return item.maCumRap === e.target.value;
+    });
+
+    setState({ ...state, dataRenderRap: dataRap });
+    console.log(dataRap);
+  };
+  const handleChangeTime = (e) => {
+    let date = new Date(e.target.value);
+    let date1 = "";
+
+    if (date.getDate() < 10 && date.getMonth() + 1 < 10) {
+      date1 =
+        "0" +
+        date.getDate() +
+        "/" +
+        "0" +
+        (date.getMonth() + 1) +
+        "/" +
+        date.getFullYear() +
+        " " +
+        date.getHours() +
+        ":" +
+        date.getMinutes() +
+        ":" +
+        "00";
+    } else if (date.getDate() < 10) {
+      date1 =
+        "0" +
+        date.getDate() +
+        "/" +
+        date.getMonth() +
+        "/" +
+        date.getFullYear() +
+        " " +
+        date.getHours() +
+        ":" +
+        date.getMinutes() +
+        ":" +
+        "00";
+    } else if (date.getMonth() < 10) {
+      date1 =
+        date.getDate() +
+        "/" +
+        "0" +
+        date.getMonth() +
+        "/" +
+        date.getFullYear() +
+        " " +
+        date.getHours() +
+        ":" +
+        date.getMinutes() +
+        ":" +
+        "00";
+    } else {
+      date1 =
+        date.getDate() +
+        date.getMonth() +
+        date.getFullYear() +
+        " " +
+        date.getHours() +
+        ":" +
+        date.getMinutes() +
+        ":" +
+        "00";
+    }
+
+    setstateCinema({ ...stateCinema, ngayChieuGioChieu: date1 });
+    console.log(date1);
+  };
+  const handleChangeRap = (e) => {
+    setstateCinema({ ...stateCinema, maRap: e.target.value });
+    console.log("rap :" + e.target.value);
+  };
+  const handleChangeGiaVe = (e) => {
+    setstateCinema({ ...stateCinema, giaVe: e.target.value });
   };
   const renderListFilm = () => {
     let dataSearch = dataFilm.filter((item) => {
@@ -249,7 +368,7 @@ export default function DashBoardPage() {
   };
   const clickDate = (maPhim) => {
     let myModal = new Modal(document.getElementById("DateFilmModal"));
-
+    setstateCinema({ ...stateCinema, maPhim: maPhim });
     dispatch(DashboardDateFilmFectch(maPhim));
     myModal.show();
   };
@@ -324,6 +443,10 @@ export default function DashBoardPage() {
   const DashboardDeletePhim = (maPhim) => {
     DashboardDeleteFilm(maPhim);
   };
+  const handleDateFilm = (e) => {
+    console.log(e.target.value);
+    dispatch(DashboarCinemaFilmFectch(e.target.value));
+  };
   const signOut = () => {
     localStorage.removeItem("User");
     localStorage.removeItem("UserAdmin");
@@ -370,16 +493,29 @@ export default function DashBoardPage() {
                       >
                         Chọn Hệ Thống rạp
                       </label>
-                      <select>
-                        <option>CGV</option>
-                        <option>BUH</option>
+                      <select
+                        defaultValue=""
+                        onChange={handleDateFilm}
+                        id="heThongRap"
+                      >
+                        <option></option>
+                        <option value="CGV">CGV</option>
+                        <option value="BHDStar">BHD Star Cineplex</option>
+                        <option value="CineStar">CineStar</option>
+                        <option value="Galaxy">Galaxy Cinema</option>
+                        <option value="LotteCinima">Lotte Cinema</option>
+                        <option value="MegaGS">MegaGS</option>
                       </select>
                     </div>
                     <div className="mb-3 col">
                       <label htmlFor="message-text" className="col-form-label">
                         Chọn Ngày Khởi Chiếu
                       </label>
-                      <input type="datetime" name="ngayKhoiChieu" />
+                      <input
+                        type="datetime-local"
+                        name="ngayKhoiChieu"
+                        onChange={handleChangeTime}
+                      />
                     </div>
                   </div>
                   <div className="row">
@@ -390,9 +526,13 @@ export default function DashBoardPage() {
                       >
                         Chọn Cụm Rạp
                       </label>
-                      <select>
-                        <option>CGV</option>
-                        <option>BUH</option>
+                      <select
+                        defaultValue=""
+                        onChange={handleChangeCumRap}
+                        id="cumRap"
+                      >
+                        <option value="">Chọn Cụm Rạp</option>
+                        {renderCumRap()}
                       </select>
                     </div>
                     <div className="mb-3 col">
@@ -410,16 +550,16 @@ export default function DashBoardPage() {
                       >
                         Chọn Rạp
                       </label>
-                      <select>
-                        <option>Rạp 1</option>
-                        <option>Rạp 2</option>
+                      <select defaultValue="" onChange={handleChangeRap}>
+                        <option value="">Chọn Rạp</option>
+                        {renderRap()}
                       </select>
                     </div>
                     <div className="mb-3 col">
                       <label htmlFor="message-text" className="col-form-label">
                         Giá vé
                       </label>
-                      <input type="number" />
+                      <input type="number" onChange={handleChangeGiaVe} />
                     </div>
                   </div>
                 </form>
@@ -447,7 +587,11 @@ export default function DashBoardPage() {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={submitDate}
+                >
                   Send message
                 </button>
               </div>

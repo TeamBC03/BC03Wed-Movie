@@ -85,6 +85,36 @@ export const DashboardDateFilmFectch = (maPhim, callback) => {
       });
   };
 };
+const DashboardCinemaFilmRequest = () => {
+  return { type: TypeAction.DASHBOARD_CINEMA_FILM_REQUEST };
+};
+const DashboardCinemaFilmSuccess = (data) => {
+  return { type: TypeAction.DASHBOARD_CINEMA_FILM_SUCCESS, payload: data };
+};
+const DashboardCinemaFilmErr = (err) => {
+  return { type: TypeAction.DASHBOARD_CINEMA_FILM_FAILED, payload: err };
+};
+
+export const DashboarCinemaFilmFectch = (marap) => {
+  return (dispatch) => {
+    dispatch(DashboardCinemaFilmRequest());
+
+    axios({
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=" +
+        marap,
+      method: "GET",
+    })
+      .then((result) => {
+        dispatch(DashboardCinemaFilmSuccess(result.data));
+
+        console.log(result.data);
+      })
+      .catch((err) => {
+        dispatch(DashboardCinemaFilmErr(err));
+      });
+  };
+};
 export const DashboardAddUser = (user) => {
   let accessToken = "";
   if (localStorage.getItem("UserAdmin")) {
@@ -151,6 +181,27 @@ export const DashboardDeleteUser = (taiKhoan) => {
       console.log(result.data);
       alert(result.data);
       window.location.reload();
+    })
+    .catch((error) => {
+      alert(error.response.data);
+    });
+};
+export const DashboardAddCinema = (lichchieu) => {
+  let accessToken = "";
+  if (localStorage.getItem("UserAdmin")) {
+    accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
+  }
+  axios({
+    url: "https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu",
+    method: "POST",
+    data: lichchieu,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+    .then((result) => {
+      console.log(result.data);
+      alert(result.data);
     })
     .catch((error) => {
       alert(error.response.data);

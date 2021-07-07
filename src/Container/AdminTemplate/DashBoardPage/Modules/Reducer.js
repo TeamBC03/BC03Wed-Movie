@@ -9,6 +9,9 @@ const initial = {
   dataDateFilm: null,
   errDateFilm: null,
   loadingDateFilm: true,
+  dataCinemaFilm: null,
+  errCinemaFilm: null,
+  loadingCinemaFilm: true,
 };
 const DashBoardReducer = (state = initial, action) => {
   switch (action.type) {
@@ -64,6 +67,24 @@ const DashBoardReducer = (state = initial, action) => {
       state.loadingDateFilm = false;
       state.dataDateFilm = null;
       state.errDateFilm = action.payload;
+      return { ...state };
+    }
+    case TypeAction.DASHBOARD_CINEMA_FILM_REQUEST: {
+      state.dataCinemaFilm = true;
+      state.dataCinemaFilm = null;
+      state.errCinemaFilm = null;
+      return { ...state };
+    }
+    case TypeAction.DASHBOARD_CINEMA_FILM_SUCCESS: {
+      state.loadingCinemaFilm = false;
+      state.dataCinemaFilm = action.payload;
+      state.errCinemaFilm = null;
+      return { ...state };
+    }
+    case TypeAction.DASHBOARD_CINEMA_FILM_FAILED: {
+      state.loadingCinemaFilm = false;
+      state.dataCinemaFilm = null;
+      state.errCinemaFilm = action.payload;
       return { ...state };
     }
 
