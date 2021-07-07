@@ -182,11 +182,14 @@ export default function Cinema() {
               {item.suatchieu.map((item1) => {
                 return (
                   <div className="suatChieu-item__time col-md-2 col-4">
-                    {`${new Date(
-                      item1.ngayChieuGioChieu
-                    ).getHours()}:${new Date(
-                      item1.ngayChieuGioChieu
-                    ).getMinutes()}`}
+                    <Link to={`/CinemaSeat/${item1.maLichChieu}`}>
+                      {" "}
+                      {`${new Date(
+                        item1.ngayChieuGioChieu
+                      ).getHours()}:${new Date(
+                        item1.ngayChieuGioChieu
+                      ).getMinutes()}`}
+                    </Link>
                   </div>
                 );
               })}

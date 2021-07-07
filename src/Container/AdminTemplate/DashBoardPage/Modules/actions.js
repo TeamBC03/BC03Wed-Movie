@@ -139,8 +139,8 @@ export const DashboardAddUser = (user) => {
       })
       .catch((error) => {
         dispatch(actAddUserFailed(error));
-        console.log(error);
-        alert(error.response.data);
+
+        alert(error);
       });
   };
 };
@@ -163,7 +163,7 @@ const actAddUserFailed = (error) => {
     payload: error,
   };
 };
-export const DashboardDeleteUser = (taiKhoan) => {
+export const DashboardDeleteUser = (taiKhoan, callback) => {
   let accessToken = "";
   if (localStorage.getItem("UserAdmin")) {
     accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
@@ -179,8 +179,8 @@ export const DashboardDeleteUser = (taiKhoan) => {
   })
     .then((result) => {
       console.log(result.data);
+      callback();
       alert(result.data);
-      window.location.reload();
     })
     .catch((error) => {
       alert(error.response.data);
