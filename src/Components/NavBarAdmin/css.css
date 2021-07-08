@@ -351,6 +351,15 @@ body > .navbar-collapse {
 .sidebar {
   position: fixed;
   top: 0;
+  background-image: url("./sidebar-5.jpg") !important;
+}
+.sidebar-wrapper {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(150, 206, 228, 0.5),
+      rgba(150, 206, 228, 0.5)
+    ),
+    url(./sidebar-5.jpg) !important;
 }
 .sidebar .sidebar-wrapper,
 body > .navbar-collapse .sidebar-wrapper {
@@ -2718,7 +2727,6 @@ fieldset[disabled] .form-control {
   border-radius: 4px;
 }
 
-
 .card.card-plain .card-header {
   background-color: transparent !important;
 }
@@ -4970,6 +4978,6 @@ License - nucleoapp.com/license/
 /* all icon font classes list here */
 
 /* fix */
-.admin__dashboard .navbar svg{
-margin-right:5px;
+.admin__dashboard .navbar svg {
+  margin-right: 5px;
 }

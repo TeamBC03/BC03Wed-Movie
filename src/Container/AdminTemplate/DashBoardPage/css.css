@@ -4741,6 +4741,14 @@ tr {
   width: 50%;
   margin: 30px auto 0;
 }
+.admin__dashboard {
+  /* background-image: linear-gradient(
+      to right bottom,
+      rgba(150, 206, 228, 0.5),
+      rgba(150, 206, 228, 0.5)
+    ),
+    url(../../../Components/NavBarAdmin/sidebar-5.jpg) !important; */
+}
 .backIOT {
   box-shadow: 1px 1px 5px 5px #888888 !important;
   border-radius: 10px !important;

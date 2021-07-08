@@ -2,7 +2,7 @@ import React from "react";
 import "./css.css";
 export default function NavBarAdmin() {
   return (
-    <div className="sidebar" data-image="../assets/img/sidebar-5.jpg">
+    <div className="sidebar">
       {/*
   Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -17,7 +17,6 @@ export default function NavBarAdmin() {
         <ul className="nav">
           <li className="nav-item active">
             <a className="nav-link" href="dashboard.html">
-           
               <p>Dashboard</p>
             </a>
           </li>
