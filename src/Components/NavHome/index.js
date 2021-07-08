@@ -87,6 +87,36 @@ export default function NavHome(props) {
           <li className="nav-search">
             <input onKeyPress={EnterPress} onChange={handleChange} />
             <i className="fas fa-search iconSearch" />
+            <div className="nav-searchContent">
+              <div className="nav-searchItem">
+                <div className="nav-searchItem__image  col-4">
+                  <img src="#"></img>
+                </div>
+                <div className="nav-searchItem__info col-8">
+                  <p className="nav-searchItem__title">Avenger</p>
+                </div>
+              </div>
+              <div className="nav-searchItem">
+                <div className="nav-searchItem__image  col-4">
+                  <img src="#"></img>
+                </div>
+                <div className="nav-searchItem__info col-8">
+                  <p className="nav-searchItem__title">Avenger</p>
+                </div>
+              </div>
+              <div className="nav-searchItem">
+                <div className="nav-searchItem__image  col-4">
+                  <img src="#"></img>
+                </div>
+                <div className="nav-searchItem__info col-8">
+                  <p className="nav-searchItem__title">Avenger</p>
+                </div>
+              </div>
+              <div className="nav-searchError nav-searchItem">
+                <span>Không tìm thấy kết quả trả về cho từ khóa "abc"</span>
+              </div>
+              
+            </div>
           </li>
         </ul>
       </div>
