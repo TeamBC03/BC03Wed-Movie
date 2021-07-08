@@ -1,9 +1,10 @@
 import React, { memo, useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./css.css";
+
 const renderLogin = () => {
   if (localStorage.getItem("User")) {
-    console.log();
     return (
       <ul>
         <li>
@@ -57,7 +58,16 @@ const EnterPress = (e) => {
     console.log("enter roi do");
   }
 };
+
 export default function NavHome(props) {
+  const data = useSelector((state) => state.Film_Reducer.data);
+  const handleChange = (e) => {
+    const data1 = data.filter((item) => {
+      return item.tenPhim.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    console.log(data1);
+  };
+
   return (
     <div className="navContainer">
       <div className="nav-left">
@@ -75,7 +85,7 @@ export default function NavHome(props) {
             <a href="#">Cụm rạp </a>
           </li>
           <li className="nav-search">
-            <input onKeyPress={EnterPress} />
+            <input onKeyPress={EnterPress} onChange={handleChange} />
             <i className="fas fa-search iconSearch" />
           </li>
         </ul>

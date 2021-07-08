@@ -44,6 +44,7 @@
   margin-bottom: 0;
 }
 .nav-search {
+  position: relative;
   border: 1px solid black;
   border-radius: 10px;
   padding: 3px 10px;
@@ -76,12 +77,14 @@
 .nav-right a:hover {
   color: #fb4226;
 }
-.nav-right svg{
-margin-right:5px;
-font-size: 18px;
-
+.nav-right svg {
+  margin-right: 5px;
+  font-size: 18px;
 }
-
+.ulList {
+  top: 100px !important;
+  position: absolute !important;
+}
 /* Responsive */
 @media screen and (max-width: 1200px) {
   .navContainer a,

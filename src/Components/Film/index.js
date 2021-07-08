@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css.css";
 import playButton from "./images/play-video.png";
 import { NavLink, Link } from "react-router-dom";
@@ -9,7 +9,10 @@ export default function Film(props) {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.Film_Reducer.loading);
   const data = useSelector((state) => state.Film_Reducer.data);
-  dispatch(Film_Fetch());
+
+  useEffect(() => {
+    dispatch(Film_Fetch());
+  }, []);
   const DetailMovie = (id) => {
     // props.history.replace("/detailMovie/" + id);
     console.log(props);

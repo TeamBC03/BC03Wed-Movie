@@ -63,6 +63,18 @@ export default function DashBoardPage() {
     checkDate: true,
     dataRenderRap: null,
   });
+  const clearFilm = async () => {
+    await setstateFilm({
+      ...stateFilm,
+      hinhAnh: {},
+      maPhim: "",
+      tenPhim: "",
+      trailer: "",
+      moTa: "",
+      maNhom: "GP01",
+      ngayKhoiChieu: "",
+    });
+  };
   const DashboardDelete = (taiKhoan) => {
     const callback = () => {
       setState({ ...state, search: "" });
@@ -121,6 +133,18 @@ export default function DashBoardPage() {
       );
     }
   };
+  const ClearState = async () => {
+    await setStateUser({
+      ...stateUser,
+      taiKhoan: "",
+      matKhau: "",
+      email: "",
+      soDt: "",
+      maNhom: "GP01",
+      maLoaiNguoiDung: "KhachHang",
+      hoTen: "",
+    });
+  };
   const submitDate = () => {
     DashboardAddCinema(stateCinema);
     console.log(stateCinema);
@@ -170,7 +194,7 @@ export default function DashBoardPage() {
           <td className="table__action">
             <div className="actionButtons">
               <button
-                className="btn btn-danger"
+                className="btn btn-danger backIOT1"
                 onClick={() => {
                   DashboardDelete(item.taiKhoan);
                 }}
@@ -178,7 +202,7 @@ export default function DashBoardPage() {
                 Xóa
               </button>
               <button
-                className="btn btn-dark"
+                className="btn btn-dark backIOT1"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleUser"
                 data-bs-whatever="@mdo"
@@ -316,7 +340,7 @@ export default function DashBoardPage() {
           <td className="tableMovie__action2">
             <div className="actionButtons">
               <button
-                className="btn btn-danger"
+                className="btn btn-danger backIOT1"
                 onClick={() => {
                   DashboardDeletePhim(item.maPhim);
                 }}
@@ -324,7 +348,7 @@ export default function DashBoardPage() {
                 Xóa
               </button>
               <button
-                className="btn btn-dark"
+                className="btn btn-dark backIOT1"
                 onClick={() => {
                   EditFilm(item);
                 }}
@@ -335,7 +359,7 @@ export default function DashBoardPage() {
                 Chỉnh Sửa
               </button>
               <button
-                className="btn btn-dark"
+                className="btn btn-dark backIOT1"
                 onClick={() => {
                   clickDate(item.maPhim);
                 }}
@@ -473,7 +497,7 @@ export default function DashBoardPage() {
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-xl">
+          <div className="modal-dialog modal-xl backIOT">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
@@ -657,8 +681,8 @@ export default function DashBoardPage() {
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                   >
-                    <div className="modal-dialog">
-                      <div className="modal-content">
+                    <div className="modal-dialog backIOT">
+                      <div className="modal-content backIOT">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">
                             Thêm người dùng
@@ -680,7 +704,7 @@ export default function DashBoardPage() {
                               <label>Tài Khoản</label>
                               <input
                                 name="taiKhoan"
-                                className="form-control"
+                                className="form-control backIOT1"
                                 value={stateUser.taiKhoan}
                                 onChange={handleChangeUser}
                               />
@@ -690,7 +714,7 @@ export default function DashBoardPage() {
                               <input
                                 value={stateUser.matKhau}
                                 name="matKhau"
-                                className="form-control"
+                                className="form-control backIOT1"
                                 onChange={handleChangeUser}
                               />
                             </div>
@@ -699,7 +723,7 @@ export default function DashBoardPage() {
                               <input
                                 name="hoTen"
                                 value={stateUser.hoTen}
-                                className="form-control"
+                                className="form-control backIOT1"
                                 onChange={handleChangeUser}
                               />
                             </div>
@@ -708,7 +732,7 @@ export default function DashBoardPage() {
                               <input
                                 name="email"
                                 value={stateUser.email}
-                                className="form-control"
+                                className="form-control backIOT1"
                                 onChange={handleChangeUser}
                               />
                             </div>
@@ -718,7 +742,7 @@ export default function DashBoardPage() {
                               <input
                                 name="soDt"
                                 value={stateUser.soDt}
-                                className="form-control"
+                                className="form-control backIOT1"
                                 onChange={handleChangeUser}
                               />
                             </div>
@@ -730,6 +754,7 @@ export default function DashBoardPage() {
                                 name="maLoaiNguoiDung"
                                 onChange={handleChangeUser}
                                 value={stateUser.maLoaiNguoiDung}
+                                className="backIOT1"
                               >
                                 <option value="KhachHang">Khách Hàng</option>
                                 <option value="QuanTri">ADMIN</option>
@@ -738,7 +763,7 @@ export default function DashBoardPage() {
 
                             <button
                               type="submit"
-                              className="form-control modal__button"
+                              className="form-control modal__button backIOT1"
                             >
                               Thêm
                             </button>
@@ -766,7 +791,7 @@ export default function DashBoardPage() {
                     aria-hidden="true"
                   >
                     <div className="modal-dialog">
-                      <div className="modal-content">
+                      <div className="modal-content backIOT">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">
                             Thêm phim
@@ -877,16 +902,18 @@ export default function DashBoardPage() {
                   <div className="card-header__content">
                     {" "}
                     <input
+                      className="backIOT1"
                       type="text"
                       onChange={handleInputChange}
                       placeholder="Nhập tên tài khoản cần tìm"
                     />
                     <button
                       type="button"
-                      className="btn btn-primary"
+                      className="btn btn-primary backIOT1"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleUser"
                       data-bs-whatever="@mdo"
+                      onClick={ClearState}
                     >
                       Thêm Người Dùng
                     </button>
@@ -924,10 +951,11 @@ export default function DashBoardPage() {
                     />
                     <button
                       type="button"
-                      className="btn btn-primary"
+                      className="btn btn-primary backIOT1"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
                       data-bs-whatever="@mdo"
+                      onClick={clearFilm}
                     >
                       Thêm Phim
                     </button>

@@ -4714,30 +4714,39 @@ tr {
 }
 
 /* fix tạo lich chieu */
-#DateFilmModal .modal-title{
+#DateFilmModal .modal-title {
   font-size: 26px;
 }
-#DateFilmModal label{
-  font-weight:500;
+#DateFilmModal label {
+  font-weight: 500;
 }
-#DateFilmModal select, #DateFilmModal input{
+#DateFilmModal select,
+#DateFilmModal input {
   width: 80%;
   height: 30px;
 }
-.admin__dashboard .showtime__id{
-  width:8%;
-
+.admin__dashboard .showtime__id {
+  width: 8%;
 }
-.admin__dashboard .showtime__price{
+.admin__dashboard .showtime__price {
   width: 10%;
 }
-.admin__dashboard .table__showtime td{
-  text-align:center;
+.admin__dashboard .table__showtime td {
+  text-align: center;
 }
-.admin__dashboard #DateFilmModal .modal-footer{
-  margin:0 auto;
+.admin__dashboard #DateFilmModal .modal-footer {
+  margin: 0 auto;
 }
-.admin__dashboard .modal__button{
-  width:50%;
-  margin:30px auto 0;
+.admin__dashboard .modal__button {
+  width: 50%;
+  margin: 30px auto 0;
+}
+.backIOT {
+  box-shadow: 1px 1px 5px 5px #888888 !important;
+  border-radius: 10px !important;
+  background-color: aliceblue !important;
+}
+.backIOT1 {
+  box-shadow: 6px 10px 5px #aaaaaa !important;
+  border-radius: 10px;
 }

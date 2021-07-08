@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import NavHome from "../../Components/NavHome";
+
 function LayoutHome(props) {
   return (
     <>
