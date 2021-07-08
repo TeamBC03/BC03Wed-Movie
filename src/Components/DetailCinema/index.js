@@ -2,11 +2,11 @@ import React from "react";
 import "./detailCinema.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CinemaImage from "./img/bhd-star-bitexco.png"
-import Avatar from "./img/avatar.png"
-import ListStar from "./img/listStar.png"
-import Star from "./img/star.png"
-import Like from "./img/like.png"
+import CinemaImage from "./img/bhd-star-bitexco.png";
+import Avatar from "./img/avatar.png";
+import ListStar from "./img/listStar.png";
+import Star from "./img/star.png";
+import Like from "./img/like.png";
 
 export default function DetailCinema(props) {
   const tomorrow = new Date();
@@ -109,12 +109,13 @@ export default function DetailCinema(props) {
       );
     });
   };
-  const ClickCinemaSys = (dataList) => {
+  const ClickCinemaSys = async (dataList) => {
+    await setState({ ...state1, dataLichChieu: [] });
     setState({ ...state, dataRap: dataList.danhSachPhim });
     console.log(dataList.danhSachPhim);
     // if (!loadingSys) {
-    //   let btn = document.querySelectorAll(".fibtn");
-    //   btn[0].click();
+    let btn = document.querySelectorAll(".fibtn");
+    btn[0].click();
     // }
   };
   const dataHeader = props.dataList.data[0].lstCumRap.filter((item) => {
@@ -263,7 +264,7 @@ export default function DetailCinema(props) {
                           role="tablist"
                         >
                           <button
-                            class="nav-link active"
+                            class="nav-link fibtn"
                             id="nav-mon-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-mon"
@@ -279,7 +280,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate()}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-tue-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-tue"
@@ -295,7 +296,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate() + 1}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-wed-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-wed"
@@ -311,7 +312,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate() + 2}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-thu-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-thu"
@@ -327,7 +328,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate() + 3}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-fri-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-fri"
@@ -343,7 +344,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate() + 4}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-sat-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-sat"
@@ -359,7 +360,7 @@ export default function DetailCinema(props) {
                             <p class="date">{tomorrow.getDate() + 5}</p>
                           </button>
                           <button
-                            class="nav-link"
+                            class="nav-link fibtn"
                             id="nav-sun-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-sun"
@@ -546,11 +547,11 @@ export default function DetailCinema(props) {
                           <div class="infoRating">
                             <div class="infoRatingMark">9</div>
                             <div class="infoRatingStar">
-                              <img src={Star}/>
-                              <img src={Star}/>
-                              <img src={Star}/>
-                              <img src={Star}/>
-                              <img src={Star}/>
+                              <img src={Star} />
+                              <img src={Star} />
+                              <img src={Star} />
+                              <img src={Star} />
+                              <img src={Star} />
                             </div>
                           </div>
                         </div>

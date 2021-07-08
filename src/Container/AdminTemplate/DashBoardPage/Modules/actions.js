@@ -186,7 +186,7 @@ export const DashboardDeleteUser = (taiKhoan, callback) => {
       alert(error.response.data);
     });
 };
-export const DashboardAddCinema = (lichchieu) => {
+export const DashboardAddCinema = (lichchieu, callback) => {
   let accessToken = "";
   if (localStorage.getItem("UserAdmin")) {
     accessToken = JSON.parse(localStorage.getItem("UserAdmin")).accessToken;
@@ -202,6 +202,7 @@ export const DashboardAddCinema = (lichchieu) => {
     .then((result) => {
       console.log(result.data);
       alert(result.data);
+      callback();
     })
     .catch((error) => {
       alert(error.response.data);

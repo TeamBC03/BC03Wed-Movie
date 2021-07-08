@@ -62,6 +62,8 @@ export default function DashBoardPage() {
     checkfilm: true,
     checkDate: true,
     dataRenderRap: null,
+    searchDateFilm: "",
+    dataMaPhim: "",
   });
   const clearFilm = async () => {
     await setstateFilm({
@@ -146,7 +148,10 @@ export default function DashBoardPage() {
     });
   };
   const submitDate = () => {
-    DashboardAddCinema(stateCinema);
+    const callback = () => {
+      dispatch(DashboardDateFilmFectch(state.dataMaPhim));
+    };
+    DashboardAddCinema(stateCinema, callback);
     console.log(stateCinema);
   };
   const renderDate = () => {
@@ -159,7 +164,12 @@ export default function DashBoardPage() {
         console.log(loadingDateFilm, dataDateFilm);
         return <Loading />;
       } else {
-        return dataDateFilm.lichChieu.map((item) => {
+        let data1 = dataDateFilm.lichChieu.filter((item) => {
+          return item.thongTinRap.maHeThongRap
+            .toLowerCase()
+            .includes(state.searchDateFilm.toLowerCase());
+        });
+        return data1.map((item) => {
           return (
             <tr>
               <td className="showtime__id">{item.maLichChieu}</td>
@@ -175,6 +185,9 @@ export default function DashBoardPage() {
         });
       }
     }
+  };
+  const handleChangeSearch = (e) => {
+    setState({ ...state, searchDateFilm: e.target.value });
   };
   const renderListUSer = () => {
     let dataSearch = data.filter((item) => {
@@ -395,6 +408,8 @@ export default function DashBoardPage() {
     }
   };
   const clickDate = (maPhim) => {
+    document.getElementById("selectDate").value = "";
+    setState({ ...state, searchDateFilm: "", dataMaPhim: maPhim });
     let myModal = new Modal(document.getElementById("DateFilmModal"));
     setstateCinema({ ...stateCinema, maPhim: maPhim });
     dispatch(DashboardDateFilmFectch(maPhim));
@@ -596,6 +611,20 @@ export default function DashBoardPage() {
                     </div>
                   </div>
                 </form>
+                <label>Lọc Lịch Chiếu </label>
+                <select
+                  defaultValue=""
+                  onChange={handleChangeSearch}
+                  id="selectDate"
+                >
+                  <option value="">Tất Cả</option>
+                  <option value="CGV">CGV</option>
+                  <option value="BHDStar">BHD Star Cineplex</option>
+                  <option value="CineStar">CineStar</option>
+                  <option value="Galaxy">Galaxy Cinema</option>
+                  <option value="LotteCinima">Lotte Cinema</option>
+                  <option value="MegaGS">MegaGS</option>
+                </select>
                 <div className="card-body table-full-width table-responsive table__showtime">
                   <table className="table table-hover table-striped">
                     <thead>

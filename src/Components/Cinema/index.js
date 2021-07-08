@@ -112,24 +112,26 @@ export default function Cinema() {
                     <span class="brand-name">{item.tenCumRap}</span>
                   </span>
                   <p class="address">{item.diaChi}</p>
-                  <Link
-                    to={`/DetailCinema/${dataSys[0].maHeThongRap}/${item.maCumRap}`}
-                  >
-                    Chi Tiết
-                  </Link>
                 </div>
               </div>
             </button>
+            <Link
+              className="linkwidth"
+              to={`/DetailCinema/${dataSys[0].maHeThongRap}/${item.maCumRap}`}
+            >
+              Chi Tiết
+            </Link>
           </li>
         );
       });
     }
   };
   const ClickCinema = (cumrap) => {
+    setState1({ ...state1, dataLichChieu: [] });
     dispatch(CinemaSys_Fetch(cumrap));
   };
-  const ClickCinemaSys = (dataList) => {
-    setState({ ...state, dataRap: dataList.danhSachPhim });
+  const ClickCinemaSys = async (dataList) => {
+    await setState({ ...state, dataRap: dataList.danhSachPhim });
     if (!loadingSys) {
       let btn = document.querySelectorAll(".fibtn");
       btn[0].click();

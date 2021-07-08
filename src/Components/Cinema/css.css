@@ -179,7 +179,9 @@
   overflow-y: scroll;
   padding-bottom: 81px;
 }
-
+.linkwidth {
+  width: 30% !important;
+}
 /* Responsive */
 @media screen and (max-width: 952px) {
   .cinema .cinema-listCinema {
@@ -208,7 +210,7 @@
   .cinema .listDayTime .date {
     font-size: 14px;
   }
-  .cinema .suatChieu-item__time{
-    font-size:18px;
+  .cinema .suatChieu-item__time {
+    font-size: 18px;
   }
 }

@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./css.css";
 
 const renderLogin = () => {
@@ -61,13 +61,37 @@ const EnterPress = (e) => {
 
 export default function NavHome(props) {
   const data = useSelector((state) => state.Film_Reducer.data);
+  const [state, setstate] = useState({
+    search: "`",
+  });
   const handleChange = (e) => {
-    const data1 = data.filter((item) => {
-      return item.tenPhim.toLowerCase().includes(e.target.value.toLowerCase());
-    });
-    console.log(data1);
+    if (e.target.value == "") {
+      setstate({ ...state, search: "`" });
+    } else {
+      setstate({ ...state, search: e.target.value });
+    }
   };
-
+  const renderSearch = () => {
+    if (data != null) {
+      const data1 = data.filter((item) => {
+        return item.tenPhim.toLowerCase().includes(state.search.toLowerCase());
+      });
+      return data1.map((item) => {
+        return (
+          <div className="nav-searchItem">
+            <div className="nav-searchItem__image  col-4">
+              <img src={item.hinhAnh}></img>
+            </div>
+            <div className="nav-searchItem__info col-8">
+              <p className="nav-searchItem__title">
+                {<Link to={`/detailMovie/${item.maPhim}`}>{item.tenPhim}</Link>}
+              </p>
+            </div>
+          </div>
+        );
+      });
+    }
+  };
   return (
     <div className="navContainer">
       <div className="nav-left">
@@ -88,34 +112,10 @@ export default function NavHome(props) {
             <input onKeyPress={EnterPress} onChange={handleChange} />
             <i className="fas fa-search iconSearch" />
             <div className="nav-searchContent">
-              <div className="nav-searchItem">
-                <div className="nav-searchItem__image  col-4">
-                  <img src="#"></img>
-                </div>
-                <div className="nav-searchItem__info col-8">
-                  <p className="nav-searchItem__title">Avenger</p>
-                </div>
-              </div>
-              <div className="nav-searchItem">
-                <div className="nav-searchItem__image  col-4">
-                  <img src="#"></img>
-                </div>
-                <div className="nav-searchItem__info col-8">
-                  <p className="nav-searchItem__title">Avenger</p>
-                </div>
-              </div>
-              <div className="nav-searchItem">
-                <div className="nav-searchItem__image  col-4">
-                  <img src="#"></img>
-                </div>
-                <div className="nav-searchItem__info col-8">
-                  <p className="nav-searchItem__title">Avenger</p>
-                </div>
-              </div>
+              {renderSearch()}
               <div className="nav-searchError nav-searchItem">
                 <span>Không tìm thấy kết quả trả về cho từ khóa "abc"</span>
               </div>
-              
             </div>
           </li>
         </ul>
