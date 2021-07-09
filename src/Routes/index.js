@@ -2,6 +2,8 @@ import DashBoardPage from "../Container/AdminTemplate/DashBoardPage";
 import CinemaSeatPage from "../Container/HomeTemplate/CinemaSeatPage";
 import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
 import DetailMoviePage from "../Container/HomeTemplate/DetailMoviePage";
+import FuturelistPage from "../Container/HomeTemplate/FuturelistPage";
+
 import HomePage from "../Container/HomeTemplate/HomePage/index";
 import InfoUser from "../Container/HomeTemplate/InforUser";
 import NowListPage from "../Container/HomeTemplate/NowlistPage";
@@ -26,6 +28,11 @@ const routesHome = [
     path: "/NowList",
     exact: false,
     component: NowListPage,
+  },
+  {
+    path: "/FutureList",
+    exact: false,
+    component: FuturelistPage,
   },
   {
     path: "/DetailCinema/:macumrap/:marap",

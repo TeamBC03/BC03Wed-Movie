@@ -127,8 +127,23 @@
 .nav-searchContent:focus-within {
   display: block !important;
 }
+.alertHome {
+  position: absolute !important;
+  right: 10px !important;
+  animation: aler 5s ease-in-out 0s 1 forwards;
+}
+@keyframes aler {
+  0% {
+    transform: translateY(-80px);
+  }
+  50% {
+    transform: translateY(50px);
+  }
 
-
+  100% {
+    transform: translateY(-80px);
+  }
+}
 /* Responsive */
 @media screen and (max-width: 1200px) {
   .navContainer a,

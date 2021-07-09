@@ -3,13 +3,22 @@ import { connect } from "react-redux";
 import { nowListMovieFectch } from "./Modules/action";
 import "./css.css";
 
-function NowListPage(props) {
+function FutureListPage(props) {
   useEffect(() => {
     props.fetchNowList();
     console.log("Effect chay do ");
   }, []);
   const renderList = (data) => {
-    return data.map((item) => {
+    let data1 = data.filter((item) => {
+      let date1 = new Date(item.ngayKhoiChieu);
+      let datenow = new Date();
+      return (
+        date1.getFullYear() === datenow.getFullYear() &&
+        date1.getMonth() === datenow.getMonth() &&
+        date1.getDate() > datenow.getDate()
+      );
+    });
+    return data1.map((item) => {
       return (
         <div className="card col-md-2 m-4 card-seeAll ">
           <img className="card-img-top card-image" src={item.hinhAnh} alt />
@@ -44,7 +53,7 @@ function NowListPage(props) {
   return (
     <div>
       {console.log(props.data)}
-      <h3 className="header-seeAll">PHIM ĐANG CHIẾU</h3>
+      <h3 className="header-seeAll">PHIM SẮP CHIẾU</h3>
       <div className=" container-seeAll">
         <div className="container container-seeAll">
           <div className="row list-seeAll">{renderList(props.data)}</div>
@@ -66,4 +75,4 @@ const mapStateToProps = (state) => {
     data: state.nowMovieReducer.data,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(NowListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FutureListPage);

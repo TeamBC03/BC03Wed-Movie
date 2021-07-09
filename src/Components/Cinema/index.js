@@ -85,7 +85,7 @@ export default function Cinema() {
   };
   const renderSystemCinema = () => {
     if (loadingSys) {
-      return <div>Đang Load</div>;
+      return <div>Vui lòng chọn Hệ Thống rạp</div>;
     } else {
       return dataSys[0].lstCumRap.map((item, i) => {
         return (

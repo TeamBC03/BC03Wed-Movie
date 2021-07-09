@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./css.css";
-
+import logo from "./logo.png";
 const renderLogin = () => {
   if (localStorage.getItem("User")) {
     return (
@@ -47,6 +47,22 @@ const renderLogin = () => {
       </li>
     </ul>
   );
+};
+const renderAler = () => {
+  if (localStorage.getItem("User")) {
+    return (
+      "Chào Mừng Khách Hàng" + JSON.parse(localStorage.getItem("User")).hoTen
+    );
+  }
+  if (localStorage.getItem("UserAdmin")) {
+    return (
+      "Chào Mừng Quản Trị " +
+      JSON.parse(localStorage.getItem("UserAdmin")).hoTen
+    );
+  }
+  if (!localStorage.getItem("User") && !localStorage.getItem("UserAdmin")) {
+    return "Chào Mừng Khách Vãng Lai";
+  }
 };
 const signOut = () => {
   localStorage.removeItem("User");
@@ -94,8 +110,11 @@ export default function NavHome(props) {
   };
   return (
     <div className="navContainer">
+      <div class="alert alert-primary alertHome" role="alert">
+        {renderAler()}
+      </div>
       <div className="nav-left">
-        <img src="./img/logo.png" />
+        <img src={logo} />
       </div>
       <div className="nav-center">
         <ul>
