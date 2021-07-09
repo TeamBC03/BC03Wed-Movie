@@ -48,6 +48,22 @@ const renderLogin = () => {
     </ul>
   );
 };
+const renderAler = () => {
+  if (localStorage.getItem("User")) {
+    return (
+      "Chào Mừng Khách Hàng" + JSON.parse(localStorage.getItem("User")).hoTen
+    );
+  }
+  if (localStorage.getItem("UserAdmin")) {
+    return (
+      "Chào Mừng Quản Trị " +
+      JSON.parse(localStorage.getItem("UserAdmin")).hoTen
+    );
+  }
+  if (!localStorage.getItem("User") && !localStorage.getItem("UserAdmin")) {
+    return "Chào Mừng Khách Vãng Lai";
+  }
+};
 const signOut = () => {
   localStorage.removeItem("User");
   localStorage.removeItem("UserAdmin");
@@ -94,6 +110,9 @@ export default function NavHome(props) {
   };
   return (
     <div className="navContainer">
+      <div class="alert alert-primary alertHome" role="alert">
+        {renderAler()}
+      </div>
       <div className="nav-left">
         <img src={logo} />
       </div>
