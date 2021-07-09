@@ -56,6 +56,28 @@
   outline: 1px solid #ccc;
   border-radius: 10px;
 }
+.pie-chart2 {
+  background: radial-gradient(circle closest-side, transparent 66%, white 0),
+    conic-gradient(
+      #4e79a7 0,
+      #4e79a7 38%,
+      #f28e2c 0,
+      #f28e2c 55%,
+      #e15759 0,
+      #e15759 68%,
+      #76b7b2 0,
+      #76b7b2 75%,
+      #59a14f 0,
+      #59a14f 100%
+    );
+  box-shadow: 1px 1px 5px 5px #888888 !important;
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  margin: 0;
+  outline: 1px solid #ccc;
+  border-radius: 10px;
+}
 .pie-chart h2 {
   position: absolute;
   margin: 1rem;
@@ -85,14 +107,41 @@
   background: currentColor;
 }
 .chartLeft {
-  margin:80px 20px;
+  margin: 80px 20px;
 }
 
-.containerDashBoard .containerChart .chartLeft .pie-chart h5{
-  text-align:center;
-  margin: 20px 40px ;
+.containerDashBoard .containerChart .chartLeft .pie-chart h5 {
+  text-align: center;
+  margin: 20px 40px;
 }
-
+.pie-chart2 h2 {
+  position: absolute;
+  margin: 1rem;
+}
+.pie-chart2 cite {
+  position: absolute;
+  bottom: 0;
+  font-size: 80%;
+  padding: 1rem;
+  color: gray;
+}
+.pie-chart2 figcaption {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-size: smaller;
+  text-align: right;
+}
+.pie-chart2 span:after {
+  display: inline-block;
+  content: "";
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.4em;
+  height: 0.8em;
+  border-radius: 0.2em;
+  background: currentColor;
+}
 /* reponsive */
 /* @media screen and (max-width: 992px) {
   .detailCinema .inputReviewer{

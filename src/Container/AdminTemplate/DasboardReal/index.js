@@ -75,26 +75,24 @@ export default function DashBoardPage() {
           </figure>
         </div>
         <div className="chartLeft">
-          <figure className="pie-chart">
-            <h5>Thống Kê Tỉ Lệ Suất Chiếu Theo Hệ Thống Rạp</h5>
+          <figure className="pie-chart2">
+            <h5>Thống Kê Tỉ Lệ Suất Chiếu Theo Cụm Rạp</h5>
             <figcaption>
-              CGV
+              CGV-Aeon Bình Tân
               <span style={{ color: "#4e79a7" }} />
               <br />
-              BHD-Star
+              BHD Star Cineplex - Bitexco
               <span style={{ color: "#f28e2c" }} />
               <br />
-              Lotte
+              CGV - Aeon Tân Phú
               <span style={{ color: "#e15759" }} />
               <br />
-              CineStar
+              BHD Star Cineplex - Vincom Lê Văn Việt
               <span style={{ color: "#76b7b2" }} />
               <br />
-              Galaxy
+              Các cụm rạp khác
               <span style={{ color: "#59a14f" }} />
               <br />
-              MegaS
-              <span style={{ color: "#edc949" }} />
             </figcaption>
             <cite>Theo Thống Kê 2021</cite>
           </figure>
