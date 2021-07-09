@@ -1,5 +1,6 @@
 import React from "react";
 import "./css.css";
+import { NavLink } from "react-router-dom";
 export default function NavBarAdmin() {
   return (
     <div className="sidebar">
@@ -16,9 +17,14 @@ export default function NavBarAdmin() {
         </div>
         <ul className="nav">
           <li className="nav-item active">
-            <a className="nav-link" href="dashboard.html">
+            <NavLink className="nav-link" to="/dashboard">
               <p>Dashboard</p>
-            </a>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/Manager">
+              <p>MANAGER</p>
+            </NavLink>
           </li>
           {/* <li>
             <a className="nav-link" href="./user.html">

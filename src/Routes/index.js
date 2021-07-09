@@ -1,3 +1,4 @@
+import DashBoardReal from "../Container/AdminTemplate/DasboardReal";
 import DashBoardPage from "../Container/AdminTemplate/DashBoardPage";
 import CinemaSeatPage from "../Container/HomeTemplate/CinemaSeatPage";
 import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
@@ -48,8 +49,13 @@ const routesHome = [
 const RoutesAdmin = [
   {
     exact: true,
-    path: "/dashboard",
+    path: "/Manager",
     component: DashBoardPage,
+  },
+  {
+    exact: true,
+    path: "/dashboard",
+    component: DashBoardReal,
   },
 ];
 

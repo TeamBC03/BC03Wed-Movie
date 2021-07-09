@@ -262,6 +262,22 @@ export default function DashBoardPage() {
     setState({ ...state, dataRenderRap: dataRap });
     console.log(dataRap);
   };
+  const renderAler = () => {
+    if (localStorage.getItem("User")) {
+      return (
+        "Chào Mừng Khách Hàng" + JSON.parse(localStorage.getItem("User")).hoTen
+      );
+    }
+    if (localStorage.getItem("UserAdmin")) {
+      return (
+        "Chào Mừng Quản Trị " +
+        JSON.parse(localStorage.getItem("UserAdmin")).hoTen
+      );
+    }
+    if (!localStorage.getItem("User") && !localStorage.getItem("UserAdmin")) {
+      return "Chào Mừng Khách Vãng Lai";
+    }
+  };
   const handleChangeTime = (e) => {
     let date = new Date(e.target.value);
     let date1 = "";
@@ -664,6 +680,9 @@ export default function DashBoardPage() {
 
       <nav className="navbar navbar-expand-lg " color-on-scroll={500}>
         <div className="container-fluid">
+          <div class="alert alert-primary alertadmin" role="alert">
+            {renderAler()}
+          </div>
           {/* <a className="navbar-brand" href="#pablo">
             {" "}
             Table List{" "}
