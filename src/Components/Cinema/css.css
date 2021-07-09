@@ -182,6 +182,25 @@
 .linkwidth {
   width: 30% !important;
 }
+
+/*Fix a chi tiet  */
+.cinema-listCinema .nav-item{
+  position: relative;
+}
+.cinema-listCinema .nav-item a{
+  position:absolute;
+  top:62%;
+  left:28%;
+  text-decoration: none;
+  font-size:14px;
+  color:#fb4226;
+  opacity: 0.3;
+}
+.cinema-listCinema .nav-link.active + a{
+  opacity: 1;
+}
+
+
 /* Responsive */
 @media screen and (max-width: 952px) {
   .cinema .cinema-listCinema {

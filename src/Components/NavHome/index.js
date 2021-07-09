@@ -113,9 +113,9 @@ export default function NavHome(props) {
             <i className="fas fa-search iconSearch" />
             <div className="nav-searchContent">
               {renderSearch()}
-              <div className="nav-searchError nav-searchItem">
-                <span>Không tìm thấy kết quả trả về cho từ khóa "abc"</span>
-              </div>
+              {/* <div className="nav-searchError nav-searchItem">
+                <span>Không tìm thấy kết quả</span>
+              </div> */}
             </div>
           </li>
         </ul>
