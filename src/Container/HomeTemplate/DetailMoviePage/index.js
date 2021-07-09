@@ -12,6 +12,7 @@ import avatar from "./img/avatar.png";
 import listStar from "./img/listStar.png";
 import star from "./img/star.png";
 import like from "./img/like.png";
+import playButton from "./img/play-video.png";
 
 function DetailMoviePage(props) {
   const [state, setState] = useState({ dataRap: null });
@@ -186,6 +187,45 @@ function DetailMoviePage(props) {
     });
   };
 
+  const JsCircle = () => {
+    var perimeter = Math.PI * 2 * 170;
+    var range = document.querySelector("#range"),
+      circle = document.querySelectorAll("circle")[1],
+      text = document.querySelectorAll("text")[1];
+    var duration = 1000;
+
+    setPercent(0.6);
+    if (window.addEventListener) {
+      if (range && circle) {
+        range.addEventListener("change", function () {
+          var percent = this.value / 100;
+          setPercent(percent);
+        });
+      }
+    }
+
+    function setPercent(percent) {
+      let startTime = Date.now();
+      if (percent == 0) return circle.setAttribute("stroke", "none");
+
+      circle.setAttribute(
+        "stroke-dasharray",
+        perimeter * percent + " " + perimeter * (1 - percent)
+      );
+      change();
+
+      function change() {
+        var tempPercent = ((Date.now() - startTime) / duration) * percent;
+        if (tempPercent >= percent) {
+          text.innerHTML = Number((percent * 100).toFixed(1));
+          return;
+        }
+        text.innerHTML = (tempPercent * 100).toFixed(1);
+        requestAnimationFrame(change);
+      }
+    }
+  };
+
   return (
     <div className="detailFilm">
       <div>
@@ -227,6 +267,18 @@ function DetailMoviePage(props) {
         <div className="content d-flex">
           <div className="col-3 content-image">
             <img src={props.data.hinhAnh} className="w-100 h-100" />
+            <div class="film-overlay">
+              <button
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo"
+                // onClick={() => {
+                //   videoClick(prop.data.trailer);
+                // }}
+              >
+                <img src={playButton} alt="play" />
+              </button>
+            </div>
           </div>
           <div className="col-md-5 content-film">
             <div className="content-date">
@@ -239,16 +291,63 @@ function DetailMoviePage(props) {
             <div className="content-time">
               <span>`100 phút {props.data.danhGia}-SAO - 2D/Digital`</span>
             </div>
-            <button
-              className="btn btn-danger"
-              style={{ width: "50%" }}
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@mdo"
-            >
-              Trailer
-            </button>
+            <div className="content-button">
+              {" "}
+              <button
+                className="btn btn-danger"
+                style={{ width: "50%" }}
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo"
+              >
+                Trailer
+              </button>
+            </div>
           </div>
+          {/* <div className="content-circle">
+            <svg width={440} height={440} viewBox="0 0 440 440">
+              <circle
+                cx={220}
+                cy={220}
+                r={170}
+                strokeWidth={15}
+                stroke="#D1D3D7"
+                fill="none"
+              />
+              <circle
+                cx={220}
+                cy={220}
+                r={170}
+                strokeWidth={15}
+                strokeLinecap="round"
+                stroke="#638E5F"
+                fill="none"
+                transform="matrix(0,-1,1,0,0,440)"
+                strokeDasharray="0 1069"
+              />
+              <text
+                className="info"
+                x={220}
+                y={135}
+                textAnchor="middle"
+                fill="rgb(230,230,230)"
+              >
+                昨日评分
+              </text>
+              <text x={220} y={265} textAnchor="middle" fill="rgb(99,142,95)" />
+            </svg>
+            <p>
+              拖我：
+              <input
+                id="range"
+                type="range"
+                min={0}
+                max={100}
+                defaultValue={0}
+                style={{ width: 300 }}
+              />
+            </p>
+          </div> */}
         </div>
       </div>
       <div className="mainBottom">

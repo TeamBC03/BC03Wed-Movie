@@ -3289,6 +3289,7 @@ Copyright (c) 2015 Daniel Eden
     -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    display:none;
   }
   .nav-open .main-panel {
     position: absolute;
