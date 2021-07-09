@@ -30,7 +30,7 @@
 }
 .containerChart {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .pie-chart {
   background: radial-gradient(circle closest-side, transparent 66%, white 0),
@@ -50,7 +50,7 @@
     );
   box-shadow: 1px 1px 5px 5px #888888 !important;
   position: relative;
-  width: 600px;
+  width: 100%;
   min-height: 350px;
   margin: 0;
   outline: 1px solid #ccc;
@@ -85,6 +85,17 @@
   background: currentColor;
 }
 .chartLeft {
-  margin-top: 80px;
-  margin-left: 30px;
+  margin:80px 20px;
 }
+
+.containerDashBoard .containerChart .chartLeft .pie-chart h5{
+  text-align:center;
+  margin: 20px 40px ;
+}
+
+/* reponsive */
+/* @media screen and (max-width: 992px) {
+  .detailCinema .inputReviewer{
+    width: 60%;
+  }
+} */

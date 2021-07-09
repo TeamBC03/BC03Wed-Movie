@@ -51,7 +51,7 @@ export default function DashBoardPage() {
       <div className="containerChart">
         <div className="chartLeft">
           <figure className="pie-chart">
-            <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
+            <h5>Thống Kê Tỉ Lệ Suất Chiếu Theo Hệ Thống Rạp</h5>
             <figcaption>
               CGV
               <span style={{ color: "#4e79a7" }} />
@@ -76,7 +76,7 @@ export default function DashBoardPage() {
         </div>
         <div className="chartLeft">
           <figure className="pie-chart">
-            <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
+            <h5>Thống Kê Tỉ Lệ Suất Chiếu Theo Hệ Thống Rạp</h5>
             <figcaption>
               CGV
               <span style={{ color: "#4e79a7" }} />

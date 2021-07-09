@@ -348,6 +348,61 @@ text {
   font-size: 32px;
 }
 
+/*  */
+.detailFilm .content-image{
+  position: relative;
+}
+.detailFilm .film-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000, transparent 100%);
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  opacity: 0;
+}
+.detailFilm .content-image:hover .film-overlay {
+  opacity: 1;
+  transition: 0.2s;
+}
+.film-overlay button {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: 0 0;
+  border: none;
+}
+.film-overlay button:hover {
+  opacity: 0.7;
+}
+.film-overlay button img {
+  width: 60px;
+  height: 60px;
+}
+.detailFilm .content-button{
+  margin-top:10px;
+}
+/* Circle */
+/* circle {
+  transition: stroke-dasharray 1s;
+}
+
+text {
+  font-size: 125px;
+  font-family: "Microsoft YaHei", Arial;
+}
+
+.info {
+  font-size: 32px;
+}
+.content-circle{
+  transform:scale(0.5)
+} */
 /* Responsive */
 @media screen and (max-width: 992px) {
   .detailFilm .mainTop .content {
