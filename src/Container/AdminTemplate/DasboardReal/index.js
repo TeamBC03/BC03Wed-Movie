@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./css.css";
+import { DashboardFilmFectch } from "./modules/action";
+import Loading from "../../../Components/Loading";
 export default function DashBoardReal() {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.ManagerReducer.loading);
+  const data = useSelector((state) => state.ManagerReducer.data);
+
+  useEffect(() => {
+    dispatch(DashboardFilmFectch());
+  }, []);
+  console.log(data);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="containerDashBoard">
       <div className="containerDas-item">
         <div className="contentDas">
           <div>
             <h5>PHIM</h5>
-            <h4>30VND</h4>
+            <h4>{data.dataFilm.length}</h4>
           </div>
           <div>
             <p>Luan</p>
@@ -16,7 +30,7 @@ export default function DashBoardReal() {
         <div className="contentDas">
           <div>
             <h5>USER</h5>
-            <h4>30VND</h4>
+            <h4>{data.dataUser.length}</h4>
           </div>
           <div>
             <p>luan</p>
@@ -25,14 +39,14 @@ export default function DashBoardReal() {
         <div className="contentDas">
           <div>
             <h5>Hệ Thống Rạp</h5>
-            <h4>30VND</h4>
+            <h4>6</h4>
           </div>
           <div>
             <p>Luan</p>
           </div>
         </div>
       </div>
-      <div>
+      <div className="chartLeft">
         <figure className="pie-chart">
           <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
           <figcaption>
