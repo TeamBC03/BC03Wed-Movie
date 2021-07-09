@@ -79,10 +79,11 @@ function DetailMoviePage(props) {
   };
   const LichChieu = async (cumrap) => {
     console.log(cumrap);
+
     let dataRap1 = props.data.heThongRapChieu.filter((item) => {
       return item.maHeThongRap === cumrap;
     });
-    setState({ ...state, dataRap: dataRap1 });
+    await setState({ ...state, dataRap: dataRap1 });
     let btn = document.querySelectorAll(".btnday");
     btn[0].click();
   };
@@ -308,7 +309,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-tue-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                       <div
                         class="tab-pane fade"
@@ -316,7 +317,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-wed-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                       <div
                         class="tab-pane fade"
@@ -324,7 +325,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-thu-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                       <div
                         class="tab-pane fade"
@@ -332,7 +333,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-fri-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                       <div
                         class="tab-pane fade"
@@ -340,7 +341,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-sat-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                       <div
                         class="tab-pane fade"
@@ -348,7 +349,7 @@ function DetailMoviePage(props) {
                         role="tabpanel"
                         aria-labelledby="nav-sun-tab"
                       >
-                        Không có suất chiếu
+                        {renderLichChieuNgay1()}
                       </div>
                     </div>
                   </div>

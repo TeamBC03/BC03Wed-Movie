@@ -15,61 +15,90 @@ export default function DashBoardReal() {
   if (loading) {
     return <Loading />;
   }
+
+  //   let datasort = data.dataFilm.
   return (
     <div className="containerDashBoard">
       <div className="containerDas-item">
         <div className="contentDas">
           <div>
-            <h5>PHIM</h5>
+            <h8>PHIM</h8>
             <h4>{data.dataFilm.length}</h4>
           </div>
           <div>
-            <p>Luan</p>
+            <i class="fas fa-video"></i>
           </div>
         </div>
         <div className="contentDas">
           <div>
-            <h5>USER</h5>
+            <h8>USER</h8>
             <h4>{data.dataUser.length}</h4>
           </div>
           <div>
-            <p>luan</p>
+            <i class="fas fa-users"></i>
           </div>
         </div>
         <div className="contentDas">
           <div>
-            <h5>Hệ Thống Rạp</h5>
+            <h8>Hệ Thống Rạp</h8>
             <h4>6</h4>
           </div>
           <div>
-            <p>Luan</p>
+            <i class="fas fa-film"></i>
           </div>
         </div>
       </div>
-      <div className="chartLeft">
-        <figure className="pie-chart">
-          <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
-          <figcaption>
-            CGV
-            <span style={{ color: "#4e79a7" }} />
-            <br />
-            BHD-Star
-            <span style={{ color: "#f28e2c" }} />
-            <br />
-            Lotte
-            <span style={{ color: "#e15759" }} />
-            <br />
-            CineStar
-            <span style={{ color: "#76b7b2" }} />
-            <br />
-            Galaxy
-            <span style={{ color: "#59a14f" }} />
-            <br />
-            MegaS
-            <span style={{ color: "#edc949" }} />
-          </figcaption>
-          <cite>Theo Thống Kê 2021</cite>
-        </figure>
+      <div className="containerChart">
+        <div className="chartLeft">
+          <figure className="pie-chart">
+            <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
+            <figcaption>
+              CGV
+              <span style={{ color: "#4e79a7" }} />
+              <br />
+              BHD-Star
+              <span style={{ color: "#f28e2c" }} />
+              <br />
+              Lotte
+              <span style={{ color: "#e15759" }} />
+              <br />
+              CineStar
+              <span style={{ color: "#76b7b2" }} />
+              <br />
+              Galaxy
+              <span style={{ color: "#59a14f" }} />
+              <br />
+              MegaS
+              <span style={{ color: "#edc949" }} />
+            </figcaption>
+            <cite>Theo Thống Kê 2021</cite>
+          </figure>
+        </div>
+        <div className="chartLeft">
+          <figure className="pie-chart">
+            <h5>Thống Kê Tỉ Lệ Suất CHiếu Theo Hệ Thống Rạp</h5>
+            <figcaption>
+              CGV
+              <span style={{ color: "#4e79a7" }} />
+              <br />
+              BHD-Star
+              <span style={{ color: "#f28e2c" }} />
+              <br />
+              Lotte
+              <span style={{ color: "#e15759" }} />
+              <br />
+              CineStar
+              <span style={{ color: "#76b7b2" }} />
+              <br />
+              Galaxy
+              <span style={{ color: "#59a14f" }} />
+              <br />
+              MegaS
+              <span style={{ color: "#edc949" }} />
+            </figcaption>
+            <cite>Theo Thống Kê 2021</cite>
+          </figure>
+        </div>
       </div>
     </div>
   );

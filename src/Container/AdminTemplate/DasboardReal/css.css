@@ -14,12 +14,23 @@
 .contentDas {
   display: flex;
   justify-content: space-between;
-  width: 24%;
+  width: 30%;
   border-radius: 10px;
   background-color: #ffffff;
   height: 70px;
-  padding: 10px 10px;
+  padding: 10px 20px;
   align-items: center;
+  box-shadow: 6px 10px 5px #aaaaaa !important;
+}
+.contentDas .svg-inline--fa {
+  font-size: 40px;
+}
+.contentDas div h8 {
+  color: #aaaaaa;
+}
+.containerChart {
+  display: flex;
+  justify-content: space-around;
 }
 .pie-chart {
   background: radial-gradient(circle closest-side, transparent 66%, white 0),
@@ -37,8 +48,9 @@
       #edc949 0,
       #edc949 100%
     );
+  box-shadow: 1px 1px 5px 5px #888888 !important;
   position: relative;
-  width: 500px;
+  width: 600px;
   min-height: 350px;
   margin: 0;
   outline: 1px solid #ccc;
@@ -73,6 +85,6 @@
   background: currentColor;
 }
 .chartLeft {
-  margin-top: 70px;
-  margin-left: 70px;
+  margin-top: 80px;
+  margin-left: 30px;
 }

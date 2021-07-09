@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./css.css";
 import playButton from "./images/play-video.png";
 import { NavLink, Link } from "react-router-dom";
@@ -9,13 +9,16 @@ export default function Film(props) {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.Film_Reducer.loading);
   const data = useSelector((state) => state.Film_Reducer.data);
-
+  const [state, setstate] = useState({ link: "" });
   useEffect(() => {
     dispatch(Film_Fetch());
   }, []);
   const DetailMovie = (id) => {
     // props.history.replace("/detailMovie/" + id);
     console.log(props);
+  };
+  const videoClick = async (link) => {
+    await setstate({ ...state, link: link });
   };
   const renderFutureFilmTop = () => {
     let data1 = data.filter((item) => {
@@ -122,7 +125,14 @@ export default function Film(props) {
                 <span class="fa fa-star"></span>
               </div>
               <div class="film-overlay">
-                <button>
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo"
+                  onClick={() => {
+                    videoClick(item.trailer);
+                  }}
+                >
                   <img src={playButton} alt="play" />
                 </button>
               </div>
@@ -162,7 +172,14 @@ export default function Film(props) {
                 <span class="fa fa-star"></span>
               </div>
               <div class="film-overlay">
-                <button>
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo"
+                  onClick={() => {
+                    videoClick(item.trailer);
+                  }}
+                >
                   <img src={playButton} alt="play" />
                 </button>
               </div>
@@ -185,9 +202,59 @@ export default function Film(props) {
   if (loading) {
     return <Loading />;
   }
+
   console.log(data);
   return (
     <section class="film">
+      <div>
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  New message
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <iframe
+                  width="450"
+                  height="315"
+                  src={state.link}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary">
+                  Send message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button

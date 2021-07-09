@@ -294,7 +294,7 @@ export default function DashBoardPage() {
         " " +
         date.getHours() +
         ":" +
-        date.getMinutes() +
+        (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
         ":" +
         "00";
     } else if (date.getDate() < 10) {
@@ -308,7 +308,7 @@ export default function DashBoardPage() {
         " " +
         date.getHours() +
         ":" +
-        date.getMinutes() +
+        (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
         ":" +
         "00";
     } else if (date.getMonth() < 10) {
@@ -322,7 +322,7 @@ export default function DashBoardPage() {
         " " +
         date.getHours() +
         ":" +
-        date.getMinutes() +
+        (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
         ":" +
         "00";
     } else {
@@ -333,7 +333,7 @@ export default function DashBoardPage() {
         " " +
         date.getHours() +
         ":" +
-        date.getMinutes() +
+        (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
         ":" +
         "00";
     }
