@@ -199,9 +199,6 @@ function DetailMoviePage(props) {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  New message
-                </h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -219,18 +216,6 @@ function DetailMoviePage(props) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Send message
-                </button>
               </div>
             </div>
           </div>

@@ -48,7 +48,14 @@ export default function Film(props) {
                 <span class="fa fa-star"></span>
               </div>
               <div class="film-overlay">
-                <button>
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo"
+                  onClick={() => {
+                    videoClick(item.trailer);
+                  }}
+                >
                   <img src={playButton} alt="play" />
                 </button>
               </div>
@@ -89,7 +96,14 @@ export default function Film(props) {
                 <span class="fa fa-star"></span>
               </div>
               <div class="film-overlay">
-                <button>
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo"
+                  onClick={() => {
+                    videoClick(item.trailer);
+                  }}
+                >
                   <img src={playButton} alt="play" />
                 </button>
               </div>
@@ -205,7 +219,7 @@ export default function Film(props) {
 
   console.log(data);
   return (
-    <section class="film">
+    <section class="film" id="sectionFilm">
       <div>
         <div
           className="modal fade"
@@ -217,9 +231,6 @@ export default function Film(props) {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  New message
-                </h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -237,18 +248,6 @@ export default function Film(props) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Send message
-                </button>
               </div>
             </div>
           </div>

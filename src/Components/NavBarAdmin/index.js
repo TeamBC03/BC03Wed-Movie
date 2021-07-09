@@ -11,18 +11,21 @@ export default function NavBarAdmin() {
     */}
       <div className="sidebar-wrapper">
         <div className="logo">
-          <a href="http://www.creative-tim.com" className="simple-text">
+          <a
+            href="https://www.facebook.com/vothanhluan2907"
+            className="simple-text"
+          >
             Dashboard
           </a>
         </div>
         <ul className="nav">
-          <li className="nav-item active">
+          <li className="nav-item btnNavAdmin">
             <NavLink className="nav-link" to="/dashboard">
               <p>Dashboard</p>
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/Manager">
+          <li className="nav-item btnNavAdmin">
+            <NavLink className="nav-link " to="/Manager">
               <p>MANAGER</p>
             </NavLink>
           </li>

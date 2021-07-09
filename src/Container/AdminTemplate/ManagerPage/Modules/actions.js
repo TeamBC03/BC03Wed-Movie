@@ -82,6 +82,7 @@ export const DashboardDateFilmFectch = (maPhim, callback) => {
       })
       .catch((err) => {
         dispatch(DashboardDateFilmErr(err));
+        alert(err.response.data);
       });
   };
 };
@@ -112,6 +113,7 @@ export const DashboarCinemaFilmFectch = (marap) => {
       })
       .catch((err) => {
         dispatch(DashboardCinemaFilmErr(err));
+        alert(err.response.data);
       });
   };
 };
@@ -139,8 +141,7 @@ export const DashboardAddUser = (user) => {
       })
       .catch((error) => {
         dispatch(actAddUserFailed(error));
-
-        alert(error);
+        alert(error.response.data);
       });
   };
 };

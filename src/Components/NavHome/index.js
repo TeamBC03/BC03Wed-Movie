@@ -92,20 +92,32 @@ export default function NavHome(props) {
       const data1 = data.filter((item) => {
         return item.tenPhim.toLowerCase().includes(state.search.toLowerCase());
       });
-      return data1.map((item) => {
+      if (data1.length === 0) {
         return (
-          <div className="nav-searchItem">
-            <div className="nav-searchItem__image  col-4">
-              <img src={item.hinhAnh}></img>
-            </div>
-            <div className="nav-searchItem__info col-8">
-              <p className="nav-searchItem__title">
-                {<Link to={`/detailMovie/${item.maPhim}`}>{item.tenPhim}</Link>}
-              </p>
-            </div>
+          <div className="nav-searchError nav-searchItem">
+            <span>Không tìm thấy kết quả</span>
           </div>
         );
-      });
+      } else {
+        return data1.map((item) => {
+          return (
+            <div className="nav-searchItem">
+              <div className="nav-searchItem__image  col-4">
+                <img src={item.hinhAnh}></img>
+              </div>
+              <div className="nav-searchItem__info col-8">
+                <p className="nav-searchItem__title">
+                  {
+                    <Link to={`/detailMovie/${item.maPhim}`}>
+                      {item.tenPhim}
+                    </Link>
+                  }
+                </p>
+              </div>
+            </div>
+          );
+        });
+      }
     }
   };
   return (
@@ -122,10 +134,10 @@ export default function NavHome(props) {
             <NavLink to="/">Trang chủ</NavLink>
           </li>
           <li className="pt-1">
-            <a href="#">Lịch chiếu </a>
+            <a href="#sectionFilm">Lịch chiếu </a>
           </li>
           <li className="pt-1">
-            <a href="#">Cụm rạp </a>
+            <a href="#sectionCinema">Cụm rạp </a>
           </li>
           <li className="nav-search">
             <input onKeyPress={EnterPress} onChange={handleChange} />

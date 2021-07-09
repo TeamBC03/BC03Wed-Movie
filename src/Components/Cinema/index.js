@@ -203,7 +203,7 @@ export default function Cinema() {
   };
   return (
     <div>
-      <section class="cinema">
+      <section class="cinema" id="sectionCinema">
         <div
           class="nav flex-column nav-pills col-md-2 cinema-cumRap "
           id="v-pills-tab"
