@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./css.css";
-
+import logo from "./logo.png";
 const renderLogin = () => {
   if (localStorage.getItem("User")) {
     return (
@@ -95,7 +95,7 @@ export default function NavHome(props) {
   return (
     <div className="navContainer">
       <div className="nav-left">
-        <img src="./img/logo.png" />
+        <img src={logo} />
       </div>
       <div className="nav-center">
         <ul>
