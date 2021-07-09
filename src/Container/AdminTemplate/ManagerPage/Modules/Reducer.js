@@ -13,7 +13,7 @@ const initial = {
   errCinemaFilm: null,
   loadingCinemaFilm: true,
 };
-const DashBoardReducer = (state = initial, action) => {
+const ManagerReducer = (state = initial, action) => {
   switch (action.type) {
     case TypeAction.DASHBOARD_REQUEST: {
       state.loading = true;
@@ -92,4 +92,4 @@ const DashBoardReducer = (state = initial, action) => {
       return { ...state };
   }
 };
-export default DashBoardReducer;
+export default ManagerReducer;

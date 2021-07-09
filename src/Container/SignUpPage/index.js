@@ -13,17 +13,26 @@ export default function SignUp() {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
-      method: "POST",
-      data: state,
-    })
-      .then((result) => {
-        console.log(result);
+    let mk = document.getElementById("inputPassword2").value;
+    if (state.matKhau === mk) {
+      axios({
+        url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+        method: "POST",
+        data: state,
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((result) => {
+          alert("Tạo Thành Công , Mời Đăng nhập");
+          console.log(result);
+          window.location.assign("/login");
+        })
+        .catch((err) => {
+          alert(err.response.data);
+
+          console.log(err);
+        });
+    } else {
+      alert("Mật khẩu nhập lại không khớp");
+    }
   };
   const handleOnchange = (event) => {
     const { name, value } = event.target;

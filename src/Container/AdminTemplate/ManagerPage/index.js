@@ -20,26 +20,24 @@ import {
 } from "./Modules/actions";
 import Loading from "../../../Components/Loading";
 
-export default function DashBoardPage() {
+export default function ManagerPage() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.DashBoardReducer.loading);
-  const data = useSelector((state) => state.DashBoardReducer.data);
+  const loading = useSelector((state) => state.ManagerReducer.loading);
+  const data = useSelector((state) => state.ManagerReducer.data);
   const loadingDateFilm = useSelector(
-    (state) => state.DashBoardReducer.loadingDateFilm
+    (state) => state.ManagerReducer.loadingDateFilm
   );
   const dataDateFilm = useSelector(
-    (state) => state.DashBoardReducer.dataDateFilm
+    (state) => state.ManagerReducer.dataDateFilm
   );
   const loadingCinemaFilm = useSelector(
-    (state) => state.DashBoardReducer.loadingCinemaFilm
+    (state) => state.ManagerReducer.loadingCinemaFilm
   );
   const dataCinemaFilm = useSelector(
-    (state) => state.DashBoardReducer.dataCinemaFilm
+    (state) => state.ManagerReducer.dataCinemaFilm
   );
-  const loadingFilm = useSelector(
-    (state) => state.DashBoardReducer.loadingFilm
-  );
-  const dataFilm = useSelector((state) => state.DashBoardReducer.dataFilm);
+  const loadingFilm = useSelector((state) => state.ManagerReducer.loadingFilm);
+  const dataFilm = useSelector((state) => state.ManagerReducer.dataFilm);
   const [stateFilm, setstateFilm] = useState({
     hinhAnh: {},
     maPhim: "",

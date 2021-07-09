@@ -3,8 +3,8 @@ import CinemaReducer from "../../Components/Cinema/Modules/Reducer";
 import CinemaSeatsReducer from "../../Components/CinemaSeats/modules/Reducer";
 import DetailTicketMovie from "../../Components/DetailTicketMovie/Modules/Reducer";
 import Film_Reducer from "../../Components/Film/modules/Reducer";
-import ManagerReducer from "../../Container/AdminTemplate/DasboardReal/modules/Reducer";
-import DashBoardReducer from "../../Container/AdminTemplate/DashBoardPage/Modules/Reducer";
+import DashboardReducer from "../../Container/AdminTemplate/DasboardReal/modules/Reducer";
+import ManagerReducer from "../../Container/AdminTemplate/ManagerPage/Modules/Reducer";
 import DetailCinemaReducer from "../../Container/HomeTemplate/DetailCinemaPage/modules/Reducer";
 import DetailMovie from "../../Container/HomeTemplate/DetailMoviePage/Modules/Reducer";
 import FutureMovieReducer from "../../Container/HomeTemplate/FuturelistPage/Modules/Reducer";
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   CinemaReducer: CinemaReducer,
   CinemaSeatsReducer: CinemaSeatsReducer,
   LoginReducer: LoginReducer,
-  DashBoardReducer: DashBoardReducer,
+  DashBoardReducer: DashboardReducer,
   FutureMovieReducer: FutureMovieReducer,
   ManagerReducer: ManagerReducer,
 });

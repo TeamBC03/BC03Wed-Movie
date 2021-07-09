@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import "./css.css";
 import { DashboardFilmFectch } from "./modules/action";
 import Loading from "../../../Components/Loading";
-export default function DashBoardReal() {
+export default function DashBoardPage() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.ManagerReducer.loading);
-  const data = useSelector((state) => state.ManagerReducer.data);
+  const loading = useSelector((state) => state.DashBoardReducer.loading);
+  const data = useSelector((state) => state.DashBoardReducer.data);
 
   useEffect(() => {
     dispatch(DashboardFilmFectch());

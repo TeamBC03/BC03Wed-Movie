@@ -1,5 +1,5 @@
-import DashBoardReal from "../Container/AdminTemplate/DasboardReal";
-import DashBoardPage from "../Container/AdminTemplate/DashBoardPage";
+import DashBoardPage from "../Container/AdminTemplate/DasboardReal";
+import ManagerPage from "../Container/AdminTemplate/ManagerPage";
 import CinemaSeatPage from "../Container/HomeTemplate/CinemaSeatPage";
 import DetailCinemaPage from "../Container/HomeTemplate/DetailCinemaPage";
 import DetailMoviePage from "../Container/HomeTemplate/DetailMoviePage";
@@ -50,12 +50,12 @@ const RoutesAdmin = [
   {
     exact: true,
     path: "/Manager",
-    component: DashBoardPage,
+    component: ManagerPage,
   },
   {
     exact: true,
     path: "/dashboard",
-    component: DashBoardReal,
+    component: DashBoardPage,
   },
 ];
 
