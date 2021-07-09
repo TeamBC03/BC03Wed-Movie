@@ -331,39 +331,50 @@
 .detailFilm .activation {
   background-color: #fb4226;
 }
-.detailFilm .detailCinema__lichChieu-right{
+.detailFilm .detailCinema__lichChieu-right {
   border-left: 1px solid #e6e6e6;
-  height:546px;
+  height: 546px;
+}
+.circle {
+  transition: stroke-dasharray 1s;
 }
 
+text {
+  font-size: 125px;
+  font-family: "Microsoft YaHei", Arial;
+}
+
+.info {
+  font-size: 32px;
+}
 
 /* Responsive */
 @media screen and (max-width: 992px) {
-  .detailFilm .mainTop .content{
-    justify-content:center;
+  .detailFilm .mainTop .content {
+    justify-content: center;
     width: 100%;
   }
-  .detailFilm .detailCinema__lichChieu{
+  .detailFilm .detailCinema__lichChieu {
     flex-wrap: wrap;
   }
-  .detailFilm .detailCinema__lichChieu-left{
-    flex-direction:row !important;
+  .detailFilm .detailCinema__lichChieu-left {
+    flex-direction: row !important;
   }
-  .detailFilm .cinemaItem{
-    display:block !important;
+  .detailFilm .cinemaItem {
+    display: block !important;
     padding-bottom: 10px;
   }
-  .detailFilm .cinemaItem-img img{
+  .detailFilm .cinemaItem-img img {
     width: 40px;
-    height:40px;
-    margin-bottom:10px;
+    height: 40px;
+    margin-bottom: 10px;
   }
-  .detailFilm .cinemaItem-name{
+  .detailFilm .cinemaItem-name {
     padding-left: 0;
   }
 }
 @media screen and (max-width: 592px) {
-  .detailFilm .inputReviewer{
+  .detailFilm .inputReviewer {
     width: 60%;
   }
 }
