@@ -300,7 +300,7 @@ export default function ManagerPage() {
         "0" +
         date.getDate() +
         "/" +
-        date.getMonth() +
+        (date.getMonth() + 1) +
         "/" +
         date.getFullYear() +
         " " +
@@ -309,12 +309,12 @@ export default function ManagerPage() {
         (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
         ":" +
         "00";
-    } else if (date.getMonth() < 10) {
+    } else if (date.getMonth() + 1 < 10) {
       date1 =
         date.getDate() +
         "/" +
         "0" +
-        date.getMonth() +
+        (date.getMonth() + 1) +
         "/" +
         date.getFullYear() +
         " " +
@@ -326,7 +326,7 @@ export default function ManagerPage() {
     } else {
       date1 =
         date.getDate() +
-        date.getMonth() +
+        (date.getMonth() + 1) +
         date.getFullYear() +
         " " +
         date.getHours() +
@@ -467,19 +467,19 @@ export default function ManagerPage() {
             "0" +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth() + 1) +
             "/" +
             date.getFullYear();
-        } else if (date.getMonth() < 10) {
+        } else if (date.getMonth() + 1 < 10) {
           date1 =
             date.getDate() +
             "/" +
             "0" +
-            date.getMonth() +
+            (date.getMonth() + 1) +
             "/" +
             date.getFullYear();
         } else {
-          date1 = date.getDate() + date.getMonth() + date.getFullYear();
+          date1 = date.getDate() + (date.getMonth() + 1) + date.getFullYear();
         }
 
         form_data.append(key, date1);
