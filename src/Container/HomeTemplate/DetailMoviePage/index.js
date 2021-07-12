@@ -173,6 +173,9 @@ function DetailMoviePage(props) {
           role="tab"
           aria-controls="nav-home"
           aria-selected="true"
+          onClick={() => {
+            LichChieu(item.maHeThongRap);
+          }}
         >
           <div class="cinemaItem d-flex">
             <div class="cinemaItem-img">
